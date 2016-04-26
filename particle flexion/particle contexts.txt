@@ -1,0 +1,27 @@
+དེ་ : après des noms, des nominalisés, avant et après des particules, avant ནི བཞིན་ , 
+en position de nom : avant un déterminant, ཀུན་ etc
+དེ་ལྟར་ དེ་སྐད་ et les autres གྲོགས་ཚིག་ de Monlam
+
+aucun contexte pour མོ་ j’ai regardé moyennement en détail, page par page, pas ligne par ligne.
+
+རེ་སུ་ཅི་མི་(négation, pas homme) … + ཞིག་
+
+ཞིང་ : tout sauf après un verbe.
+
+après une particule (sauf བདག་སྒྲ་ et ཞིག་)et un pronom (དེ་, གང་, ཅི…), ཞེ་ན་ pas d’accords
+voir pour les 130 qui restent pour savoir si c’est possible de désambiguiser quand ça s’accorde et quand ça s’accorde pas.
+ཡང་ | ༡ཕྲད་ཚིག 1. ༡རྒྱུན་སྤྱོད། མཐུན་པའི་ཚིག་རྒྱན་ལ་འཇུག་པ། གཞི་གཅིག་གི་སྟེང་དུ་མཐུན་པའི་ཆོས་གཉིས་སྦྱར་ཞིང་ཁྱད་པར་དུ་ཚིག་མཛེས་པར་བྱེད་པ་སྟེ། སྦྱོར་ཚུལ་རྗེས་འཇུག་ང་ན་མ་ར་རྣམས་ཀྱི་མཐར་ཡང་འཐོབ་པ་ཡིན།       དཔེར་ན། བང་ཡང་མྱུར་ལ་ཤ་ཡང་རྒྱས་ལྟ་བུ། 2. ༡རྒྱུན་སྤྱོད། མི་མཐུན་པའི་ཚིག་རྒྱན་ལ་འཇུག་པ། གཞི་གཅིག་ལ་མི་མཐུན་པའི་ཆོས་གཉིས་སྡུད་ཅིང་ཁྱད་པར་དུ་ཚིག་མཛེས་པར་བྱེད་པ་སྟེ། སྦྱོར་ཚུལ་རྗེས་འཇུག་ང་ན་མ་ར་རྣམས་ཀྱི་མཐར་ཡང་འཐོབ་པ་ཡིན།       དཔེར་ན། བདེ་སྐྱིད་ཟེར་ཡང་སྡུག་བསྔལ་ཆེ་ལྟ་བུ། 3. ༡རྒྱུན་སྤྱོད། གང་ཞིག་སྡུད་བྱེད་ཀྱི་སྒྲ་དངོས་སུ་བཀོད་ནས། བརྗོད་འདོད་ཀྱི་དོན་གཞན་ཡང་ཡོད་པར་དངོས་ཤུགས་ཅི་རིགས་སུ་སྟོན་པ་སྟེ།       དཔེར་ན། ཁོང་ནི་ང་ཚོའི་སློབ་སྤྱི་ཡང་ཡིན་ལ། རིག་གནས་སློབ་དཔོན་ཡང་ཡིན་ལྟ་བུ། 4. ༡རྒྱུན་སྤྱོད། བསྐྱར་ཟློས་ལ་འཇུག་པའི་ཕྲད་ཅིག་སྟེ། སྦྱོར་ཚུལ་རྗེས་འཇུག་གང་ལའང་ཁྱད་མེད་དུ་འཇུག།       དཔེར་ན། དེ་ནས་ཡང་ལམ་ལ་ཆས་སོ། སླར་ཡང་གནས་འདིར་ཕེབས་པར་མཛོད་ལྟ་བུ། ༡རྒྱན་ཚིག 1. ལྕི་བའི་ལྡོག་ཟླ་སྟེ།      དཔེར་ན། ཤིང་བལ་ལྟར་ཡང་བ། ཁུར་པོ་ཡང་མོ་ལྟ་བུ། ༡ལྡོག་ཚིག ལྕི། 2. ཚད་ཆུང་བའམ་གྲངས་ཉུང་བ་སྟེ།       དཔེར་ན། རྨས་ཡང་མོ། ནད་ཡང་བ། ལས་ཀ་ཧ་ཅང་ཡང་ཞེས་པ་ལྟ་བུ། ༡ལྡོག་ཚིག ལྕི།
+
+རོ་ : pas d’accord après une particule, après དང་, ཡང་ ནི་ ན་ 
+seul cas d’accord : avant une ponctuation et ཞེས་/ཅེས་
+
+ལམ་ : pas d’accords si des particules à gauche ou à droite ou les deux
+si après དང་, ནི་ ན་
+
+ལོ་ : pas d’accord si suivi d’un nombre ou d’une particule autre que ཞེས་
+
+ཤིང་ : pas d’accord si précédé d’une particule, de ནི་
+accords si précédé par un verbe
+
+སུ་ pas d’accord si suivi de ཞིག་ et de དག་  et ལ་  et འང་ ou ཡང་ 
+Si précédé de གང་ et une particule, de ནི་ ན་
