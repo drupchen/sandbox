@@ -1,12 +1,12 @@
 
 # coding: utf-8
 
-# In[2]:
+# In[1]:
 
 import re
 
 
-# In[3]:
+# In[2]:
 
 class SylComponents:
     '''
@@ -83,7 +83,8 @@ class SylComponents:
                 if self.syl[l_s-3:] in self.suffixes: suffix.append(self.syl[l_s-3:])
 
             # deal with all the C roots
-            if root[0] != '' and self.roots[root[0]] == 'C':
+            #print(self.syl, root)
+            if root != [] and self.roots[root[0]] == 'C':
                 if root[0] == self.syl:
                     return (root[0], '')
                 else:
@@ -134,7 +135,7 @@ class SylComponents:
         else: return (self.syl, 'x')
 
 
-# In[4]:
+# In[3]:
 
 class Mingzhi():
     def __init__(self):
@@ -157,14 +158,14 @@ class Mingzhi():
             return self.mingzhis[self.components[0]]
 
 
-# In[42]:
+# In[4]:
 
 mzh = Mingzhi()
 par = SylComponents().get('མངས')
 print(mzh.get(par))
 
 
-# In[49]:
+# In[11]:
 
 class PseudoWylie:
     '''
@@ -196,42 +197,48 @@ class PseudoWylie:
 
     def to_pw_syl(self, components):
         if type(components) == 'list' or components == None:
-            return '***'
+            return '***'        
         else:
             part1 = components[0]
             part2 = components[1]
             #print(part1, part2)
-
-            # first part of the syllable
-            if part1 in self.exceptions:
-                a = self.exceptions[part1]
+            if part1 not in self.A and part1 not in self.exceptions:
+                return '***'
             else:
-                a = self.A[part1]
-            # second part of the syllable
-            b = ''
-            if part2 == '':
-                b = 'a'
-            elif part2 != 'x':
-                b = self.B[part2]
-            return a+b
+                # first part of the syllable
+                if part1 in self.exceptions:
+                    a = self.exceptions[part1]
+                else:
+                    a = self.A[part1]
+                # second part of the syllable
+                b = ''
+                if part2 == '':
+                    b = 'a'
+                elif part2 != 'x':
+                    b = self.B[part2]
+                return a+b
 
     def from_pw_syl(self, syl):
-        a = ''
-        if syl in self.E:
-            return self.E[syl]
-        elif syl in self.C:
-            return self.C[syl]
+        #print(syl)
+        if syl == '***':
+            return '***'
         else:
-            for root in self.C:
-                if syl.startswith(root) and len(root) > len(a):
-                    a = root
-        b = syl.replace(a, '')
-        if b.startswith('v') or b.startswith('r') or b.startswith('l') or b.startswith('s'):
-            b = 'a'+b
-        if b == 'a':
-            return self.C[a]
-        else:
-            return self.C[a]+self.D[b]
+            a = ''
+            if syl in self.E:
+                return self.E[syl]
+            elif syl in self.C:
+                return self.C[syl]
+            else:
+                for root in self.C:
+                    if syl.startswith(root) and len(root) > len(a):
+                        a = root
+            b = syl[len(a):]
+            if b.startswith('v') or b.startswith('r') or b.startswith('l') or b.startswith('s'):
+                b = 'a'+b
+            if b == 'a':
+                return self.C[a]
+            else:
+                return self.C[a]+self.D[b]
 
     def __is_punct(self, string):
         if '།' in string or '༎' in string or '༏' in string or '༐' in string or '༑' in string or '༔' in string or ';' in string or ':' in string:
@@ -283,6 +290,7 @@ class PseudoWylie:
                     syls = word.split('་')
                     pw_word = []
                     for syl in syls:
+                        #print(syl)
                         pw_word.append(self.to_pw_syl(parts.get(syl)))
                     pw_par.append('x'.join(pw_word))
                 pw_text.append(' '.join(pw_par))
@@ -296,7 +304,7 @@ class PseudoWylie:
         if paragraphs[len(paragraphs)-1] == '':
             del paragraphs[len(paragraphs)-1]
         # trim the extra punctuation (see comment in to_pw_text)
-        trim_punct(paragraphs)
+        self.__trim_punct(paragraphs)
         pw_text = []
         for par in paragraphs:
             if ';' not in par and ':' not in par:
@@ -317,7 +325,5 @@ class PseudoWylie:
     
     def no_space(self, string):
         return string.replace('་ ', '༌')
-
-
 
 
