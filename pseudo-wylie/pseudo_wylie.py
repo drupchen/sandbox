@@ -158,13 +158,6 @@ class Mingzhi():
             return self.mingzhis[self.components[0]]
 
 
-# In[4]:
-
-mzh = Mingzhi()
-par = SylComponents().get('མངས')
-print(mzh.get(par))
-
-
 # In[11]:
 
 class PseudoWylie:
