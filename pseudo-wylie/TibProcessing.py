@@ -20,122 +20,45 @@ class SylComponents:
 
     def __init__(self):
         # roots is an import from root + rareC and wazurC and suffixes is the 'AB' entry from  suffixes.json
-        self.roots = {'ཀ' : 'A', 'ཀྱ' : 'A', 'ཀྲ' : 'A', 'ཀླ' : 'A', 'དཀ' : 'NB', 'དཀྱ' : 'A', 'དཀྲ' : 'A', 'དཀླ' : 'A', 'བཀ' : 'NB', 'བཀྱ' : 'A', 'བཀྲ' : 'A', 'བཀླ' : 'A', 'རྐ' : 'A', 'རྐྱ' : 'A', 'ལྐ' : 'A', 'སྐ' : 'A', 'སྐྱ' : 'A', 'སྐྲ' : 'A', 'བརྐ' : 'A', 'བརྐྱ' : 'A', 'བསྐ' : 'A', 'བསྐྱ' : 'A', 'བསྐྲ' : 'A', 'ཀའུ' : 'C', 'ཀིའུ' : 'C', 'ཀེའུ' : 'C', 'ཀོའུ' : 'C', 'ཀྲུའུ' : 'C', 'ཀྭའི': 'C',  'ཀྭ': 'C', 'ཀརྨ' : 'C',
-                 'ཁ' : 'A', 'ཁྱ' : 'A', 'ཁྲ' : 'A', 'མཁ' : 'NB', 'མཁྱ' : 'A', 'མཁྲ' : 'A', 'འཁ' : 'NB', 'འཁྱ' : 'A', 'འཁྲ' : 'A', 'ཁེའུ' : 'C', 'ཁྱིའུ' : 'C', 'ཁྱེའུ' : 'C', 'ཁྲིའུ' : 'C', 'ཁྲུའུ' : 'C', 'ཁྲེའུ' : 'C', 'ཁྭ': 'C',  
-                 'ག' : 'A', 'གྱ' : 'A', 'གྲ' : 'A', 'གླ' : 'A', 'དག' : 'NB', 'དགྱ' : 'A', 'དགྲ' : 'A', 'བག' : 'NB', 'བགྱ' : 'A', 'བགྲ' : 'A', 'མག' : 'NB', 'མགྱ' : 'A', 'མགྲ' : 'A', 'འག' : 'NB', 'འགྱ' : 'A', 'འགྲ' : 'A', 'རྒ' : 'A', 'རྒྱ' : 'A', 'ལྒ' : 'A', 'སྒ' : 'A', 'སྒྱ' : 'A', 'སྒྲ' : 'A', 'བརྒ' : 'A', 'བརྒྱ' : 'A', 'བསྒ' : 'A', 'བསྒྱ' : 'A', 'བསྒྲ' : 'A', 'གའུ' : 'C', 'གྲིའུ' : 'C', 'གྲེའུ' : 'C', 'གླེའུ' : 'C', 'འགིའུ' : 'C', 'འགོའུ' : 'C', 'རྒེའུ' : 'C', 'སྒའུ' : 'C', 'སྒེའུ' : 'C', 'སྒྱེའུ' : 'C', 'སྒྲེའུ' : 'C', 'གྭ': 'C',  'གྲྭ': 'C',
-                 'ང' : 'A', 'དང' : 'NB', 'མང' : 'NB', 'རྔ' : 'A', 'ལྔ' : 'A', 'སྔ' : 'A', 'བརྔ' : 'A', 'བསྔ' : 'A', 'རྔེའུ' : 'C', 'སྔེའུ' : 'C', 
-                 'ཅ' : 'A', 'གཅ' : 'NB', 'བཅ' : 'NB', 'ལྕ' : 'A', 'གཅིའུ' : 'C', 'གཅེའུ' : 'C', 'ལྕེའུ' : 'C', 
-                 'ཆ' : 'A', 'མཆ' : 'NB', 'འཆ' : 'NB', 
-                 'ཇ' : 'A', 'མཇ' : 'NB', 'འཇ' : 'NB', 'རྗ' : 'A', 'ལྗ' : 'A', 'བརྗ' : 'A', 'རྗེའུ' : 'C', 
-                 'ཉ' : 'A', 'གཉ' : 'NB', 'མཉ' : 'NB', 'རྙ' : 'A', 'སྙ' : 'A', 'བརྙ' : 'A', 'བསྙ' : 'A', 'ཉེའུ' : 'C', 'སྙེའུ' : 'C', 'ཉྭ': 'C',  
-                 'ཏ' : 'A', 'ཏྲ' : 'A', 'གཏ' : 'NB', 'གཏྲ' : 'A', 'བཏ' : 'NB', 'བཏྲ' : 'A', 'རྟ' : 'A', 'ལྟ' : 'A', 'སྟ' : 'A', 'བརྟ' : 'A', 'བལྟ' : 'A', 'བསྟ' : 'A', 'ཏེའུ' : 'C', 'གཏེའུ' : 'C', 'རྟའུ' : 'C', 'རྟེའུ' : 'C', 'སྟེའུ' : 'C', 'སྟྭ': 'C',  
-                 'ཐ' : 'A', 'ཐྲ' : 'A', 'མཐ' : 'NB', 'འཐ' : 'NB', 'ཐིའུ' : 'C', 'ཐུའུ' : 'C', 'ཐེའུ' : 'C', 'ཐོའུ' : 'C', 'མཐེའུ' : 'C', 
-                 'ད' : 'A', 'དྲ' : 'A', 'གད' : 'NB', 'བད' : 'NB', 'མད' : 'NB', 'འད' : 'NB', 'འདྲ' : 'A', 'རྡ' : 'A', 'ལྡ' : 'A', 'སྡ' : 'A', 'བརྡ' : 'A', 'བལྡ' : 'A', 'བསྡ' : 'A', 'དུའུ' : 'C', 'དེའུ' : 'C', 'དྲེའུ' : 'C', 'མདེའུ' : 'C', 'རྡེའུ' : 'C', 'སྡེའུ' : 'C', 'དྲྭ': 'C',  'དྭ': 'C',  'དྭོ': 'C',  
-                 'ན' : 'A', 'གན' : 'NB', 'མན' : 'NB', 'རྣ' : 'A', 'སྣ' : 'A', 'སྣྲ' : 'A', 'བརྣ' : 'A', 'བསྣ' : 'A', 'ནའུ' : 'C', 'ནེའུ' : 'C', 'ནོའུ' : 'C', 'སྣེའུ' : 'C', 
-                 'པ' : 'A', 'པྱ' : 'A', 'པྲ' : 'A', 'དཔ' : 'NB', 'དཔྱ' : 'A', 'དཔྲ' : 'A', 'ལྤ' : 'A', 'སྤ' : 'A', 'སྤྱ' : 'A', 'སྤྲ' : 'A', 'དཔེའུ' : 'C', 'སྤའུ' : 'C', 'སྤེའུ' : 'C', 'སྤྱིའུ' : 'C', 'སྤྲེའུ' : 'C', 'པདྨ' : 'C',
-                 'ཕ' : 'A', 'ཕྱ' : 'A', 'ཕྲ' : 'A', 'འཕ' : 'NB', 'འཕྱ' : 'A', 'འཕྲ' : 'A', 'ཕེའུ' : 'C', 'ཕྲའུ' : 'C', 'ཕྲེའུ' : 'C', 'འཕེའུ' : 'C', 'ཕྱྭ': 'C',  
-                 'བ' : 'A', 'བྱ' : 'A', 'བྲ' : 'A', 'བླ' : 'A', 'དབ' : 'NB', 'དབྱ' : 'A', 'དབྲ' : 'A', 'འབ' : 'NB', 'འབྱ' : 'A', 'འབྲ' : 'A', 'རྦ' : 'A', 'ལྦ' : 'A', 'སྦ' : 'A', 'སྦྱ' : 'A', 'སྦྲ' : 'A', 'བེའུ' : 'C', 'བྱའུ' : 'C', 'བྱིའུ' : 'C', 'བྱེའུ' : 'C', 'བྲའུ' : 'C', 'བྲའོ' : 'C', 'བྲེའུ' : 'C', 'བྲོའུ' : 'C', 'འབེའུ' : 'C', 'སྦྲེའུ' : 'C', 
-                 'མ' : 'A', 'མྱ' : 'A', 'མྲ' : 'A', 'དམ' : 'NB', 'དམྱ' : 'A', 'དམྲ' : 'A', 'རྨ' : 'A', 'རྨྱ' : 'A', 'སྨ' : 'A', 'སྨྱ' : 'A', 'སྨྲ' : 'A', 'མིའུ' : 'C', 'མུའུ' : 'C', 'མོའུ' : 'C', 'མྱིའུ' : 'C', 'རྨེའུ' : 'C', 'སྨེའུ' : 'C', 
-                 'ཙ' : 'A', 'གཙ' : 'NB', 'བཙ' : 'NB', 'རྩ' : 'A', 'སྩ' : 'A', 'བརྩ' : 'A', 'བསྩ' : 'A', 'ཙིའུ' : 'C', 'ཙེའུ' : 'C', 'གཙེའུ' : 'C', 'རྩེའུ' : 'C', 'རྩྭ': 'C',  
-                 'ཚ' : 'A', 'མཚ' : 'NB', 'འཚ' : 'NB', 'ཚའུ' : 'C', 'ཚུའུ' : 'C', 'ཚེའུ' : 'C', 'མཚེའུ' : 'C', 'མཚེའུ' : 'C', 'ཚྭ': 'C',  
-                 'ཛ' : 'A', 'མཛ' : 'NB', 'འཛ' : 'NB', 'རྫ' : 'A', 'བརྫ' : 'A', 'རྫིའུ' : 'C', 'རྫེའུ' : 'C', 'གཞུའུ' : 'C', 
-                 'ཝ' : 'A', 
-                 'ཞ' : 'A', 'གཞ' : 'NB', 'བཞ' : 'NB', 'ཞྭ': 'C',  
-                 'ཟ' : 'A', 'ཟླ' : 'A', 'གཟ' : 'NB', 'བཟ' : 'NB', 'བཟླ' : 'A', 'ཟེའུ' : 'C', 'ཟྭ': 'C',  
-                 'འ' : 'A', 
-                 'ཡ' : 'A', 'གཡ' : 'NB', 'ཡེའུ' : 'C', 'གཡིའུ' : 'C', 
-                 'ར' : 'A', 'རླ' : 'A', 'བརླ' : 'A', 'རེའུ' : 'C', 'རྭ': 'C',  
-                 'ལ' : 'A', 'ལའུ' : 'C', 'ལིའུ' : 'C', 'ལེའུ' : 'C', 'ལོའུ' : 'C', 'ལྭ': 'C',  
-                 'ཤ' : 'A', 'གཤ' : 'NB', 'བཤ' : 'NB', 'ཤའུ' : 'C', 'ཤེའུ' : 'C', 'ཤྭ': 'C',  
-                 'ས' : 'A', 'སྲ' : 'A', 'སླ' : 'A', 'གས' : 'NB', 'བས' : 'NB', 'བསྲ' : 'A', 'བསླ' : 'A', 'སིའུ' : 'C', 'སེའུ' : 'C', 'སྲིའུ' : 'C', 'སླེའུ' : 'C', 'བསེའུ' : 'C', 'སླེའོ' : 'C', 'བསྭོ': 'C',  'སྭ': 'C',  'བསྭ': 'C',  
-                 'ཧ' : 'A', 'ཧྲ' : 'A', 'ལྷ' : 'A', 'ཧུའུ' : 'C', 'ཧེའུ' : 'C', 'ཧྲུའུ' : 'C', 'ཧྭ': 'C',  
-                 'ཨ' : 'A'}
-        self.suffixes = ["འ", "ག", "གས", "ང", "ངས", "ད", "ན", "བ", "བས", "མ", "མས", "ལ", "འི", "འོ", "འང", "འམ", "ར", "ས",
-                     "ི", "ིག", "ིགས", "ིང", "ིངས", "ིད", "ིན", "ིབ", "ིབས", "ིམ", "ིམས", "ིལ", "ིའི", "ིའོ", "ིའང", "ིའམ", "ིར", "ིས",
-                     "ུ", "ུག", "ུགས", "ུང", "ུངས", "ུད", "ུན", "ུབ", "ུབས", "ུམ", "ུམས", "ུལ", "ུའི", "ུའོ", "ུའང", "ུའམ", "ུར", "ུས",
-                     "ེ", "ེག", "ེགས", "ེང", "ེངས", "ེད", "ེན", "ེབ", "ེབས", "ེམ", "ེམས", "ེལ", "ེའི", "ེའོ", "ེའང", "ེའམ", "ེར", "ེས",
-                     "ོ", "ོག", "ོགས", "ོང", "ོངས", "ོད", "ོན", "ོབ", "ོབས", "ོམ", "ོམས", "ོལ", "ོའི", "ོའོ", "ོའང", "ོའམ", "ོར", "ོས"]
-        self.Csuffixes =  ["འི", "འོ", "འང", "འམ", "ར", "ས"]
-
         # all dicts from https://github.com/eroux/tibetan-spellchecker/tree/master/syllables
-        self.special = ['བགླ', 'མདྲོན', 'བརྡའ', 'བརྟའ']
-        self.wazurs = ['ཧྭག', 'ཀྭས', 'ཁྭངས', 'ཧྭང', 'ཀྭན', 'དྭགས', 'ཧྭགས', 'དྭངས', 'ཏྭོན']
-        self.exceptions = self.special + self.wazurs
+        self.Aroots  = ['ཀ', 'ཀྱ', 'ཀྲ', 'ཀླ', 'ཁ', 'ཁྱ', 'ཁྲ', 'ག', 'གཏྲ', 'གྱ', 'གྲ', 'གླ', 'ང', 'ཅ', 'ཆ', 'ཇ', 'ཉ', 'ཏ', 'ཏྲ', 'ཐ', 'ཐྲ', 'ད', 'དཀྱ', 'དཀྲ', 'དཀླ', 'དགྱ', 'དགྲ', 'དཔྱ', 'དཔྲ', 'དབྱ', 'དབྲ', 'དམྱ', 'དམྲ', 'དྲ', 'ན', 'པ', 'པྱ', 'པྲ', 'ཕ', 'ཕྱ', 'ཕྲ', 'བ', 'བཀྱ', 'བཀྲ', 'བཀླ', 'བགྱ', 'བགྲ', 'བཏྲ', 'བཟླ', 'བརྐ', 'བརྐྱ', 'བརྒ', 'བརྒྱ', 'བརྔ', 'བརྗ', 'བརྙ', 'བརྟ', 'བརྡ', 'བརྣ', 'བརྩ', 'བརྫ', 'བརླ', 'བལྟ', 'བལྡ', 'བསྐ', 'བསྐྱ', 'བསྐྲ', 'བསྒ', 'བསྒྱ', 'བསྒྲ', 'བསྔ', 'བསྙ', 'བསྟ', 'བསྡ', 'བསྣ', 'བསྩ', 'བསྲ', 'བསླ', 'བྱ', 'བྲ', 'བླ', 'མ', 'མཁྱ', 'མཁྲ', 'མགྱ', 'མགྲ', 'མྱ', 'མྲ', 'ཙ', 'ཚ', 'ཛ', 'ཝ', 'ཞ', 'ཟ', 'ཟླ', 'འ', 'འཁྱ', 'འཁྲ', 'འགྱ', 'འགྲ', 'འདྲ', 'འཕྱ', 'འཕྲ', 'འབྱ', 'འབྲ', 'ཡ', 'ར', 'རྐ', 'རྐྱ', 'རྒ', 'རྒྱ', 'རྔ', 'རྗ', 'རྙ', 'རྟ', 'རྡ', 'རྣ', 'རྦ', 'རྨ', 'རྨྱ', 'རྩ', 'རྫ', 'རླ', 'ལ', 'ལྐ', 'ལྒ', 'ལྔ', 'ལྕ', 'ལྗ', 'ལྟ', 'ལྡ', 'ལྤ', 'ལྦ', 'ལྷ', 'ཤ', 'ས', 'སྐ', 'སྐྱ', 'སྐྲ', 'སྒ', 'སྒྱ', 'སྒྲ', 'སྔ', 'སྙ', 'སྟ', 'སྡ', 'སྣ', 'སྣྲ', 'སྤ', 'སྤྱ', 'སྤྲ', 'སྦ', 'སྦྱ', 'སྦྲ', 'སྨ', 'སྨྱ', 'སྨྲ', 'སྩ', 'སྲ', 'སླ', 'ཧ', 'ཧྲ', 'ཨ']
+        self.NBroots = ['གཅ', 'གཉ', 'གཏ', 'གད', 'གན', 'གཙ', 'གཞ', 'གཟ', 'གཡ', 'གཤ', 'གས', 'དཀ', 'དག', 'དང', 'དཔ', 'དབ', 'དམ', 'བཀ', 'བག', 'བཅ', 'བཏ', 'བད', 'བཙ', 'བཞ', 'བཟ', 'བཤ', 'བས', 'མཁ', 'མག', 'མང', 'མཆ', 'མཇ', 'མཉ', 'མཐ', 'མད', 'མན', 'མཚ', 'མཛ', 'འཁ', 'འག', 'འཆ', 'འཇ', 'འཐ', 'འད', 'འཕ', 'འབ', 'འཚ', 'འཛ']
+        self.Croots  = ['ཀའུ', 'ཀིའུ', 'ཀེའུ', 'ཀོའུ', 'ཀྭ', 'ཀྭའི', 'ཀྲུའུ', 'ཁེའུ', 'ཁྭ', 'ཁྱིའུ', 'ཁྱེའུ', 'ཁྲིའུ', 'ཁྲུའུ', 'ཁྲེའུ', 'གཅིའུ', 'གཅེའུ', 'གཏེའུ', 'གཙེའུ', 'གཞུའུ', 'གའུ', 'གཡིའུ', 'གྭ', 'གྲིའུ', 'གྲེའུ', 'གྲྭ', 'གླེའུ', 'ཉེའུ', 'ཉྭ', 'ཏེའུ', 'ཐིའུ', 'ཐུའུ', 'ཐེའུ', 'ཐོའུ', 'དཔེའུ', 'དུའུ', 'དེའུ', 'དྭ', 'དྭོ', 'དྲེའུ', 'དྲྭ', 'ནའུ', 'ནེའུ', 'ནོའུ', 'པདྨ', 'ཕེའུ', 'ཕྱྭ', 'ཕྲའུ', 'ཕྲེའུ', 'བསེའུ', 'བསྭ', 'བསྭོ', 'བེའུ', 'བྱའུ', 'བྱིའུ', 'བྱེའུ', 'བྲའུ', 'བྲའོ', 'བྲེའུ', 'བྲོའུ', 'མཐེའུ', 'མདེའུ', 'མཚེའུ', 'མིའུ', 'མུའུ', 'མོའུ', 'མྱིའུ', 'ཙིའུ', 'ཙེའུ', 'ཚའུ', 'ཚུའུ', 'ཚེའུ', 'ཚྭ', 'ཞྭ', 'ཟེའུ', 'ཟྭ', 'འགིའུ', 'འགོའུ', 'འཕེའུ', 'འབེའུ', 'ཡེའུ', 'རེའུ', 'རྒེའུ', 'རྔེའུ', 'རྗེའུ', 'རྟའུ', 'རྟེའུ', 'རྡེའུ', 'རྨེའུ', 'རྩེའུ', 'རྩྭ', 'རྫིའུ', 'རྫེའུ', 'རྭ', 'ལའུ', 'ལིའུ', 'ལེའུ', 'ལོའུ', 'ལྕེའུ', 'ལྭ', 'ཤའུ', 'ཤེའུ', 'ཤྭ', 'སིའུ', 'སེའུ', 'སྒའུ', 'སྒེའུ', 'སྒྱེའུ', 'སྒྲེའུ', 'སྔེའུ', 'སྙེའུ', 'སྟེའུ', 'སྟྭ', 'སྡེའུ', 'སྣེའུ', 'སྤའུ', 'སྤེའུ', 'སྤྱིའུ', 'སྤྲེའུ', 'སྦྲེའུ', 'སྨེའུ', 'སྭ', 'སྲིའུ', 'སླེའུ', 'སླེའོ', 'ཧུའུ', 'ཧེའུ', 'ཧྭ', 'ཧྲུའུ']
+
+        suffixes =      ['ག', 'གས', 'ང', 'ངས', 'ད', 'ན', 'བ', 'བས', 'མ', 'མས', 'ལ', 'འི', 'འོ', 'འང', 'འམ', 'ར', 'ས',
+                     'ི', 'ིག', 'ིགས', 'ིང', 'ིངས', 'ིད', 'ིན', 'ིབ', 'ིབས', 'ིམ', 'ིམས', 'ིལ', 'ིའི', 'ིའོ', 'ིའང', 'ིའམ', 'ིར', 'ིས',
+                     'ུ', 'ུག', 'ུགས', 'ུང', 'ུངས', 'ུད', 'ུན', 'ུབ', 'ུབས', 'ུམ', 'ུམས', 'ུལ', 'ུའི', 'ུའོ', 'ུའང', 'ུའམ', 'ུར', 'ུས',
+                     'ེ', 'ེག', 'ེགས', 'ེང', 'ེངས', 'ེད', 'ེན', 'ེབ', 'ེབས', 'ེམ', 'ེམས', 'ེལ', 'ེའི', 'ེའོ', 'ེའང', 'ེའམ', 'ེར', 'ེས',
+                     'ོ', 'ོག', 'ོགས', 'ོང', 'ོངས', 'ོད', 'ོན', 'ོབ', 'ོབས', 'ོམ', 'ོམས', 'ོལ', 'ོའི', 'ོའོ', 'ོའང', 'ོའམ', 'ོར', 'ོས']
+        self.Asuffixes = ['འ'] + suffixes
+        self.NBsuffixes = [''] + suffixes
+        self.Csuffixes =  ['','འི', 'འོ', 'འང', 'འམ', 'ར', 'ས']
+
+        special = ['བགླ', 'མདྲོན', 'བརྡའ', 'བརྟའ']
+        wazurs = ['ཧྭག', 'ཀྭས', 'ཁྭངས', 'ཧྭང', 'ཀྭན', 'དྭགས', 'ཧྭགས', 'དྭངས', 'ཏྭོན']
+        self.exceptions = special + wazurs
         self.ambiguous = {'མངས' : ('མ', 'ངས'), 'མགས' : ('མ', 'གས'), 'དབས' : ('ད', 'བས'), 'དངས' : ('ད', 'ངས'), 'དགས' : ('དག', 'ས'), 'དམས' : ('དམ', 'ས'), 'བགས' : ('བ', 'གས'), 'འབས' : ('འབ', 'ས'), 'འགས' : ('འག', 'ས')}
 
-    def get(self, string):
-        self.syl = string
-        if self.syl not in self.exceptions and self.syl not in self.ambiguous: 
-            l_s = len(self.syl)
-            # find all possible roots
-            root = []
-            if self.syl[:6] in self.roots: root.append(self.syl[:6])
-            if self.syl[:5] in self.roots: root.append(self.syl[:5])    
-            if self.syl[:4] in self.roots: root.append(self.syl[:4])    
-            if self.syl[:3] in self.roots: root.append(self.syl[:3])
-            if self.syl[:2] in self.roots: root.append(self.syl[:2])
-            if self.syl[:1] in self.roots: root.append(self.syl[:1])
-            # find all possible suffixes
-            suffix = []
-            if l_s > 1:
-                if self.syl[l_s-1:] in self.suffixes: suffix.append(self.syl[l_s-1:])
-                if self.syl[l_s-2:] in self.suffixes: suffix.append(self.syl[l_s-2:])
-                if self.syl[l_s-3:] in self.suffixes: suffix.append(self.syl[l_s-3:])
+    def get(self, syl):
+        solutions = []
+        if syl in self.exceptions:
+            solutions.append((syl, 'x'))
+        elif syl in self.ambiguous:
+            solutions.append(self.ambiguous[syl])
+        else:
+            for i in range(len(syl)+1):
+                if len(syl) > i+1 and syl[i+1] not in ('ག', 'ང', 'ད', 'ན', 'བ', 'མ', 'འ', 'ར', 'ལ', 'ས'): continue
+                root = syl[0:i]
+                suf = syl[i:]
+                if (suf in self.Asuffixes and root in self.Aroots) or (root in self.NBroots and suf in self.NBsuffixes) or (suf in self.Csuffixes and root in self.Croots):
+                    solutions.append((root, suf))
 
-            # deal with all the C roots
-            #print(self.syl, root)
-            if root != [] and self.roots[root[0]] == 'C':
-                if root[0] == self.syl:
-                    return (root[0], '')
-                else:
-                    for s in suffix:
-                        if s in self.Csuffixes and root[0]+s == self.syl:
-                            return (root[0], s)
-
-            # find all possible matches 
-            solutions = []
-            if suffix != [] and root != []:
-                # dealing with all other cases
-                for r in root:
-                    for s in suffix:
-                        # unexpected འ་ 
-                        if self.roots[r] == 'A' and s == 'འ' and r+s == self.syl: 
-                            #print(r, roots[r])
-                            return None
-                        else:
-                            # if root+suffix make the syllable + avoids duplicates
-                            if r+s == self.syl and (r, s) not in solutions:
-                                solutions.append((r, s))
-                if solutions != [] : 
-                    if len(solutions) > 1:
-                        return solutions
-                    else:
-                        return(solutions[0])
-                # root + suffix don’t make syl
-                else : 
-                    #print(solutions)
-                    return None
-            elif root != []:
-                #print('k')
-                for r in root:
-                    if r in self.roots and r == self.syl:
-                        # if syllable is valid without suffix + without aa
-                        if self.roots[r] != 'NB' and (r, '') not in solutions: 
-                            solutions.append((r, ''))
-                if solutions != [] : 
-                    if len(solutions) > 1:
-                        return solutions
-                    else:
-                        return(solutions[0])
-                # non-valid syl
-                else : return None
-            # non-valid syl
-            else: return None
-        elif self.syl in self.ambiguous: return self.ambiguous[self.syl]
-        else: return (self.syl, 'x')
-
-
-# In[3]:
+        if len(solutions) > 1:
+            return solutions
+        if len(solutions) == 1:
+            return solutions[0]
+        if solutions == []:
+            return None
 
 class Mingzhi():
     def __init__(self):
@@ -158,9 +81,9 @@ class Mingzhi():
             return self.mingzhis[self.components[0]]
 
 
-# In[11]:
+# In[4]:
 
-class PseudoWylie:
+class AntTib:
     '''
     to and from pseudo-Wylie
     to_pw_text() requires the 
@@ -222,9 +145,12 @@ class PseudoWylie:
             elif syl in self.C:
                 return self.C[syl]
             else:
-                for root in self.C:
-                    if syl.startswith(root) and len(root) > len(a):
-                        a = root
+                i = len(syl)-1
+                while i >= 0:
+                    if syl[:i] in self.C:
+                        a = syl[:i]
+                        break
+                    i = i-1
             b = syl[len(a):]
             if b.startswith('v') or b.startswith('r') or b.startswith('l') or b.startswith('s'):
                 b = 'a'+b
@@ -239,7 +165,9 @@ class PseudoWylie:
         else:
             return False
     
-    def __trim_punct(self, List):        
+    def __trim_punct(self, List):  
+        # a hack to keep only one time the punctuation. 
+        # being forced to put the (xxx)+ into brackets, re.split() creates two list elements for one punctuation block
         i = 0
         while i < len(List)-1:
             if self.__is_punct(List[i]) and self.__is_punct(List[i+1]):
@@ -247,6 +175,7 @@ class PseudoWylie:
             i = i+1
     
     def to_pw_text(self, string):
+        ### Prepare the string : delete all extra punctuations
         # replace the tabs by normal spaces
         string = string.replace('	', ' ')
         # replace all non-breaking tsek by a normal tsek
@@ -254,15 +183,16 @@ class PseudoWylie:
         # delete all yigos
         string = re.sub('(༄༅+|༆|༇|༈)།?༎? ?།?༎?', '', string)
         # split on the punctuation. here, a paragraph is just a chunk of text separated by shads.
-        paragraphs = re.split(r'(( *། *| *༎ *| *༏ *| *༐ *| *༑ *| *༔ *)+)', string)
-        # the while loop is a hack to keep only one time the punctuation. 
-        # being forced to put the (xxx)+ into brackets, re.split() creates two list elements for one punctuation block
-        self.__trim_punct(paragraphs)
         
+        ### split on remaining punctuation
+        paragraphs = re.split(r'(( *། *| *༎ *| *༏ *| *༐ *| *༑ *| *༔ *)+)', string)
+        # trim the extra punctuation 
+        self.__trim_punct(paragraphs)
         #delete the last element of the list if it is an empty string
         if paragraphs[len(paragraphs)-1] == '':
             del paragraphs[len(paragraphs)-1]
-        # replace all shads by a ';' and the tershe by a ':'
+        
+        ### replace all shads by a ';' and the tershe by a ':'
         for num, element in enumerate(paragraphs):
             if '།' in element or '༏' in element or '༐' in element or '༑' in element:
                 paragraphs[num] = element.replace('།', ';').replace('༎', ';').replace('༏', ';').replace('༐', ';').replace('༑', ';')
@@ -271,7 +201,7 @@ class PseudoWylie:
             elif '༔' in element:
                 paragraphs[num] = element.replace('༔', ':')
 
-        # translate to pseudo-wylie
+        ### translate the syllables into pseudo-wylie
         parts = SylComponents() # instantiate object
         pw_text = []
         for par in paragraphs:
@@ -292,11 +222,41 @@ class PseudoWylie:
         return ''.join(pw_text)
 
     def from_pw_text(self, string):
+        text = ''
+        syl = ''
+        for char in string:
+            if char == ' ':
+                if syl != '':
+                    text += self.from_pw_syl(syl)+'་'
+                syl = ''
+                text += char
+            elif char == ';':
+                if syl != '':
+                    text += self.from_pw_syl(syl)
+                    if syl.endswith('ng'):
+                        text += '་'
+                syl = ''
+                text += '།'
+            elif char == ':':
+                if syl != '':
+                    text += self.from_pw_syl(syl)
+                    if syl.endswith('ng'):
+                        text += '་'
+                syl = ''
+                text += '༔'
+            elif char == 'x':
+                if syl != '':
+                    text += self.from_pw_syl(syl)+'་'
+                syl = ''
+            else:
+                syl += char
+
+    def from_pw_text(self, string):
         paragraphs = re.split(r'(( *; *| *: *)+)', string)
         #delete the last element of the list if it is an empty string
         if paragraphs[len(paragraphs)-1] == '':
             del paragraphs[len(paragraphs)-1]
-        # trim the extra punctuation (see comment in to_pw_text)
+        # trim the extra punctuation 
         self.__trim_punct(paragraphs)
         pw_text = []
         for par in paragraphs:
@@ -318,5 +278,82 @@ class PseudoWylie:
     
     def no_space(self, string):
         return string.replace('་ ', '༌')
+# In[6]:
+
+import time
+pw = AntTib()
+with open('../../../TibTAL/resources/wylie/ཤེར་ཕྱིན།ཕ།-_clean.txt', 'r', -1, 'utf-8-sig') as f:
+    content = f.read()
+o = time.time()
+ps = pw.to_pw_text(content)
+t = time.time()
+print(t - o)
+
+
+# In[ ]:
+
+a = time.time()
+un = pw.from_pw_text(ps)
+b = time.time()
+print(b - a)
+
+
+# In[ ]:
+
+text = '༄༅།	།འཕགས་པ་ ཤེས་རབ་ ཀྱི་ ཕ་རོལ་ ཏུ་ ཕྱིན་པ་ འབུམ་པ་ དང༌༔  ཉི་ཁྲི་ ལྔ་ སྟོང་པ་ དང།  ཁྲི་ བརྒྱད་སྟོང་པའི་ རྒྱ་ ཆེར་ བཤད་པ༎ ༄༅༅། །འཕགས་པ་ ཤེས་རབ་ ཀྱི་ ཕ་རོལ་ ཏུ་ ཕྱིན་པ་ འབུམ་པ་ དང༌། །ཉི་ཁྲི་ ལྔ་ སྟོང་པ་ དང༌ ། ཁྲི་ བརྒྱད་སྟོང་པའི་ རྒྱ་ ཆེར་ བཤད་པ།'
+
+pw = AntTib()
+no = pw.no_space(text)
+pseudo = pw.to_pw_text(text)
+uni = pw.from_pw_text(pseudo)
+nospace = pw.no_space(uni)
+
+print('original text :\n',text)
+print('no space original text :\n', no)
+print('pseudo-wylie :\n', pseudo)
+print('back to uni :\n', uni)
+print('no space uni :\n', nospace)
+
+
+# In[ ]:
+
+pseudo
+
+
+# In[ ]:
+
+text = ''
+word = ''
+for char in pseudo:
+    if char == ' ':
+        if word != '':
+            text += word+'་'
+        word = ''
+        text += char
+    elif char == ';':
+        if word != '':
+            text += word
+            if word.endswith('ng'):
+                text += '་'
+        word = ''
+        text += '།'
+    elif char == ':':
+        if word != '':
+            text += word
+            if word.endswith('ng'):
+                text += '་'
+        word = ''
+        text += '༔'
+    elif char == 'x':
+        if word != '':
+            text += word+'་'
+        word = ''
+    else:
+        word += char
+print(text)
+
+
+# In[ ]:
+
 
 
