@@ -425,7 +425,7 @@ class AntTib:
         # replace all non-breaking tsek by a normal tsek
         string = string.replace('༌', '་')
         # delete all yigos
-        string = re.sub('(༄༅+|༆|༇|༈)།?༎? ?།?༎?', '', string)
+        string = re.sub(r'(༄༅+|༆|༇|༈)།?༎? ?།?༎?', '', string)
         # split on the punctuation. here, a paragraph is just a chunk of text separated by shads.
         
         ### split on remaining punctuation
