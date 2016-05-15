@@ -142,7 +142,6 @@ def main():
             #input()
 
         text = Segment().segment(current_file, ant_segment=1)
-        text = ''.join(text)
 
         ######################
         # Transpose to AntTib
