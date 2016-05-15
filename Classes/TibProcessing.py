@@ -615,7 +615,7 @@ class AntTib:
             else:
                 ant_text.append(par.replace(';', '།').replace(':', '༔'))
         ant_text = ''.join(ant_text)
-        ant_text = re.sub(r'([^ང])་([༔།])', r'\1\2', pw_text)
+        ant_text = re.sub(r'([^ང])་([༔།])', r'\1\2', ant_text)
         return ant_text
 
     def no_space(self, string):
