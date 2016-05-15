@@ -1,12 +1,13 @@
-
 # coding: utf-8
 
-# In[1]:
-
 import re
+import Classes.TibProcessing as TP
 
 
-# In[2]:
+truc = TP.SylComponents()
+print(truc.get_parts('བསྒྲུབ'))
+print(t)
+
 
 rules = [
     #པ་ always together the preceding word
@@ -1017,9 +1018,6 @@ corrections = [
     ('ཚོགས་ཆེན', 'ཚོགས་ ཆེན'),
     ('ལམ་བཟང་པོ', 'ལམ་ བཟང་པོ')
 ]
-
-
-# In[5]:
 
 propernouns = [
     (r'ཀུ་ ?མ་', r'ཀུ་མ་'),

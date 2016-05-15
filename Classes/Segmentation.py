@@ -12,12 +12,12 @@ def search(List, entry, len_List):
 class Segment:
     def __init__(self):
         # import the lexicon
-        with open('tsikchen.txt', 'r', -1, 'utf-8-sig') as f:
+        with open('../spellcheck/tsikchen.txt', 'r', -1, 'utf-8-sig') as f:
             self.lexicon = [line.strip() for line in f.readlines()]
         # add all the particles
         self.lexicon.extend(['གི', 'ཀྱི', 'གྱི', 'ཡི', 'གིས', 'ཀྱིས', 'གྱིས', 'ཡིས', 'སུ', 'ཏུ', 'དུ', 'རུ', 'སྟེ', 'ཏེ', 'དེ', 'ཀྱང', 'ཡང', 'འང', 'གམ', 'ངམ', 'དམ', 'ནམ', 'བམ', 'མམ', 'འམ', 'རམ', 'ལམ', 'སམ', 'ཏམ', 'གོ', 'ངོ', 'དོ', 'ནོ', 'མོ', 'འོ', 'རོ', 'ལོ', 'སོ', 'ཏོ', 'ཅིང', 'ཅེས', 'ཅེའོ', 'ཅེ་ན', 'ཅིག', 'ཞིང', 'ཞེས', 'ཞེའོ', 'ཞེ་ན', 'ཞིག', 'ཤིང', 'ཤེའོ', 'ཤེ་ན', 'ཤིག', 'ལ', 'ན', 'ནས', 'ལས', 'ནི', 'དང', 'གང', 'ཅི', 'ཇི', 'གིན', 'གྱིན', 'ཀྱིན', 'ཡིན', 'པ', 'བ', 'པོ', 'བོ'])
         # add all Monlam verbs
-        with open('monlam1_verbs.txt', 'r', -1, 'utf-8-sig') as f:
+        with open('../spellcheck/monlam1_verbs.txt', 'r', -1, 'utf-8-sig') as f:
             monlam_verbs = [line.strip() for line in f.readlines()]
         for entry in monlam_verbs:
             verb = entry.split(' | ')[0]
@@ -131,7 +131,7 @@ def main():
         if file.endswith(".txt"):
         #todo - replace \n by \s try: with open('drugs') as temp_file: \n drugs = [line.rstrip('\n') for line in temp_file]
             try:
-                with open('./IN/' + file, 'r', -1, 'utf-8-sig') as f:
+                with open('../IN/' + file, 'r', -1, 'utf-8-sig') as f:
                     current_file = f.read().replace('\n', '').replace('\r\n', '').replace('༌', '་')
 
             except:
@@ -151,7 +151,7 @@ def main():
         ######################
 
         # write output
-        with open('../OUT/' + 'anttib_' + file, 'w', -1, 'utf-8-sig') as f:
+        with open('../' + 'anttib_' + file, 'w', -1, 'utf-8-sig') as f:
             f.write(text)
 
 if __name__ == '__main__': main()
