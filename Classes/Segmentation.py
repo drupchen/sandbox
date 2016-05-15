@@ -1,29 +1,34 @@
 # coding: utf-8
 
-import re
 from bisect import bisect_left
 from TibProcessing import *
 mark = '*'  # marker of unknown syllables. Can’t be a letter. Only 1 char allowed. Can’t be left empty.
 
-def strip_list(List):
+
+def strip_list(l):
     """
-    :param List: list to strip
+    :param l: list to strip
     :return: the list without 1rst and last element if they were empty elements
     """
-    if List[0] == '':
-        del List[0]
-    if List[len(List) - 1] == '':
-        del List[len(List) - 1]
+    if l[0] == '':
+        del l[0]
+    if l[len(l) - 1] == '':
+        del l[len(l) - 1]
 
-def search(List, entry, len_List):
+
+def search(l, entry, len_l):
     """
-    :param List: list on which to apply bisect
+    :param l: list on which to apply bisect
     :param entry: element of this list to find
-    :param len_List: lenght of list (needed to return a correct index)
+    :param len_l: lenght of list (needed to return a correct index)
     :return: True or False
     """
-    index = bisect_left(List, entry, 0, len_List)
-    return (True if index != len_List and List[index] == entry else False)
+    index = bisect_left(l, entry, 0, len_l)
+    if index != len_l and l[index] == entry:
+        return True
+    else:
+        return False
+
 
 class Segment:
     def __init__(self):
@@ -54,14 +59,13 @@ class Segment:
 
         self.n = 0  # counter needed between methods segment() and __process()
 
-    def isWord(self, maybe):
+    def is_word(self, maybe):
         final = False
-        if search(self.lexicon, maybe, self.len_lexicon) == True:
+        if search(self.lexicon, maybe, self.len_lexicon):
             final = True
-        elif search(self.lexicon, re.sub(self.merged_part, '', maybe), self.len_lexicon) == True:
+        elif search(self.lexicon, re.sub(self.merged_part, '', maybe), self.len_lexicon):
             final = True
         else:
-            last_syl = ''
             if '་' in maybe:
                 last_syl = maybe.split('་')[-1]
                 if SylComponents().get_info(last_syl) == 'thame':
@@ -69,17 +73,19 @@ class Segment:
             else:
                 if SylComponents().get_info(maybe) == 'thame':
                     maybe = re.sub(self.merged_part, '', maybe) + 'འ'
-            if search(self.lexicon, maybe, self.len_lexicon) == True:
+            if search(self.lexicon, maybe, self.len_lexicon):
                 final = True
         return final
 
     def __process(self, list1, list2, num):
         word = '་'.join(list1[self.n:self.n + num])
-        if search(self.lexicon, word, self.len_lexicon) == False:
+        if not search(self.lexicon, word, self.len_lexicon):
             maybe = re.split(self.merged_part, word)
-            if search(self.lexicon, maybe[0], self.len_lexicon) == False and search(self.lexicon, maybe[0] + 'འ',
-                                                                                    self.len_lexicon):
-                list2.append(maybe[0] + 'འ')
+            if not search(self.lexicon, maybe[0], self.len_lexicon):
+                if search(self.lexicon, maybe[0] + 'འ', self.len_lexicon):
+                    list2.append(maybe[0] + 'འ')
+                else:
+                    list2.append(maybe[0])
             else:
                 list2.append(maybe[0])
             list2.append(maybe[1] + '་')
@@ -90,38 +96,38 @@ class Segment:
             # del list1[:num]
             self.n = self.n + num
 
-    def segment(self, File, ant_segment, unknown):
+    def segment(self, string, ant_segment, unknown):
         """
 
-        :param File: takes a unicode text file as input
+        :param string: takes a unicode text file as input
         :param ant_segment: 0, segments normally. 1, separates the merged particles from their syllables
+        :param unknown: 0, adds nothing. 1, adds character in variable mark to unknown words/syllables
         :return: outputs the segmented text
         """
-
-        paragraphs = re.split(self.punct_regex, File)
+        paragraphs = re.split(self.punct_regex, string)
         strip_list(paragraphs)
 
         text = []
         for par in paragraphs:
             words = []
-            if re.match(self.punct_regex, par) == None:
+            if not re.match(self.punct_regex, par):
                 syls = par.split('་')
                 strip_list(syls)
 
                 self.n = 0
                 while self.n < len(syls):
-                    if len(syls[self.n:self.n + 3]) == 3 and self.isWord('་'.join(syls[self.n:self.n + 3])):
+                    if len(syls[self.n:self.n + 3]) == 3 and self.is_word('་'.join(syls[self.n:self.n + 3])):
                         self.__process(syls, words, 3)
-                    elif len(syls[self.n:self.n + 2]) == 2 and self.isWord('་'.join(syls[self.n:self.n + 2])):
+                    elif len(syls[self.n:self.n + 2]) == 2 and self.is_word('་'.join(syls[self.n:self.n + 2])):
                         self.__process(syls, words, 2)
-                    elif len(syls[self.n:self.n + 1]) == 1 and self.isWord('་'.join(syls[self.n:self.n + 1])):
+                    elif len(syls[self.n:self.n + 1]) == 1 and self.is_word('་'.join(syls[self.n:self.n + 1])):
                         self.__process(syls, words, 1)
                     else:
                         if unknown == 0:
                             words.append('་'.join(syls[self.n:self.n + 1]) + '་')
                         elif unknown == 1:
                             words.append(mark + '་'.join(syls[self.n:self.n + 1]) + '་')
-                        self.n = self.n + 1
+                        self.n += 1
                 paragraph = ' '.join(words)
                 if not paragraph.endswith('ང་'):
                     paragraph = paragraph[:-1]
@@ -139,23 +145,12 @@ class Segment:
         return ''.join(text)
 
 
-
 def main():
     import os
     for file in os.listdir("../IN/"):
-        if file.endswith(".txt"):
-        #todo - replace \n by \s try: with open('drugs') as temp_file: \n drugs = [line.rstrip('\n') for line in temp_file]
-            try:
-                with open('../IN/' + file, 'r', -1, 'utf-8-sig') as f:
-                    current_file = f.read().replace('༌', '་').replace('\r\n', '\n').replace('\r', '\n')
-                    current_file = current_file.split('\n')
-
-            except:
-                print("Save all IN files as UTF-8 and try again.")
-                #input()
-        else:
-            print("\nSave all IN files as text files and try again.")
-            #input()
+        with open('../IN/' + file, 'r', -1, 'utf-8-sig') as f:
+            current_file = f.read().replace('༌', '་').replace('\r\n', '\n').replace('\r', '\n')
+            current_file = current_file.split('\n')
 
         seg = Segment()
         text = []
@@ -167,7 +162,7 @@ def main():
 
         ######################
         # Transpose to AntTib
-        #text = AntTib().to_ant_text(text)
+        # text = AntTib().to_ant_text(text)
         #
         ######################
 
@@ -175,5 +170,5 @@ def main():
         with open('../' + 'anttib_' + file, 'w', -1, 'utf-8-sig') as f:
             f.write('\n'.join(text))
 
-if __name__ == '__main__': main()
-
+if __name__ == '__main__':
+    main()
