@@ -1,21 +1,22 @@
 # coding: utf-8
 
 import re
+
 mark = '*'  # marker of unknown syllables. Can’t be a letter. Only 1 char allowed. Can’t be left empty.
 
 
-def strip_list(List):
+def strip_list(l):
     """
-    :param List: list to strip
+    :param l: list to strip
     :return: the list without 1rst and last element if they were empty elements
     """
-    if List[0] == '':
-        del List[0]
-    if List[len(List) - 1] == '':
-        del List[len(List) - 1]
+    if l[0] == '':
+        del l[0]
+    if l[len(l) - 1] == '':
+        del l[len(l) - 1]
 
 
-def isTibetanLetter(char):
+def is_tibetan_letter(char):
     """
     :param char: caracter to check
     :return: True or False
@@ -23,6 +24,7 @@ def isTibetanLetter(char):
     if (char >= 'ༀ' and char <= '༃') or (char >= 'ཀ' and char <= 'ྼ'):
         return True
     return False
+
 
 def non_tib_chars(string):
     """
@@ -32,7 +34,7 @@ def non_tib_chars(string):
     punct = ['༄', '༅', '།', '་', '༌', '༑', '༎', '༏', '༐', '༔']
     chars = []
     for character in string:
-        if not isTibetanLetter(character) and character not in chars and character not in punct:
+        if not is_tibetan_letter(character) and character not in chars and character not in punct:
             chars.append(character)
     return chars
 
@@ -186,28 +188,37 @@ class SylComponents:
             l_s = len(syl)
             # find all possible roots
             root = []
-            if len(syl) > 5 and syl[:6] in self.roots: root.append(syl[:6])
-            if len(syl) > 4 and syl[:5] in self.roots: root.append(syl[:5])
-            if len(syl) > 3 and syl[:4] in self.roots: root.append(syl[:4])
-            if len(syl) > 2 and syl[:3] in self.roots: root.append(syl[:3])
-            if len(syl) > 1 and syl[:2] in self.roots: root.append(syl[:2])
-            if len(syl) > 0 and syl[:1] in self.roots: root.append(syl[:1])
+            if len(syl) > 5 and syl[:6] in self.roots:
+                root.append(syl[:6])
+            if len(syl) > 4 and syl[:5] in self.roots:
+                root.append(syl[:5])
+            if len(syl) > 3 and syl[:4] in self.roots:
+                root.append(syl[:4])
+            if len(syl) > 2 and syl[:3] in self.roots:
+                root.append(syl[:3])
+            if len(syl) > 1 and syl[:2] in self.roots:
+                root.append(syl[:2])
+            if len(syl) > 0 and syl[:1] in self.roots:
+                root.append(syl[:1])
             # find all possible suffixes
             suffix = []
             if l_s > 1:
-                if syl[l_s - 1:] in self.suffixes: suffix.append(syl[l_s - 1:])
-                if syl[l_s - 2:] in self.suffixes: suffix.append(syl[l_s - 2:])
-                if syl[l_s - 3:] in self.suffixes: suffix.append(syl[l_s - 3:])
+                if syl[l_s - 1:] in self.suffixes:
+                    suffix.append(syl[l_s - 1:])
+                if syl[l_s - 2:] in self.suffixes:
+                    suffix.append(syl[l_s - 2:])
+                if syl[l_s - 3:] in self.suffixes:
+                    suffix.append(syl[l_s - 3:])
 
             # deal with all the C roots
             # print(self.syl, root)
             if root != [] and self.roots[root[0]] == 'C':
                 if root[0] == syl:
-                    return (root[0], '')
+                    return root[0], ''
                 else:
                     for s in suffix:
                         if s in self.Csuffixes and root[0] + s == syl:
-                            return (root[0], s)
+                            return root[0], s
 
             # find all possible matches
             solutions = []
@@ -227,7 +238,7 @@ class SylComponents:
                     if len(solutions) > 1:
                         return solutions
                     else:
-                        return (solutions[0])
+                        return solutions[0]
                 # root + suffix don’t make syl
                 else:
                     # print(solutions)
@@ -243,7 +254,7 @@ class SylComponents:
                     if len(solutions) > 1:
                         return solutions
                     else:
-                        return (solutions[0])
+                        return solutions[0]
                 # non-valid syl
                 else:
                     return None
@@ -253,7 +264,7 @@ class SylComponents:
         elif syl in self.ambiguous:
             return self.ambiguous[syl]
         else:
-            return (syl, 'x')
+            return syl, 'x'
 
     def get_mingzhi(self, syl):
         """
@@ -263,7 +274,7 @@ class SylComponents:
                     None if more than one solution from get_parts()
         """
         components = self.get_parts(syl)
-        if type(components) == 'list' or components == None:
+        if type(components) == 'list' or not components:
             return None
         else:
             return self.mingzhis[components[0]]
@@ -278,7 +289,7 @@ class SylComponents:
                 - the syllable
         """
         mingzhi = self.get_mingzhi(syl)
-        if mingzhi == None:
+        if not mingzhi:
             return None
         else:
             if syl in self.dadrag:
@@ -300,42 +311,64 @@ def part_agreement(previous, particle):
     :return: the correct agreement for the preceding syllable
     """
     previous = SylComponents().get_info(previous)
-    if previous == 'dadrag' :
-        final = 'ད་དྲག' 
+    if previous == 'dadrag':
+        final = 'ད་དྲག'
     elif previous == 'thame':
         final = 'མཐའ་མེད'
     else:
         final = previous[-1]
         if final not in ['ག', 'ང', 'ད', 'ན', 'བ', 'མ', 'འ', 'ར', 'ལ', 'ས']:
             final = None
-    
-    if final != None:
-        # added the ད་དྲག་ for all and the མཐའ་མེད་ for all in provision of all cases where an extra syllable is neede in verses
+
+    if not final:
+        # added the ད་དྲག་ for all and the མཐའ་མེད་ for all in provision of all cases
+        # where an extra syllable is needed in verses
         # dadrag added according to Élie’s rules.
-        dreldra = {'ད' : 'ཀྱི', 'བ' : 'ཀྱི', 'ས' : 'ཀྱི', 'ག' : 'གི', 'ང' : 'གི', 'ན' : 'གྱི', 'མ' : 'གྱི', 'ར' : 'གྱི', 'ལ' : 'གྱི', 'འ' : 'ཡི', 'མཐའ་མེད' : 'ཡི', 'ད་དྲག' : 'གྱི'}
-        jedra = {'ད' : 'ཀྱིས', 'བ' : 'ཀྱིས', 'ས' : 'ཀྱིས', 'ག' : 'གིས', 'ང' : 'གིས', 'ན' : 'གྱིས', 'མ' : 'གྱིས', 'ར' : 'གྱིས', 'ལ' : 'གྱིས', 'འ' : 'ཡིས', 'མཐའ་མེད' : 'ཡིས', 'ད་དྲག' : 'གྱིས'}
-        ladon = {'ག' : 'ཏུ', 'བ' : 'ཏུ', 'ང' : 'དུ', 'ད' : 'དུ', 'ན' : 'དུ', 'མ' : 'དུ', 'ར' : 'དུ', 'ལ' : 'དུ', 'འ' : 'རུ', 'ས' : 'སུ', 'མཐའ་མེད' : 'རུ', 'ད་དྲག' : 'ཏུ'}
-        lhakce = {'ན' : 'ཏེ', 'ར' : 'ཏེ', 'ལ' : 'ཏེ', 'ས' : 'ཏེ', 'ད' : 'དེ', 'ག' : 'སྟེ', 'ང' : 'སྟེ', 'བ' : 'སྟེ', 'མ' : 'སྟེ', 'འ' : 'སྟེ', 'མཐའ་མེད' : 'སྟེ', 'ད་དྲག' : 'ཏེ'}
-        gyendu = {'ག' : 'ཀྱང', 'ད' : 'ཀྱང', 'བ' : 'ཀྱང', 'ས' : 'ཀྱང', 'འ' : 'འང/ཡང', 'ང' : 'ཡང', 'ན' : 'ཡང', 'མ' : 'ཡང', 'ར' : 'ཡང', 'ལ' : 'ཡང', 'མཐའ་མེད' : 'ཡང', 'ད་དྲག' : 'ཀྱང'}
-        jedu = {'ག' : 'གམ', 'ང' : 'ངམ', 'ད་དྲག' : 'ཏམ', 'ད' : 'དམ', 'ན' : 'ནམ', 'བ' : 'བམ', 'མ' : 'མམ', 'འ' : 'འམ', 'ར' : 'རམ', 'ལ' : 'ལམ', 'ས' : 'སམ', 'མཐའ་མེད' : 'འམ'}
-        dagdra_pa = {'ག' : 'པ', 'ད' : 'པ', 'བ' : 'པ', 'ས' : 'པ', 'ན' : 'པ', 'མ' : 'པ', 'ང' : 'བ', 'འ' : 'བ', 'ར' : 'བ', 'ལ' : 'བ', 'མཐའ་མེད' : 'བ', 'ད་དྲག' : 'པ'}
-        dagdra_po = {'ག' : 'པོ', 'ད' : 'པོ', 'བ' : 'པོ', 'ས' : 'པོ', 'ན' : 'པོ', 'མ' : 'པོ', 'ང' : 'བོ', 'འ' : 'བོ', 'ར' : 'བོ', 'ལ' : 'བོ', 'མཐའ་མེད' : 'བོ', 'ད་དྲག' : 'པོ'}
-        lardu = {'ག' : 'གོ', 'ང' : 'ངོ', 'ད' : 'དོ', 'ན' : 'ནོ', 'བ' : 'བོ', 'མ' : 'མོ', 'འ' : 'འོ', 'ར' : 'རོ', 'ལ' : 'ལོ', 'ས' : 'སོ', 'མཐའ་མེད' : 'འོ', 'ད་དྲག' : 'ཏོ'}
-        cing = {'ག' : 'ཅིང', 'ད' : 'ཅིང', 'བ' : 'ཅིང', 'ང' : 'ཞིང', 'ན' : 'ཞིང', 'མ' : 'ཞིང', 'འ' : 'ཞིང', 'ར' : 'ཞིང', 'ལ' : 'ཞིང', 'ས' : 'ཤིང', 'མཐའ་མེད' : 'ཞིང', 'ད་དྲག' : 'ཅིང'}
-        ces = {'ག' : 'ཅེས', 'ད' : 'ཅེས', 'བ' : 'ཅེས', 'ང' : 'ཞེས', 'ན' : 'ཞེས', 'མ' : 'ཞེས', 'འ' : 'ཞེས', 'ར' : 'ཞེས', 'ལ' : 'ཞེས', 'ས' : 'ཞེས', 'མཐའ་མེད' : 'ཞེས', 'ད་དྲག' : 'ཅེས'}
-        ceo = {'ག' : 'ཅེའོ', 'ད' : 'ཅེའོ', 'བ' : 'ཅེའོ', 'ང' : 'ཞེའོ', 'ན' : 'ཞེའོ', 'མ' : 'ཞེའོ', 'འ' : 'ཞེའོ', 'ར' : 'ཞེའོ', 'ལ' : 'ཞེའོ', 'ས' : 'ཤེའོ', 'མཐའ་མེད' : 'ཞེའོ', 'ད་དྲག' : 'ཅེའོ', }
-        cena = {'ག' : 'ཅེ་ན', 'ད' : 'ཅེ་ན', 'བ' : 'ཅེ་ན', 'ང' : 'ཞེ་ན', 'ན' : 'ཞེ་ན', 'མ' : 'ཞེ་ན', 'འ' : 'ཞེ་ན', 'ར' : 'ཞེ་ན', 'ལ' : 'ཞེ་ན', 'ས' : 'ཤེ་ན', 'མཐའ་མེད' : 'ཞེ་ན', 'ད་དྲག' : 'ཅེ་ན'}
-        cig = {'ག' : 'ཅིག', 'ད' : 'ཅིག', 'བ' : 'ཅིག', 'ང' : 'ཞིག', 'ན' : 'ཞིག', 'མ' : 'ཞིག', 'འ' : 'ཞིག', 'ར' : 'ཞིག', 'ལ' : 'ཞིག', 'ས' : 'ཤིག', 'མཐའ་མེད' : 'ཞིག', 'ད་དྲག' : 'ཅིག', }
+        dreldra = {'ད': 'ཀྱི', 'བ': 'ཀྱི', 'ས': 'ཀྱི', 'ག': 'གི', 'ང': 'གི', 'ན': 'གྱི', 'མ': 'གྱི', 'ར': 'གྱི',
+                   'ལ': 'གྱི', 'འ': 'ཡི', 'མཐའ་མེད': 'ཡི', 'ད་དྲག': 'གྱི'}
+        jedra = {'ད': 'ཀྱིས', 'བ': 'ཀྱིས', 'ས': 'ཀྱིས', 'ག': 'གིས', 'ང': 'གིས', 'ན': 'གྱིས', 'མ': 'གྱིས', 'ར': 'གྱིས',
+                 'ལ': 'གྱིས', 'འ': 'ཡིས', 'མཐའ་མེད': 'ཡིས', 'ད་དྲག': 'གྱིས'}
+        ladon = {'ག': 'ཏུ', 'བ': 'ཏུ', 'ང': 'དུ', 'ད': 'དུ', 'ན': 'དུ', 'མ': 'དུ', 'ར': 'དུ', 'ལ': 'དུ', 'འ': 'རུ',
+                 'ས': 'སུ', 'མཐའ་མེད': 'རུ', 'ད་དྲག': 'ཏུ'}
+        lhakce = {'ན': 'ཏེ', 'ར': 'ཏེ', 'ལ': 'ཏེ', 'ས': 'ཏེ', 'ད': 'དེ', 'ག': 'སྟེ', 'ང': 'སྟེ', 'བ': 'སྟེ', 'མ': 'སྟེ',
+                  'འ': 'སྟེ', 'མཐའ་མེད': 'སྟེ', 'ད་དྲག': 'ཏེ'}
+        gyendu = {'ག': 'ཀྱང', 'ད': 'ཀྱང', 'བ': 'ཀྱང', 'ས': 'ཀྱང', 'འ': 'འང/ཡང', 'ང': 'ཡང', 'ན': 'ཡང', 'མ': 'ཡང',
+                  'ར': 'ཡང', 'ལ': 'ཡང', 'མཐའ་མེད': 'ཡང', 'ད་དྲག': 'ཀྱང'}
+        jedu = {'ག': 'གམ', 'ང': 'ངམ', 'ད་དྲག': 'ཏམ', 'ད': 'དམ', 'ན': 'ནམ', 'བ': 'བམ', 'མ': 'མམ', 'འ': 'འམ', 'ར': 'རམ',
+                'ལ': 'ལམ', 'ས': 'སམ', 'མཐའ་མེད': 'འམ'}
+        dagdra_pa = {'ག': 'པ', 'ད': 'པ', 'བ': 'པ', 'ས': 'པ', 'ན': 'པ', 'མ': 'པ', 'ང': 'བ', 'འ': 'བ', 'ར': 'བ', 'ལ': 'བ',
+                     'མཐའ་མེད': 'བ', 'ད་དྲག': 'པ'}
+        dagdra_po = {'ག': 'པོ', 'ད': 'པོ', 'བ': 'པོ', 'ས': 'པོ', 'ན': 'པོ', 'མ': 'པོ', 'ང': 'བོ', 'འ': 'བོ', 'ར': 'བོ',
+                     'ལ': 'བོ', 'མཐའ་མེད': 'བོ', 'ད་དྲག': 'པོ'}
+        lardu = {'ག': 'གོ', 'ང': 'ངོ', 'ད': 'དོ', 'ན': 'ནོ', 'བ': 'བོ', 'མ': 'མོ', 'འ': 'འོ', 'ར': 'རོ', 'ལ': 'ལོ',
+                 'ས': 'སོ', 'མཐའ་མེད': 'འོ', 'ད་དྲག': 'ཏོ'}
+        cing = {'ག': 'ཅིང', 'ད': 'ཅིང', 'བ': 'ཅིང', 'ང': 'ཞིང', 'ན': 'ཞིང', 'མ': 'ཞིང', 'འ': 'ཞིང', 'ར': 'ཞིང',
+                'ལ': 'ཞིང', 'ས': 'ཤིང', 'མཐའ་མེད': 'ཞིང', 'ད་དྲག': 'ཅིང'}
+        ces = {'ག': 'ཅེས', 'ད': 'ཅེས', 'བ': 'ཅེས', 'ང': 'ཞེས', 'ན': 'ཞེས', 'མ': 'ཞེས', 'འ': 'ཞེས', 'ར': 'ཞེས',
+               'ལ': 'ཞེས', 'ས': 'ཞེས', 'མཐའ་མེད': 'ཞེས', 'ད་དྲག': 'ཅེས'}
+        ceo = {'ག': 'ཅེའོ', 'ད': 'ཅེའོ', 'བ': 'ཅེའོ', 'ང': 'ཞེའོ', 'ན': 'ཞེའོ', 'མ': 'ཞེའོ', 'འ': 'ཞེའོ', 'ར': 'ཞེའོ',
+               'ལ': 'ཞེའོ', 'ས': 'ཤེའོ', 'མཐའ་མེད': 'ཞེའོ', 'ད་དྲག': 'ཅེའོ',}
+        cena = {'ག': 'ཅེ་ན', 'ད': 'ཅེ་ན', 'བ': 'ཅེ་ན', 'ང': 'ཞེ་ན', 'ན': 'ཞེ་ན', 'མ': 'ཞེ་ན', 'འ': 'ཞེ་ན', 'ར': 'ཞེ་ན',
+                'ལ': 'ཞེ་ན', 'ས': 'ཤེ་ན', 'མཐའ་མེད': 'ཞེ་ན', 'ད་དྲག': 'ཅེ་ན'}
+        cig = {'ག': 'ཅིག', 'ད': 'ཅིག', 'བ': 'ཅིག', 'ང': 'ཞིག', 'ན': 'ཞིག', 'མ': 'ཞིག', 'འ': 'ཞིག', 'ར': 'ཞིག',
+               'ལ': 'ཞིག', 'ས': 'ཤིག', 'མཐའ་མེད': 'ཞིག', 'ད་དྲག': 'ཅིག',}
         # mostly for modern spoken Tibetan. in accord with Esukhia’s decision to make the agreement for this "new" particle
-        gin = {'ད' : 'ཀྱིན', 'བ' : 'ཀྱིན', 'ས' : 'ཀྱིན', 'ག' : 'གིན', 'ང' : 'གིན', 'ན' : 'གྱིན', 'མ' : 'གྱིན', 'ར' : 'གྱིན', 'ལ' : 'གྱིན', 'ད་དྲག' : 'ཀྱིན'}
-        cases = [(["གི", "ཀྱི", "གྱི", "ཡི"], dreldra), (["གིས", "ཀྱིས", "གྱིས", "ཡིས"], jedra), (["སུ", "ཏུ", "དུ", "རུ"] , ladon), (["སྟེ", "ཏེ", "དེ"], lhakce), (["ཀྱང", "ཡང", "འང"], gyendu), (["གམ", "ངམ", "དམ", "ནམ", "བམ", "མམ", "འམ", "རམ", "ལམ", "སམ", "ཏམ"], jedu), (["པ", "བ"], dagdra_pa), (["པོ", "བོ"], dagdra_po), (["གོ", "ངོ", "དོ", "ནོ", "བོ", "མོ", "འོ", "རོ", "ལོ", "སོ", "ཏོ"] , lardu), (["ཅིང",  "ཤིང", "ཞིང"], cing), (["ཅེས",  "ཞེས"], ces), (["ཅེའོ",  "ཤེའོ",  "ཞེའོ"], ceo), (["ཅེ་ན",  "ཤེ་ན",  "ཞེ་ན"], cena), (["ཅིག",  "ཤིག",  "ཞིག"], cig), (['ཀྱིན', 'གིན', 'གྱིན'], gin)]
+        gin = {'ད': 'ཀྱིན', 'བ': 'ཀྱིན', 'ས': 'ཀྱིན', 'ག': 'གིན', 'ང': 'གིན', 'ན': 'གྱིན', 'མ': 'གྱིན', 'ར': 'གྱིན',
+               'ལ': 'གྱིན', 'ད་དྲག': 'ཀྱིན'}
+        cases = [(["གི", "ཀྱི", "གྱི", "ཡི"], dreldra), (["གིས", "ཀྱིས", "གྱིས", "ཡིས"], jedra),
+                 (["སུ", "ཏུ", "དུ", "རུ"], ladon), (["སྟེ", "ཏེ", "དེ"], lhakce), (["ཀྱང", "ཡང", "འང"], gyendu),
+                 (["གམ", "ངམ", "དམ", "ནམ", "བམ", "མམ", "འམ", "རམ", "ལམ", "སམ", "ཏམ"], jedu), (["པ", "བ"], dagdra_pa),
+                 (["པོ", "བོ"], dagdra_po), (["གོ", "ངོ", "དོ", "ནོ", "བོ", "མོ", "འོ", "རོ", "ལོ", "སོ", "ཏོ"], lardu),
+                 (["ཅིང", "ཤིང", "ཞིང"], cing), (["ཅེས", "ཞེས"], ces), (["ཅེའོ", "ཤེའོ", "ཞེའོ"], ceo),
+                 (["ཅེ་ན", "ཤེ་ན", "ཞེ་ན"], cena), (["ཅིག", "ཤིག", "ཞིག"], cig), (['ཀྱིན', 'གིན', 'གྱིན'], gin)]
         correction = ''
         for case in cases:
             if particle in case[0]:
                 correction = case[1][final]
         return correction
     else:
-        return '*'+particle
+        return '*' + particle
+
 
 class AntTib:
     """
@@ -436,7 +469,7 @@ class AntTib:
         :param components: the tuple outputed by SylComponents().get_parts(<syl>)
         :return: the AntTib of that syllable
         """
-        if type(components) == 'list' or components == None:
+        if type(components) == 'list' or not components:
             return '***'
         else:
             part1 = components[0]
@@ -477,7 +510,7 @@ class AntTib:
                     if syl[:i] in self.C:
                         a = syl[:i]
                         break
-                    i = i - 1
+                    i -= 1
             b = syl[len(a):]
             if b.startswith('v') or b.startswith('r') or b.startswith('l') or b.startswith('s'):
                 b = 'a' + b
@@ -492,17 +525,16 @@ class AntTib:
         else:
             return False
 
-    def __trim_punct(self, List):
+    def __trim_punct(self, l):
         """
-
-        :param List:    a List splitted on the punctuation with re.split() where the regex was
+        :param l:    a list splitted on the punctuation with re.split() where the regex was
                         something like ((<punct>|<punct>)+)
         :return: the same list, only keeping one of the two punctuation elements re.split() gave
         """
         i = 0
-        while i < len(List) - 1:
-            if self.__is_punct(List[i]) and self.__is_punct(List[i + 1]):
-                del List[i + 1]
+        while i < len(l) - 1:
+            if self.__is_punct(l[i]) and self.__is_punct(l[i + 1]):
+                del l[i + 1]
             i = i + 1
 
     def to_ant_text(self, string):
@@ -511,8 +543,8 @@ class AntTib:
         :param string: a Tibetan text string
         :return: its counterpart in AntTib with the punctuation diminished to shads(;) and tershe(:)
         """
-        ### Todo : make a new class to deal with the punctuation instead of doing it here
-        ### Prepare the string : delete all extra punctuations
+        # Todo : make a new class to deal with the punctuation instead of doing it here
+        # Prepare the string : delete all extra punctuations
         # replace the tabs by normal spaces
         string = string.replace('   ', ' ')
         # replace all non-breaking tsek by a normal tsek
@@ -521,24 +553,24 @@ class AntTib:
         string = re.sub('(༄༅+|༆|༇|༈)།?༎? ?།?༎?', '', string)
         # split on the punctuation. here, a paragraph is just a chunk of text separated by shads.
 
-        ### split on remaining punctuation
+        # split on remaining punctuation
         paragraphs = re.split(r'(( *། *| *༎ *| *༏ *| *༐ *| *༑ *| *༔ *)+)', string)
         # trim the extra punctuation
         self.__trim_punct(paragraphs)
         strip_list(paragraphs)  # delete empty elements beginning or ending the list
 
-        ### replace all shads by a ';' and the tershe by a ':'
+        # replace all shads by a ';' and the tershe by a ':'
         for num, element in enumerate(paragraphs):
             if '།' in element or '༏' in element or '༐' in element or '༑' in element:
                 paragraphs[num] = element.replace('།', ';').replace('༎', ';').replace('༏', ';').replace('༐',
                                                                                                         ';').replace(
-                    '༑', ';')
+                        '༑', ';')
             elif '༎' in element:
                 paragraphs[num] = element.replace('༎', ';;')
             elif '༔' in element:
                 paragraphs[num] = element.replace('༔', ':')
 
-        ### translate the syllables into pseudo-wylie
+        # translate the syllables into pseudo-wylie
         parts = SylComponents()  # instantiate object
         ant_text = []
         for par in paragraphs:
@@ -558,12 +590,12 @@ class AntTib:
                             if syl.startswith(mark):
                                 psyl = syl[1:].split('-')
                                 ant_word.append(
-                                    mark + self.to_ant_syl(parts.get_parts(psyl[0])) + ' ' + self.to_ant_syl(
-                                        parts.get_parts(psyl[1])).replace('a', ''))
+                                        mark + self.to_ant_syl(parts.get_parts(psyl[0])) + ' ' + self.to_ant_syl(
+                                                parts.get_parts(psyl[1])).replace('a', ''))
                             else:
                                 psyl = syl.split('-')
                                 ant_word.append(self.to_ant_syl(parts.get_parts(psyl[0])) + ' ' + self.to_ant_syl(
-                                    parts.get_parts(psyl[1])).replace('a', ''))
+                                        parts.get_parts(psyl[1])).replace('a', ''))
                         else:
                             if syl.startswith(mark):
                                 ant_word.append(mark + self.to_ant_syl(parts.get_parts(syl[1:])))
@@ -633,6 +665,3 @@ class AntTib:
         for regex in regexes:
             string = re.sub(regex, r'\1', string)
         return string
-
-
-
