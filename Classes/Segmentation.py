@@ -31,9 +31,7 @@ class Segment:
         self.lexicon = sorted(self.lexicon)
         self.len_lexicon = len(self.lexicon)
 
-        # mark (1) or not (0) the unknown words/syllables
-        self.mark_unknown = 0
-        self.mark = '*'  # character used to mark.
+        self.mark = '*'  # character used to mark unknown syllables
         
         self.c = 0  # counter needed between methods segment() and __process()
 
@@ -81,7 +79,7 @@ class Segment:
         if last_elt == '':
             del last_elt
             
-    def segment(self, File, ant_segment):
+    def segment(self, File, ant_segment, unknown):
         """
 
         :param File: takes a unicode text file as input
@@ -105,8 +103,8 @@ class Segment:
                     elif len(syls[self.c:self.c+2]) == 2 and self.isWord('་'.join(syls[self.c:self.c+2])): self.__process(syls, words, 2)
                     elif len(syls[self.c:self.c+1]) == 1 and self.isWord('་'.join(syls[self.c:self.c+1])): self.__process(syls, words, 1)
                     else:
-                        if self.mark_unknown == 0: words.append('་'.join(syls[self.c:self.c+1])+'་')
-                        elif self.mark_unknown == 1: words.append(mark+'་'.join(syls[self.c:self.c+1])+'་')
+                        if unknown == 0: words.append('་'.join(syls[self.c:self.c+1])+'་')
+                        elif unknown == 1: words.append(self.mark+'་'.join(syls[self.c:self.c+1])+'་')
                         self.c = self.c + 1
                 paragraph = ' '.join(words)
                 if not paragraph.endswith('ང་'):
@@ -141,7 +139,7 @@ def main():
             print("\nSave all IN files as text files and try again.")
             #input()
 
-        text = Segment().segment(current_file, ant_segment=1)
+        text = Segment().segment(current_file, ant_segment=1, unknown=0)
 
         ######################
         # Transpose to AntTib
