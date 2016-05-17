@@ -3,7 +3,7 @@ import json
 from .SylComponents import SylComponents
 this_dir, this_filename = os.path.split(__file__)
 
-# lexicon used by Segment()
+# lexicon used by Segment
 with open(os.path.join(this_dir, "data", "lexicon.txt"), 'r', -1, 'utf-8-sig') as f:
     lexicon = [line.strip() for line in f.readlines()]
 with open(os.path.join(this_dir, "data", "monlam1_verbs.txt"), 'r', -1, 'utf-8-sig') as f:
@@ -13,7 +13,7 @@ with open(os.path.join(this_dir, "data", "particles.json"), 'r', -1, 'utf-8-sig'
 lexicon.extend(monlam_verbs)
 lexicon.extend(particles)
 
-# data for SylComponents()
+# data for SylComponents
 with open(os.path.join(this_dir, "data", "syl_components.json"), 'r', -1, 'utf-8-sig') as f:
     data = json.loads(f.read())
 dadrag = data['dadrag']
@@ -36,9 +36,19 @@ with open(os.path.join(this_dir, "data", "Agreement.json"), 'r', -1, 'utf-8-sig'
 particles = a_data['particles']
 corrections = a_data['corrections']
 
+# data for AntTib
+with open(os.path.join(this_dir, "data", "AntTib.json"), 'r', -1, 'utf-8-sig') as f:
+    t_data = json.loads(f.read())
+t_roots = t_data['roots']
+t_rareC = t_data['rareC']
+t_wazurC = t_data['wazurC']
+t_NB = t_data['NB']
+t_special = t_data['special']
+t_wazur = t_data['wazur']
+
 
 def getSylComponents():
-    if (not getSylComponents.instance):
+    if not getSylComponents.instance:
         getSylComponents.instance = SylComponents(dadrag, roots, suffixes, Csuffixes, special, wazurs, ambiguous, m_roots, m_exceptions, m_wazurs)
     return getSylComponents.instance
 getSylComponents.instance = None
@@ -56,4 +66,9 @@ def Agreement():
     return Agreement(particles, corrections, SC)
 
 
-__all__ = ['Segment', 'getSylComponents', 'Agreement']
+def AntTib():
+    from .AntTib import AntTib, strip_list
+    SC = getSylComponents()
+    return AntTib(t_roots, t_rareC, t_wazurC, t_NB, t_special, t_wazur, SC)
+
+__all__ = ['Segment', 'getSylComponents', 'Agreement', 'AntTib']

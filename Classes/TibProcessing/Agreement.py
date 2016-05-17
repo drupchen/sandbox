@@ -1,5 +1,4 @@
 import re
-from .SylComponents import SylComponents
 
 
 class Agreement:
@@ -16,7 +15,7 @@ class Agreement:
             In case of an invalid previous syllable, returns the particle preceded by *
             limitation : particle needs to be a separate syllabes. (the problems with wrong merged agreement will be flagged by get_mingzhi )
             input : previous syllable, particle
-        :param previous: preceding syllable
+        :param previous_syl: preceding syllable
         :param particle: particle at hand
         :return: the correct agreement for the preceding syllable
         """
