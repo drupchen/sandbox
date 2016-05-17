@@ -1,3 +1,5 @@
+from .SylComponents import SylComponents
+
 class Agreement:
     def __init__(self, particles, corrections):
         self.cases = []
@@ -15,7 +17,7 @@ class Agreement:
         :param particle: particle at hand
         :return: the correct agreement for the preceding syllable
         """
-        previous = self.get_info(previous_syl)
+        previous = SylComponents.get_info(previous_syl)
         final = ''
         if previous == 'dadrag':
             final = 'ད་དྲག'
