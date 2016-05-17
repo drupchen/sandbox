@@ -10,7 +10,7 @@ print(getSylComponents().get_mingzhi('ཤིས'))
 
 print(getSylComponents().get_info('ཤིའི'))
 
-print(Agreement().part_agreement('ཁྲི', 'གི'))
+print(Agreement().part_agreement('ཁྲིས', 'གི'))
 
 print(Segment().segment('བཀྲ་ཤིས་བདེ་ལེགས༎ ༎', ant_segment=0, unknown=1))
 
