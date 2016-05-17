@@ -14,4 +14,6 @@ print(Agreement().part_agreement('ཁྲིས', 'གི'))
 
 print(Segment().segment('བཀྲ་ཤིས་བདེ་ལེགས༎ ༎', ant_segment=0, unknown=1))
 
-print(AntTib().to_ant_text('བཀྲ་ཤིས་བདེ་ལེགས༎ ༎'))
+print(AntTib().to_ant_text('མཚོ འང་ཡིན་'))
+
+print(AntTib().from_ant_text('Je suis méchant.'))
