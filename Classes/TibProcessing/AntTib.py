@@ -54,7 +54,6 @@ class AntTib:
                 if part2 == '':
                     b = 'a'
                 elif part2 != 'x':
-                    print(self.NB)
                     b = self.NB[part2]
                 return a + b
 
