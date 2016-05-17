@@ -144,7 +144,7 @@ for file in os.listdir('./IN/'):
         #input()
     #start = time.time()
     ######################
-    # Segmentation process
+    # segmentation process
     merged_part = r'(ར|ས|འི|འམ|འང)$'
     
     syls = re.sub(r"([།|༎|༏|༐|༑|༔|\s]+)", "་\g<1>་", current_file)

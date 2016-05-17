@@ -29,7 +29,7 @@ def is_tibetan_letter(char):
 def non_tib_chars(string):
     """
     :param string:
-    :return: list of non-tibetan non-punctuation characters found within a string
+    :return: list of non-tibetan non-tibetan-punctuation characters found within a string
     """
     punct = ['༄', '༅', '།', '་', '༌', '༑', '༎', '༏', '༐', '༔']
     chars = []
@@ -294,7 +294,7 @@ class SylComponents:
         else:
             if syl in self.dadrag:
                 return 'dadrag'
-            elif re.findall(mingzhi + '[ིེོུའསརྱྲླྷྭ]*$', syl) != []:
+            elif re.findall(mingzhi + '[ིེོུྱྲླྷྭ]*$', syl) != []:
                 return 'thame'
             else:
                 return syl
@@ -311,6 +311,7 @@ def part_agreement(previous, particle):
     :return: the correct agreement for the preceding syllable
     """
     previous = SylComponents().get_info(previous)
+    final = ''
     if previous == 'dadrag':
         final = 'ད་དྲག'
     elif previous == 'thame':
@@ -320,7 +321,7 @@ def part_agreement(previous, particle):
         if final not in ['ག', 'ང', 'ད', 'ན', 'བ', 'མ', 'འ', 'ར', 'ལ', 'ས']:
             final = None
 
-    if not final:
+    if final:
         # added the ད་དྲག་ for all and the མཐའ་མེད་ for all in provision of all cases
         # where an extra syllable is needed in verses
         # dadrag added according to Élie’s rules.
@@ -332,7 +333,7 @@ def part_agreement(previous, particle):
                  'ས': 'སུ', 'མཐའ་མེད': 'རུ', 'ད་དྲག': 'ཏུ'}
         lhakce = {'ན': 'ཏེ', 'ར': 'ཏེ', 'ལ': 'ཏེ', 'ས': 'ཏེ', 'ད': 'དེ', 'ག': 'སྟེ', 'ང': 'སྟེ', 'བ': 'སྟེ', 'མ': 'སྟེ',
                   'འ': 'སྟེ', 'མཐའ་མེད': 'སྟེ', 'ད་དྲག': 'ཏེ'}
-        gyendu = {'ག': 'ཀྱང', 'ད': 'ཀྱང', 'བ': 'ཀྱང', 'ས': 'ཀྱང', 'འ': 'འང/ཡང', 'ང': 'ཡང', 'ན': 'ཡང', 'མ': 'ཡང',
+        gyendu = {'ག': 'ཀྱང', 'ད': 'ཀྱང', 'བ': 'ཀྱང', 'ས': 'ཀྱང', 'འ': 'ཡང', 'ང': 'ཡང', 'ན': 'ཡང', 'མ': 'ཡང',
                   'ར': 'ཡང', 'ལ': 'ཡང', 'མཐའ་མེད': 'ཡང', 'ད་དྲག': 'ཀྱང'}
         jedu = {'ག': 'གམ', 'ང': 'ངམ', 'ད་དྲག': 'ཏམ', 'ད': 'དམ', 'ན': 'ནམ', 'བ': 'བམ', 'མ': 'མམ', 'འ': 'འམ', 'ར': 'རམ',
                 'ལ': 'ལམ', 'ས': 'སམ', 'མཐའ་མེད': 'འམ'}
@@ -368,7 +369,6 @@ def part_agreement(previous, particle):
         return correction
     else:
         return '*' + particle
-
 
 class AntTib:
     """
@@ -665,3 +665,4 @@ class AntTib:
         for regex in regexes:
             string = re.sub(regex, r'\1', string)
         return string
+

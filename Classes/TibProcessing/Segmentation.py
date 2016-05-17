@@ -1,58 +1,18 @@
 # coding: utf-8
 
-from bisect import bisect_left
-from TibProcessing import *
+import re
+from TibProcessing.common import strip_list, search
+
 mark = '*'  # marker of unknown syllables. Can’t be a letter. Only 1 char allowed. Can’t be left empty.
 
 
-def strip_list(l):
-    """
-    :param l: list to strip
-    :return: the list without 1rst and last element if they were empty elements
-    """
-    if l[0] == '':
-        del l[0]
-    if l[len(l) - 1] == '':
-        del l[len(l) - 1]
-
-
-def search(l, entry, len_l):
-    """
-    :param l: list on which to apply bisect
-    :param entry: element of this list to find
-    :param len_l: lenght of list (needed to return a correct index)
-    :return: True or False
-    """
-    index = bisect_left(l, entry, 0, len_l)
-    if index != len_l and l[index] == entry:
-        return True
-    else:
-        return False
-
-
 class Segment:
-    def __init__(self):
-        # import the lexicon
-        with open('../spellcheck/tsikchen.txt', 'r', -1, 'utf-8-sig') as f:
-            self.lexicon = [line.strip() for line in f.readlines()]
-        # add all the particles
-        self.lexicon.extend(
-                ['གི', 'ཀྱི', 'གྱི', 'ཡི', 'གིས', 'ཀྱིས', 'གྱིས', 'ཡིས', 'སུ', 'ཏུ', 'དུ', 'རུ', 'སྟེ', 'ཏེ', 'དེ',
-                 'ཀྱང', 'ཡང', 'འང', 'གམ', 'ངམ', 'དམ', 'ནམ', 'བམ', 'མམ', 'འམ', 'རམ', 'ལམ', 'སམ', 'ཏམ', 'གོ', 'ངོ', 'དོ',
-                 'ནོ', 'མོ', 'འོ', 'རོ', 'ལོ', 'སོ', 'ཏོ', 'ཅིང', 'ཅེས', 'ཅེའོ', 'ཅེ་ན', 'ཅིག', 'ཞིང', 'ཞེས', 'ཞེའོ',
-                 'ཞེ་ན', 'ཞིག', 'ཤིང', 'ཤེའོ', 'ཤེ་ན', 'ཤིག', 'ལ', 'ན', 'ནས', 'ལས', 'ནི', 'དང', 'གང', 'ཅི', 'ཇི', 'གིན',
-                 'གྱིན', 'ཀྱིན', 'ཡིན', 'པ', 'བ', 'པོ', 'བོ'])
-        # add all Monlam verbs
-        with open('../spellcheck/monlam1_verbs.txt', 'r', -1, 'utf-8-sig') as f:
-            monlam_verbs = [line.strip() for line in f.readlines()]
-        for entry in monlam_verbs:
-            verb = entry.split(' | ')[0]
-            if verb not in self.lexicon:
-                self.lexicon.append(verb)
-
+    def __init__(self, lexicon, SC):
+        self.lexicon = lexicon
         self.merged_part = r'(ར|ས|འི|འམ|འང|འོ)$'
         self.punct_regex = r'([༄༅༆༇༈།༎༏༐༑༔\s]+)'
 
+        self.SC = SC
         # for bisect
         self.lexicon = sorted(self.lexicon)
         self.len_lexicon = len(self.lexicon)
@@ -68,10 +28,10 @@ class Segment:
         else:
             if '་' in maybe:
                 last_syl = maybe.split('་')[-1]
-                if SylComponents().get_info(last_syl) == 'thame':
+                if self.SC.get_info(last_syl) == 'thame':
                     maybe = re.sub(self.merged_part, '', maybe) + 'འ'
             else:
-                if SylComponents().get_info(maybe) == 'thame':
+                if self.SC.get_info(maybe) == 'thame':
                     maybe = re.sub(self.merged_part, '', maybe) + 'འ'
             if search(self.lexicon, maybe, self.len_lexicon):
                 final = True
@@ -159,12 +119,6 @@ def main():
                 text.append(line)
             else:
                 text.append(seg.segment(line, ant_segment=0, unknown=1))
-
-        ######################
-        # Transpose to AntTib
-        # text = AntTib().to_ant_text(text)
-        #
-        ######################
 
         # write output
         with open('../' + 'anttib_' + file, 'w', -1, 'utf-8-sig') as f:
