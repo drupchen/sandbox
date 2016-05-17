@@ -1,5 +1,6 @@
 import os
 import json
+from .SylComponents import SylComponents
 this_dir, this_filename = os.path.split(__file__)
 
 # lexicon used by Segment()
@@ -36,20 +37,23 @@ particles = a_data['particles']
 corrections = a_data['corrections']
 
 
-def SylComponents():
-    from .SylComponents import SylComponents
-    return SylComponents(dadrag, roots, suffixes, Csuffixes, special, wazurs, ambiguous, m_roots, m_exceptions, m_wazurs)
+def getSylComponents():
+    if (not getSylComponents.instance):
+        getSylComponents.instance = SylComponents(dadrag, roots, suffixes, Csuffixes, special, wazurs, ambiguous, m_roots, m_exceptions, m_wazurs)
+    return getSylComponents.instance
+getSylComponents.instance = None
 
 
 def Segment():
     from .Segmentation import Segment, strip_list, search
-    SC = SylComponents()
+    SC = getSylComponents()
     return Segment(lexicon, SC)
 
 
 def Agreement():
     from .Agreement import Agreement
-    return Agreement(particles, corrections)
+    SC = getSylComponents()
+    return Agreement(particles, corrections, SC)
 
 
-__all__ = ['Segment', 'SylComponents', 'Agreement']
+__all__ = ['Segment', 'getSylComponents', 'Agreement']

@@ -1,4 +1,5 @@
 # coding: utf-8
+import re
 
 class SylComponents:
     """
@@ -141,7 +142,7 @@ class SylComponents:
         else:
             if syl in self.dadrag:
                 return 'dadrag'
-            elif re.findall(mingzhi + '[ིེོུྱྲླྷྭ]*$', syl) != []:
+            elif re.findall(mingzhi + '([ྱྲླྭྷ]?[ིེོུ]?འ?[ིོུ]?ར?ས?)$', syl) != []:
                 return 'thame'
             else:
                 return syl
