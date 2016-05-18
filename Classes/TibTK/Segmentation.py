@@ -1,7 +1,7 @@
 # coding: utf-8
 
 import re
-from TibProcessing.common import strip_list, search
+from TibTK.common import strip_list, search
 
 mark = '*'  # marker of unknown syllables. Can’t be a letter. Only 1 char allowed. Can’t be left empty.
 
