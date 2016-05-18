@@ -83,8 +83,10 @@ class AntTib:
                 b = 'a' + b
             if b == 'a':
                 return self.C[a]
-            else:
+            if a in self.C and b in self.D:  # in order not to fail, returns *** in all non-standard cases
                 return self.C[a] + self.D[b]
+            else:
+                return '***'
 
     def __is_punct(self, string):
         if '།' in string or '༎' in string or '༏' in string or '༐' in string or '༑' in string or '༔' in string or ';' in string or ':' in string:
