@@ -160,6 +160,8 @@ class AntTib:
                                 psyl_b = self.to_ant_syl(self.SC.get_parts(psyl[1]))
                                 if psyl_b.startswith('a'):
                                     psyl_b = psyl_b[1:]
+                                elif psyl_b.endswith('a'):
+                                    psyl_b = psyl_b[:-1]
                                 ant_word.append(psyl_a + ' ' + psyl_b)
                             else:
                                 psyl = syl.split('-')
@@ -167,6 +169,8 @@ class AntTib:
                                 psyl_b = self.to_ant_syl(self.SC.get_parts(psyl[1]))
                                 if psyl_b.startswith('a'):
                                     psyl_b = psyl_b[1:]
+                                elif psyl_b.endswith('a'):
+                                    psyl_b = psyl_b[:-1]
                                 ant_word.append(psyl_a + ' ' + psyl_b)
                         else:
                             if syl.startswith(mark) and not syl.startswith(mark*3):
