@@ -141,7 +141,7 @@ class AntTib:
         ant_text = []
         for par in paragraphs:
             if ';' not in par and ':' not in par:
-                par = re.sub(r'([^་]) ', r'\1-', par)  # adds a - everywhere a space is not preceded by a tsek to find the merged particles
+                par = re.sub(r'([^་\*]) ', r'\1-', par)  # adds a - everywhere a space is not preceded by a tsek to find the merged particles
                 par = re.sub(r'་$', '', par.replace('་ ', ' '))  # delete all tsek at the end of words
                 ant_par = []
                 words = par.split(' ')
