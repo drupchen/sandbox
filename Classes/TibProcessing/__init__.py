@@ -14,7 +14,7 @@ lexicon.extend(monlam_verbs)
 lexicon.extend(particles)
 
 # data for SylComponents
-with open(os.path.join(this_dir, "data", "syl_components.json"), 'r', -1, 'utf-8-sig') as f:
+with open(os.path.join(this_dir, "data", "SylComponents.json"), 'r', -1, 'utf-8-sig') as f:
     data = json.loads(f.read())
 dadrag = data['dadrag']
 roots = data['roots']

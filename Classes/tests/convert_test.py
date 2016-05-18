@@ -5,24 +5,29 @@ path = os.path.join(path, '..')
 sys.path.insert(0, path)
 
 from TibProcessing import getSylComponents, Agreement, Segment, AntTib
-from TibProcessing.common import strip_list
-with open('./files/བསྟོད་ཚོགས། ཀ.txt', 'r', -1, 'utf-8-sig') as f:
+
+with open('./files/Lamrim_cut.txt', 'r', -1, 'utf-8-sig') as f:
     content = [line.strip() for line in f.readlines()]
 
-seg = []
-for c in content:
-    if c != '':
-        seg.append(Segment().segment(c, ant_segment=0, unknown=1))
-    else:
-        seg.append(c)
+#seg = []
+#for c in content:
+#    if c != '':
+#        seg.append(Segment().segment(c, ant_segment=0, unknown=1))
+#    else:
+#        seg.append(c)
 
 ant = []
-for s in seg:
+for s in content:
     if s != '':
         ant.append(AntTib().to_ant_text(s))
     else:
         ant.append(s)
 
+with open('./files/ant.txt', 'w', -1, 'utf-8-sig') as f:
+    f.write('\n'.join(ant))
+
+#with open('./files/ant.txt', 'r', -1, 'utf-8-sig') as f:
+#    ant = [line.strip() for line in f.readlines()]
 uni = []
 for a in ant:
     if a != '':
@@ -31,4 +36,4 @@ for a in ant:
         uni.append(a)
 
 with open('./files/uni.txt', 'w', -1, 'utf-8-sig') as f:
-    f.write(uni)
+    f.write('\n'.join(uni))

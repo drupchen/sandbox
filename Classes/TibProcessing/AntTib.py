@@ -114,8 +114,10 @@ class AntTib:
         # Prepare the string : delete all extra punctuations
         # replace the tabs by normal spaces
         string = string.replace('   ', ' ')
-        # replace all non-breaking tsek by a normal tsek
+        # replace all non-breaking tsek by a normal tshek
         string = string.replace('༌', '་')
+        # replace multiple tsek by a single one
+        string = re.sub(r'་+', r'་', string)
         # delete all yigos
         string = re.sub('(༄༅+|༆|༇|༈)།?༎? ?།?༎?', '', string)
         # split on the punctuation. here, a paragraph is just a chunk of text separated by shads.
@@ -129,9 +131,7 @@ class AntTib:
         # replace all shads by a ';' and the tershe by a ':'
         for num, element in enumerate(paragraphs):
             if '།' in element or '༏' in element or '༐' in element or '༑' in element:
-                paragraphs[num] = element.replace('།', ';').replace('༎', ';').replace('༏', ';').replace('༐',
-                                                                                                        ';').replace(
-                        '༑', ';')
+                paragraphs[num] = element.replace('།', ';').replace('༎', ';').replace('༏', ';').replace('༐', ';').replace('༑', ';')
             elif '༎' in element:
                 paragraphs[num] = element.replace('༎', ';;')
             elif '༔' in element:
@@ -141,8 +141,7 @@ class AntTib:
         ant_text = []
         for par in paragraphs:
             if ';' not in par and ':' not in par:
-                par = re.sub(r'([^་]) ', r'\1-',
-                             par)  # adds a - everywhere a space is not preceded by a tsek to find the merged particles
+                par = re.sub(r'([^་]) ', r'\1-', par)  # adds a - everywhere a space is not preceded by a tsek to find the merged particles
                 par = re.sub(r'་$', '', par.replace('་ ', ' '))  # delete all tsek at the end of words
                 ant_par = []
                 words = par.split(' ')
@@ -153,18 +152,28 @@ class AntTib:
                         # deals with the fusioned particles like མཐར་ that have become མཐའ ར་. we want to see 'mthav r'
                         # it is a bit of a hack because I already add a space instead of doing it with ' '.join()
                         if '-' in syl:
-                            if syl.startswith(mark):
+                            if syl.startswith(mark) and not syl.startswith(mark*3):  # passes the test if the syllable only starts with one *
                                 psyl = syl[1:].split('-')
-                                ant_word.append(
-                                        mark + self.to_ant_syl(self.SC.get_parts(psyl[0])) + ' ' + self.to_ant_syl(
-                                                self.SC.get_parts(psyl[1])).replace('a', ''))
+                                psyl_a = mark + self.to_ant_syl(self.SC.get_parts(psyl[0]))
+                                psyl_b = self.to_ant_syl(self.SC.get_parts(psyl[1]))
+                                if psyl_b.startswith('a'):
+                                    psyl_b = psyl_b[1:]
+                                ant_word.append(psyl_a + ' ' + psyl_b)
                             else:
                                 psyl = syl.split('-')
-                                ant_word.append(self.to_ant_syl(self.SC.get_parts(psyl[0])) + ' ' + self.to_ant_syl(
-                                        self.SC.get_parts(psyl[1])).replace('a', ''))
+                                psyl_a = self.to_ant_syl(self.SC.get_parts(psyl[0]))
+                                psyl_b = self.to_ant_syl(self.SC.get_parts(psyl[1]))
+                                if psyl_b.startswith('a'):
+                                    psyl_b = psyl_b[1:]
+                                ant_word.append(psyl_a + ' ' + psyl_b)
                         else:
-                            if syl.startswith(mark):
-                                ant_word.append(mark + self.to_ant_syl(self.SC.get_parts(syl[1:])))
+                            if syl.startswith(mark) and not syl.startswith(mark*3):
+                                # needed to this condition to not end up with ****
+                                psyl_c = self.to_ant_syl(self.SC.get_parts(syl[1:]))
+                                if psyl_c == mark*3:
+                                    ant_word.append(psyl_c)
+                                else:
+                                    ant_word.append(mark + psyl_c)
                             else:
                                 ant_word.append(self.to_ant_syl(self.SC.get_parts(syl)))
                     ant_par.append('x'.join(ant_word))
@@ -188,7 +197,7 @@ class AntTib:
         for par in paragraphs:
             if ';' not in par and ':' not in par:
                 ant_par = []
-                par = re.sub(r' (r|s|vi|vo) ', r'-\1 ', par)
+                par = re.sub(r' (r|s|vi|vo|vang|vam) ', r'-\1 ', par)  # all the Csuffixes
                 words = par.split(' ')
                 for word in words:
                     syls = word.split('x')
@@ -197,14 +206,14 @@ class AntTib:
                         # deals with the fusioned particles
                         # is a similar hack as for the previous function
                         if '-' in syl:
-                            if syl.startswith(mark):
+                            if syl.startswith(mark) and not syl.startswith(mark*3):
                                 psyl = syl[1:].split('-')
                                 ant_word.append(mark + self.from_ant_syl(psyl[0]) + ' ' + self.from_ant_syl(psyl[1]))
                             else:
                                 psyl = syl.split('-')
                                 ant_word.append(self.from_ant_syl(psyl[0]) + ' ' + self.from_ant_syl(psyl[1]))
                         else:
-                            if syl.startswith(mark):
+                            if syl.startswith(mark) and not syl.startswith(mark*3):
                                 ant_word.append(mark + self.from_ant_syl(syl[1:]))
                             else:
                                 ant_word.append(self.from_ant_syl(syl))
