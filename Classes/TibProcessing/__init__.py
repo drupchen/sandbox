@@ -71,4 +71,15 @@ def AntTib():
     SC = getSylComponents()
     return AntTib(t_roots, t_rareC, t_wazurC, t_NB, t_special, t_wazur, SC)
 
-__all__ = ['Segment', 'getSylComponents', 'Agreement', 'AntTib']
+def getAntTib():
+    if not getAntTib.instance:
+        getAntTib.instance = AntTib()
+    return getAntTib.instance
+getAntTib.instance = None
+
+def AntPut():
+    from .AntPut import AntPut
+    AT = getAntTib()
+    return AntPut(AT)
+
+__all__ = ['Segment', 'getSylComponents', 'Agreement', 'AntTib', 'AntPut']

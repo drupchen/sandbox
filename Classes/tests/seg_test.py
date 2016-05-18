@@ -12,8 +12,13 @@ print(getSylComponents().get_info('ཤིའི'))
 
 print(Agreement().part_agreement('ཁྲིས', 'གི'))
 
-print(Segment().segment('བཀྲ་ཤིས་བདེ་ལེགས༎ ༎', ant_segment=0, unknown=1))
+print("print(Segment().segment('བཀྲ་ཤིས་བདེ་ལེགས༎ ༎', ant_segment=0, unknown=0))")
+print(Segment().segment('བཀྲ་ཤིས་བདེ་ལེགས༎ ༎', ant_segment=0, unknown=0))
+print("print(Segment().segment('བཀྲ་ཤིས་བདེ་ལེགས༎ ༎', ant_segment=1, unknown=0))")
+print(Segment().segment('བཀྲ་ཤིས་བདེ་ལེགས༎ ༎', ant_segment=1, unknown=0))
 
-print(AntTib().to_ant_text('*** *མཚོ འང་ཡིན་xxx'))
+print("print(AntTib().to_ant_text('*** *མཚོ འང་ཡིན་xxx'))")
+print(AntTib().to_ant_text('*** *མཚོ འང་ཡིན་xxx je suis méchant'))
 
-#print(AntTib().from_ant_text('Je suis méchant.'))
+print("print(AntTib().from_ant_text('Je suis méchant.'))")
+print(AntTib().from_ant_text('Je suis méchant.'))
