@@ -1,7 +1,7 @@
 # coding: utf-8
 
 import re
-import Classes.TibProcessing as TP
+import Classes.TibTK as TP
 
 
 truc = TP.SylComponents()

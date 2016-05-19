@@ -6,9 +6,9 @@ sys.path.insert(0, path)
 
 from TibTK import AntPut
 
-#with open('../tests/files/lamrim-chenmo-word-list.txt', 'r', -1, 'utf-8-sig') as f:
-#    content = f.read()
+with open('../tests/files/AntPut/Level 1 - 1000 words.txt', 'r', -1, 'utf-8-sig') as f:
+    content = f.read()
 
-#output = AntPut().keyword_list(content)
-#with open('../tests/files/lamrim-word-list_uni.txt', 'w', -1, 'utf-8-sig') as f:
-#    f.write(output)
+output = AntPut().words(content)
+with open('../tests/files/words_uni.txt', 'w', -1, 'utf-8-sig') as f:
+    f.write(output)
