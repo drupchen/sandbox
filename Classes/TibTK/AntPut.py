@@ -8,6 +8,7 @@ class AntPut:
         self.sep = ','
         self.nums = r'[.0-9]+\t'
         self.chars = r'[ a-zA-Z]+'
+        self.conv = 0  # value to return if file already converted
 
     def __add_dash(self, ant, tib):
         """
@@ -51,6 +52,10 @@ class AntPut:
         return out
 
     def keyword_list(self, string):
+        # check for already converted file
+        if '་' in string:
+            return self.conv
+
         lines = string.split('\n')
         strip_list(lines)
 
@@ -67,6 +72,10 @@ class AntPut:
             return None
 
     def cluster(self, string):
+        # check for already converted file
+        if '་' in string:
+            return self.conv
+
         lines = string.split('\n')
         strip_list(lines)
 
@@ -83,6 +92,10 @@ class AntPut:
             return None
 
     def collocates(self, string):
+        # check for already converted file
+        if '་' in string:
+            return self.conv
+
         lines = string.split('\n')
         strip_list(lines)
 
@@ -99,6 +112,10 @@ class AntPut:
             return None
 
     def ngram(self, string):
+        # check for already converted file
+        if '་' in string:
+            return self.conv
+
         lines = string.split('\n')
         strip_list(lines)
 
@@ -115,6 +132,10 @@ class AntPut:
             return None
 
     def word_list(self, string):
+        # check for already converted file
+        if '་' in string:
+            return self.conv
+
         lines = string.split('\n')
         strip_list(lines)
 
@@ -131,6 +152,10 @@ class AntPut:
             return None
 
     def concordance(self, string):
+        # check for already converted file
+        if '་' in string:
+            return self.conv
+
         lines = string.split('\n')
         strip_list(lines)
 
@@ -159,6 +184,10 @@ class AntPut:
         :param string:
         :return:
         """
+        # check for already converted file
+        if '་' in string:
+            return self.conv
+
         words = string.split(' ')
 
         converted = []
@@ -171,6 +200,10 @@ class AntPut:
         return ' '.join(converted)
 
     def profiler_stats(self, string):
+        # check for already converted file
+        if '་' in string:
+            return self.conv
+
         lines = string.split('\n')
         strip_list(lines)
 
@@ -199,6 +232,10 @@ class AntPut:
         :param string:
         :return:
         """
+        # check for already converted file
+        if '་' in string:
+            return self.conv
+
         if '\r\n' in string:
             lines = string.split('\r\n')
         else:

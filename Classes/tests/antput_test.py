@@ -60,6 +60,6 @@ results = {
     '1000_words': pws,    # AntPut().words() same for 'level list' files
     'statistics': pst,    # AntPut().profiler_stats()
 }
-for result in results:
-    with open('../tests/files/AntPut/Out/'+result+'_uni.csv', 'w', -1, 'utf-8-sig') as f:
-        f.write(results[result])
+#for result in results:
+#    with open('../tests/files/AntPut/Out/'+result+'_uni.csv', 'w', -1, 'utf-8-sig') as f:
+#        f.write(results[result])
