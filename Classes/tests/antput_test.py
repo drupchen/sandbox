@@ -34,6 +34,10 @@ with open('../tests/files/AntPut/In/antprofiler_level list.txt', 'r', -1, 'utf-8
     content_g = f.read()
 pll = AntPut().words(content_g)
 
+with open('../tests/files/AntPut/In/antprofiler_level tags.txt', 'r', -1, 'utf-8-sig') as f:
+    content_h = f.read()
+plt = AntPut().profiler_tags(content_h)
+
 with open('../tests/files/AntPut/In/Level 1 - 1000 words.txt', 'r', -1, 'utf-8-sig') as f:
     content_i = f.read()
 pws = AntPut().words(content_i)
@@ -52,7 +56,8 @@ results = {
     'word_list': wdl,     # AntPut().word_list()
     # Word profiler
     'level_list': pll,    # AntPut().words()
-    '1000_words': pws,    # AntPut().words()
+    'level_tags': plt,    # Antput().profiler_tags() same for 'non level tags' files
+    '1000_words': pws,    # AntPut().words() same for 'level list' files
     'statistics': pst,    # AntPut().profiler_stats()
 }
 for result in results:

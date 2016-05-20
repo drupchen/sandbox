@@ -11,7 +11,6 @@ class AntPut:
 
     def __add_dash(self, ant, tib):
         """
-
         :param ant: a syllable in ant
         :param tib: the same syllable converted to unicode
         :return: the syllable in unicode with a dash for merged particles
@@ -23,7 +22,7 @@ class AntPut:
 
     def __process(self, lines, comments, num, l_regex):
         """
-        Serves as the common part of all lists to be proceeded
+        Serves as the common part of all AntConc lists to be processed
         :param lines: list to be processed
         :param comments: the number of first lines starting with #
         :param num: number of columns filled with numbers
