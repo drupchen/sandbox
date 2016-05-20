@@ -20,9 +20,9 @@ def strip_list(l):
     :param l: list to strip
     :return: the list without 1rst and last element if they were empty elements
     """
-    while l[0] == '':
+    while len(l) > 0 and l[0] == '':
         del l[0]
-    while l[len(l) - 1] == '':
+    while len(l) > 0 and l[len(l) - 1] == '':
         del l[len(l) - 1]
 
 

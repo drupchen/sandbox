@@ -35,5 +35,5 @@ for a in ant:
     else:
         uni.append(a)
 
-with open('./files/uni.txt', 'w', -1, 'utf-8-sig') as f:
+with open('./files/lamrim_commentary_uni.txt', 'w', -1, 'utf-8-sig') as f:
     f.write('\n'.join(uni))

@@ -65,6 +65,8 @@ class AntTib:
         """
         if syl == '***':
             return '***'
+        elif syl == '':
+            return ''
         else:
             a = ''
             if syl in self.E:
@@ -203,9 +205,11 @@ class AntTib:
         for par in paragraphs:
             if ';' not in par and ':' not in par:
                 ant_par = []
-                par = re.sub(r' (r|s|vi|vo|vang|vam) ', r'-\1 ', par)  # all the Csuffixes
+                par = re.sub(r' (r|s|vi|vo|vang|vam)( |$)', r'-\1\2', par)  # all the Csuffixes
                 words = par.split(' ')
                 for word in words:
+                    if word.endswith('x'):  # delete the x at the end of words
+                        word = word[:-1]
                     syls = word.split('x')
                     ant_word = []
                     for syl in syls:

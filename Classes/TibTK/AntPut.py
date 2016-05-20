@@ -5,11 +5,23 @@ class AntPut:
     def __init__(self, AT):
         self.AT = AT
         self.bad_line = '*** '*5+'BAD LINE '+'*** '*5+'\n'
-        self.sep = '\t'
+        self.sep = ','
         self.nums = r'[.0-9]+\t'
         self.chars = r'[ a-zA-Z]+'
 
-    def process(self, lines, comments, num, l_regex):
+    def __add_dash(self, ant, tib):
+        """
+
+        :param ant: a syllable in ant
+        :param tib: the same syllable converted to unicode
+        :return: the syllable in unicode with a dash for merged particles
+        """
+        if ant in ['vi', 'vam', 'vo', 'vang', 'r', 's']:
+            return '-' + tib
+        else:
+            return tib
+
+    def __process(self, lines, comments, num, l_regex):
         """
         Serves as the common part of all lists to be proceeded
         :param lines: list to be processed
@@ -31,9 +43,8 @@ class AntPut:
                 parts = line.split('\t')
                 for i in range(num):
                     l_out += parts[i]+self.sep
-                tib = self.AT.from_ant_text(parts[num]).replace('***་', '་')
-                if len(parts[num]) == 1:
-                    tib = '-'+tib  # add a - to show it is a merged particle
+                tib = self.AT.from_ant_text(parts[num])
+                tib = self.__add_dash(parts[num], tib)
                 l_out += tib+self.sep
                 out += l_out+'\n'
             else:
@@ -48,7 +59,7 @@ class AntPut:
         num = 3  # number of columns with numbers
         l_regex = self.nums * num + self.chars
         if re.match(r'#Types Before Cut: [.0-9]+', lines[0]) and re.match(r'#Types After Cut: [.0-9]+', lines[1]) and re.match(r'#Search Hits: [.0-9]+', lines[2]) and re.match(l_regex, lines[3]):
-            process = self.process(lines, comments, num, l_regex)
+            process = self.__process(lines, comments, num, l_regex)
             if not process:
                 return None
             else:
@@ -64,7 +75,7 @@ class AntPut:
         num = 3  # number of columns with numbers
         l_regex = self.nums * num + self.chars
         if re.match(r'#Total No. of Cluster Types: [0-9]+', lines[0]) and re.match(r'#Total No. of Cluster Tokens: [0-9]+', lines[1]) and re.match(l_regex, lines[2]):
-            process = self.process(lines, comments, num, l_regex)
+            process = self.__process(lines, comments, num, l_regex)
             if not process:
                 return None
             else:
@@ -80,7 +91,7 @@ class AntPut:
         num = 5  # number of columns with numbers
         l_regex = self.nums * num + self.chars
         if re.match(r'#Total No. of Collocate Types: [0-9]+', lines[0]) and re.match(r'#Total No. of Collocate Tokens: [0-9]+', lines[1]) and re.match(l_regex, lines[2]):
-            process = self.process(lines, comments, num, l_regex)
+            process = self.__process(lines, comments, num, l_regex)
             if not process:
                 return None
             else:
@@ -96,7 +107,7 @@ class AntPut:
         num = 3  # number of columns with numbers
         l_regex = self.nums * num + self.chars
         if re.match(r'#Total No. of N-Gram Types: [0-9]+', lines[0]) and re.match(r'#Total No. of N-Gram Tokens: [0-9]+', lines[1]) and re.match(l_regex, lines[2]):
-            process = self.process(lines, comments, num, l_regex)
+            process = self.__process(lines, comments, num, l_regex)
             if not process:
                 return None
             else:
@@ -111,8 +122,8 @@ class AntPut:
         comments = 3  # number of commented lines at the beginning
         num = 2  # number of columns with numbers
         l_regex = self.nums * num + self.chars
-        if re.match(r'#Word Types: [0-9]+', lines[0]) and  re.match(r'#Word Tokens: [0-9]+', lines[1]) and re.match(r'#Search Hits: [0-9]+', lines[2]) and re.match(l_regex, lines[3]):
-            process = self.process(lines, comments, num, l_regex)
+        if re.match(r'#Word Types: [0-9]+', lines[0]) and re.match(r'#Word Tokens: [0-9]+', lines[1]) and re.match(r'#Search Hits: [0-9]+', lines[2]) and re.match(l_regex, lines[3]):
+            process = self.__process(lines, comments, num, l_regex)
             if not process:
                 return None
             else:
@@ -144,6 +155,11 @@ class AntPut:
             return None
 
     def profiler_tags(self, string):
+        """
+        serves for 'level tags' files and for 'non level tags' files
+        :param string:
+        :return:
+        """
         words = string.split(' ')
 
         converted = []
@@ -159,18 +175,17 @@ class AntPut:
         lines = string.split('\n')
         strip_list(lines)
 
-        comments = 33  # number of commented lines at the beginning
-        num = 2  # number of columns with numbers
         l_regex = self.chars+'\t'+self.nums+r'[0-9]+'
         if re.match(r'Group	Range	Freq	uf_1', lines[32]) and re.match(l_regex, lines[33]):
                 out = ''
-                out += '\n'.join(lines[:33])
+                out += ('\n'.join(lines[:33])+'\n').replace('\t', self.sep)
                 del lines[:33]
 
                 for line in lines:
                     if re.match(l_regex, line):
                         parts = line.split('\t')
                         l_out = self.AT.from_ant_text(parts[0]) + self.sep
+                        l_out = self.__add_dash(parts[0], l_out)
                         l_out += self.sep.join(parts[1:])
                         out += l_out + '\n'
                     else:
@@ -180,12 +195,29 @@ class AntPut:
             return None
 
     def words(self, string):
-        lines = string.split('\n')
+        """
+        Serves for both 'level list' output files and for '1 - 1000 words' files
+        :param string:
+        :return:
+        """
+        if '\r\n' in string:
+            lines = string.split('\r\n')
+        else:
+            lines = string.split('\n')
         strip_list(lines)
         words = []
         for word in lines:
-            w = self.AT.from_ant_text(word)
-            if len(word) <= 1:
-                w = '-'+w
-            words.append(w)
+            if word != '':
+                parts = re.split(r'([\s\t]+)', word)
+                w = ''
+                if len(parts) > 1:
+                    w += ''.join(parts[:-1])
+                    tib = self.AT.from_ant_text(parts[-1])
+                    w += self.__add_dash(parts[-1], tib)
+                else:
+                    tib = self.AT.from_ant_text(parts[0])
+                    w += self.__add_dash(parts[0], tib)
+                words.append(w)
+            else:
+                words.append(word)
         return '\n'.join(words)
