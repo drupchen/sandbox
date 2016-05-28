@@ -1,4 +1,4 @@
-with open('../TibTK/data/lexicon.txt', 'r', -1, 'utf-8-sig') as f:
+with open('../PYTib/data/lexicon.txt', 'r', -1, 'utf-8-sig') as f:
     words = [word.strip() for word in f.readlines()]
 
 length = []

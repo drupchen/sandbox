@@ -4,7 +4,7 @@ path = os.path.dirname(sys.modules[__name__].__file__)
 path = os.path.join(path, '..')
 sys.path.insert(0, path)
 
-from TibTK import getSylComponents, Agreement, Segment, AntTib
+from PYTib import getSylComponents, Agreement, Segment, AntTib
 
 #print(getSylComponents().get_parts('དེའིའོ'))
 

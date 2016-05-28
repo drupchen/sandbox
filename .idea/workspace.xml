@@ -1,26 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5c7a8432-c30c-4455-9c02-1f3a74d7f6d6" name="Default" comment="all methods now return">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Classes/TibTK/~Segmentation.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Classes/new_lexicon/compound.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Classes/new_lexicon/extract_composed.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Classes/new_lexicon/len_list.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Classes/new_lexicon/lexicon.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Classes/new_lexicon/lexicon_create.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Classes/new_lexicon/manual.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Classes/new_lexicon/sskrt.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Classes/tests/no_space.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/TibProcessing.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/__init__.py" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/TibTK/data/lexicon.txt" afterPath="$PROJECT_DIR$/Classes/TibTK/data/~lexicon.txt" />
+    <list default="true" id="5c7a8432-c30c-4455-9c02-1f3a74d7f6d6" name="Default" comment="update">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/TibTK/Agreement.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/TibTK/AntPut.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/TibTK/AntTib.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/TibTK/Segmentation.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/TibTK/SylComponents.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/TibTK/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/TibTK/common.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/TibTK/data/Agreement.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/TibTK/data/AntTib.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/TibTK/data/SylComponents.backup" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/TibTK/data/SylComponents.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/TibTK/data/lexicon.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/TibTK/data/monlam1_verbs.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/TibTK/data/particles.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/TibTK/data/~lexicon.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/TibTK/~Segmentation.py" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/TibTK/Agreement.py" afterPath="$PROJECT_DIR$/Classes/PYTib/Agreement.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/TibTK/AntPut.py" afterPath="$PROJECT_DIR$/Classes/PYTib/AntPut.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/TibTK/AntTib.py" afterPath="$PROJECT_DIR$/Classes/PYTib/AntTib.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/TibTK/Segmentation.py" afterPath="$PROJECT_DIR$/Classes/PYTib/Segmentation.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/TibTK/SylComponents.py" afterPath="$PROJECT_DIR$/Classes/PYTib/SylComponents.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/TibTK/__init__.py" afterPath="$PROJECT_DIR$/Classes/PYTib/__init__.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/TibTK/common.py" afterPath="$PROJECT_DIR$/Classes/PYTib/common.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/TibTK/data/Agreement.json" afterPath="$PROJECT_DIR$/Classes/PYTib/data/Agreement.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/TibTK/data/AntTib.json" afterPath="$PROJECT_DIR$/Classes/PYTib/data/AntTib.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/TibTK/data/SylComponents.backup" afterPath="$PROJECT_DIR$/Classes/PYTib/data/SylComponents.backup" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/TibTK/data/SylComponents.json" afterPath="$PROJECT_DIR$/Classes/PYTib/data/SylComponents.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/TibTK/data/lexicon.txt" afterPath="$PROJECT_DIR$/Classes/PYTib/data/lexicon.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/TibTK/data/monlam1_verbs.txt" afterPath="$PROJECT_DIR$/Classes/PYTib/data/monlam1_verbs.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/TibTK/data/particles.json" afterPath="$PROJECT_DIR$/Classes/PYTib/data/particles.json" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/TibTK/data/~lexicon.txt" afterPath="$PROJECT_DIR$/Classes/PYTib/data/~lexicon.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/TibTK/~Segmentation.py" afterPath="$PROJECT_DIR$/Classes/PYTib/~Segmentation.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/TibTK/Segmentation.py" afterPath="$PROJECT_DIR$/Classes/TibTK/Segmentation.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/TibTK/data/SylComponents.json" afterPath="$PROJECT_DIR$/Classes/TibTK/data/SylComponents.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/TibTK/data/lexicon.txt" afterPath="$PROJECT_DIR$/Classes/TibTK/data/lexicon.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/new_lexicon/len_list.py" afterPath="$PROJECT_DIR$/Classes/new_lexicon/len_list.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/new_lexicon/lexicon_create.py" afterPath="$PROJECT_DIR$/Classes/new_lexicon/lexicon_create.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/tests/antput_test.py" afterPath="$PROJECT_DIR$/Classes/tests/antput_test.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/tests/convert_test.py" afterPath="$PROJECT_DIR$/Classes/tests/convert_test.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/tests/no_space.py" afterPath="$PROJECT_DIR$/Classes/tests/no_space.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/tests/seg_test.py" afterPath="$PROJECT_DIR$/Classes/tests/seg_test.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/particle flexion/particle_flexion.py" afterPath="$PROJECT_DIR$/particle flexion/particle_flexion.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spellcheck/segmentation.py" afterPath="$PROJECT_DIR$/spellcheck/segmentation.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/totsok corrections.py" afterPath="$PROJECT_DIR$/totsok corrections.py" />
     </list>
     <list id="7ae00310-ce78-4316-87ca-9995d5c2d71f" name="Failed commit: Default" comment="AntPut output debugged" />
     <ignored path="sandbox.iws" />
@@ -41,7 +62,7 @@
     <favorites_list name="sandbox" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="lexicon_create.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Classes/new_lexicon/lexicon_create.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -76,7 +97,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sskrt.txt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="sskrt.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Classes/new_lexicon/sskrt.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
@@ -86,14 +107,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Segmentation.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Classes/TibTK/Segmentation.py">
+      <file leaf-file-name="Agreement.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Classes/PYTib/data/Agreement.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-268">
-              <caret line="80" column="51" selection-start-line="80" selection-start-column="51" selection-end-line="80" selection-end-column="51" />
-              <folding>
-                <element signature="e#17#26#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="300">
+              <caret line="20" column="3" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -217,9 +236,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
-      <pane id="NBKnowledgePane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -301,35 +318,11 @@
               <option name="myItemId" value="Classes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TibTK" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sandbox" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sandbox" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Classes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TibTK" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="NBKnowledgePane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -929,7 +922,14 @@
       <option name="project" value="LOCAL" />
       <updated>1463775695279</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="update">
+      <created>1464421087996</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1464421087996</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TodoView">
@@ -945,24 +945,24 @@
     <frame x="0" y="8" width="1920" height="1161" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18114798" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18114798" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3275862" sideWeight="0.49342105" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32662836" sideWeight="0.54186416" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32854405" sideWeight="0.4918378" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3256705" sideWeight="0.46445498" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32875368" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33237547" sideWeight="0.45813587" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Unicode Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.122696154" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32777232" sideWeight="0.49605057" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39367816" sideWeight="0.47393364" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39925024" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33237547" sideWeight="0.45813587" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39367816" sideWeight="0.47393364" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3284169" sideWeight="0.49342105" order="6" side_tool="false" content_ui="tabs" />
@@ -1017,14 +1017,14 @@
     <MESSAGE value="bug fixed so far !" />
     <MESSAGE value="*** *WORD that ended in *** in anttib fixed" />
     <MESSAGE value="error in from_ant_text() catched. now returns *** if no values found in self.A and self.D" />
-    <MESSAGE value="update" />
     <MESSAGE value="merged particles bug fixed" />
     <MESSAGE value="name change" />
     <MESSAGE value="relative link" />
     <MESSAGE value="AntPut implemented" />
     <MESSAGE value="AntPut output debugged" />
     <MESSAGE value="all AntPut methods now return self.conv when already converted file detected" />
-    <option name="LAST_COMMIT_MESSAGE" value="all AntPut methods now return self.conv when already converted file detected" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1089,13 +1089,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Classes/tests/files/AntPut/In/antconc_keyword list.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="22" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Classes/tests/files/AntPut/Out/level_tags_uni.txt" />
     <entry file="file://$PROJECT_DIR$/Classes/tests/files/AntPut/In/antprofiler_non level tags.txt">
       <provider selected="true" editor-type-id="text-editor">
@@ -1197,7 +1190,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/TibTK/AntPut.py">
+    <entry file="file://$PROJECT_DIR$/Classes/PYTib/AntPut.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3186">
           <caret line="10" column="66" selection-start-line="10" selection-start-column="66" selection-end-line="10" selection-end-column="66" />
@@ -1262,19 +1255,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/TibTK/data/SylComponents.json">
+    <entry file="file://$PROJECT_DIR$/Classes/PYTib/data/SylComponents.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="585">
           <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/TibTK/AntTib.py">
+    <entry file="file://$PROJECT_DIR$/Classes/PYTib/AntTib.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="98" column="0" selection-start-line="98" selection-start-column="0" selection-end-line="108" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1288,19 +1279,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/TibTK/data/AntTib.json">
+    <entry file="file://$PROJECT_DIR$/Classes/PYTib/data/AntTib.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
           <caret line="69" column="94" selection-start-line="69" selection-start-column="94" selection-end-line="69" selection-end-column="94" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/TibTK/SylComponents.py">
+    <entry file="file://$PROJECT_DIR$/Classes/PYTib/SylComponents.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1318,7 +1307,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1060">
           <caret line="1121" column="6" selection-start-line="1121" selection-start-column="6" selection-end-line="1121" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1326,15 +1314,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="775" column="73" selection-start-line="775" selection-start-column="73" selection-end-line="775" selection-end-column="73" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/TibTK/data/lexicon.txt">
+    <entry file="file://$PROJECT_DIR$/Classes/PYTib/data/lexicon.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1350,7 +1336,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="232">
           <caret line="310" column="0" selection-start-line="310" selection-start-column="0" selection-end-line="310" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1358,7 +1343,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1370,19 +1354,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/TibTK/~Segmentation.py">
+    <entry file="file://$PROJECT_DIR$/Classes/PYTib/~Segmentation.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="645">
           <caret line="89" column="35" selection-start-line="89" selection-start-column="35" selection-end-line="89" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/TibTK/common.py">
+    <entry file="file://$PROJECT_DIR$/Classes/PYTib/common.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1390,15 +1372,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="202">
           <caret line="181" column="0" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/TibTK/__init__.py">
+    <entry file="file://$PROJECT_DIR$/Classes/PYTib/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
           <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1420,16 +1400,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/TibTK/Segmentation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-268">
-          <caret line="80" column="51" selection-start-line="80" selection-start-column="51" selection-end-line="80" selection-end-column="51" />
-          <folding>
-            <element signature="e#17#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Classes/new_lexicon/lexicon_create.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
@@ -1444,6 +1414,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/PYTib/Segmentation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="80" column="51" selection-start-line="80" selection-start-column="51" selection-end-line="80" selection-end-column="51" />
+          <folding>
+            <element signature="e#17#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/PYTib/data/Agreement.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="3" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
           <folding />
         </state>
       </provider>
