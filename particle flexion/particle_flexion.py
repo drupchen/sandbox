@@ -81,7 +81,6 @@ regex += ')'
 # check file format, open and apply regex
 for file in os.listdir('./IN/'):
     if file.endswith(".txt"):
-    #todo - replace \n by \s try: with open('drugs') as temp_file: \n drugs = [line.rstrip('\n') for line in temp_file]
         try:
             with open('./IN/' + file, 'r', -1, 'utf-8-sig') as f:
                 current_file = f.read()

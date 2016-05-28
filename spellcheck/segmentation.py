@@ -131,7 +131,6 @@ words[11]
 
 for file in os.listdir('./IN/'):
     if file.endswith(".txt"):
-        # todo - replace \n by \s try: with open('drugs') as temp_file: \n drugs = [line.rstrip('\n') for line in temp_file]
         try:
             with open('./IN/' + file, 'r', -1, 'utf-8-sig') as f:
                 current_file = f.read().replace('\n', '').replace('\r\n', '')
@@ -144,7 +143,7 @@ for file in os.listdir('./IN/'):
         #input()
     #start = time.time()
     ######################
-    # segmentation process
+    # segmentation __process
     merged_part = r'(ར|ས|འི|འམ|འང)$'
     
     syls = re.sub(r"([།|༎|༏|༐|༑|༔|\s]+)", "་\g<1>་", current_file)

@@ -17,14 +17,6 @@ class Segment:
         self.lexicon = sorted(self.lexicon)
         self.len_lexicon = len(self.lexicon)
 
-        # calculate the sizes of words in the lexicon, for segment()
-        self.len_word_syls = []
-        for word in self.lexicon:
-            l = len(word.split('་'))
-            if l not in self.len_word_syls:
-                self.len_word_syls.append(l)
-        self.len_word_syls = sorted(self.len_word_syls, reverse=True)
-
         self.n = 0  # counter needed between methods segment() and __process()
 
     def is_word(self, maybe):
@@ -84,21 +76,19 @@ class Segment:
 
                 self.n = 0
                 while self.n < len(syls):
-                    for l_w in self.len_word_syls:
-                        if self.is_word('་'.join(syls[self.n:self.n + l_w])):
-                            self.__process(syls, words, l_w)
-                        elif len(syls[self.n:self.n + l_w]) == 1:
-                            if unknown == 0:
-                                words.append('་'.join(syls[self.n:self.n + 1]) + '་')
-                            elif unknown == 1:
-                                words.append(mark + '་'.join(syls[self.n:self.n + 1]) + '་')
-                            self.n += 1
+                    if len(syls[self.n:self.n + 3]) == 3 and self.is_word('་'.join(syls[self.n:self.n + 3])):
+                        self.__process(syls, words, 3)
+                    elif len(syls[self.n:self.n + 2]) == 2 and self.is_word('་'.join(syls[self.n:self.n + 2])):
+                        self.__process(syls, words, 2)
+                    elif len(syls[self.n:self.n + 1]) == 1 and self.is_word('་'.join(syls[self.n:self.n + 1])):
+                        self.__process(syls, words, 1)
+                    else:
+                        if unknown == 0:
+                            words.append('་'.join(syls[self.n:self.n + 1]) + '་')
+                        elif unknown == 1:
+                            words.append(mark + '་'.join(syls[self.n:self.n + 1]) + '་')
+                        self.n += 1
                 paragraph = ' '.join(words)
-
-                # regroup པ་བ་པོ་བོ་ with previous syllables
-                # we leave the disambiguation of syntax versus morphological unities for POS Tagging
-                paragraph = re.sub(r' (པ|བ|པོ|བོ)', r'\1', paragraph)
-
                 if not paragraph.endswith('ང་'):
                     paragraph = paragraph[:-1]
                 #########
