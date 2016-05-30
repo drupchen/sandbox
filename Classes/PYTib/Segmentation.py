@@ -86,10 +86,12 @@ class Segment:
 
                 self.n = 0
                 while self.n < len(syls):
+                    not_processed = True  # if a word has been found (value is False), don’t try to process the word
                     for l_w in self.len_word_syls:
-                        if self.is_word('་'.join(syls[self.n:self.n + l_w])):
+                        if not_processed is True and self.is_word('་'.join(syls[self.n:self.n + l_w])):
                             self.__process(syls, words, l_w)
-                        elif len(syls[self.n:self.n + l_w]) == 1:
+                            not_processed = False
+                        elif not_processed is True and len(syls[self.n:self.n + l_w]) == 1:
                             if unknown == 0:
                                 words.append('་'.join(syls[self.n:self.n + 1]) + '་')
                             elif unknown == 1:
@@ -117,15 +119,14 @@ class Segment:
         return ''.join(text)
 
     def do_compound(self, segmented):
-        out = segmented
         for comp in self.compound:
             parts = comp.split(';')
             #left_context =  parts[0]
             rep = parts[1]
             #right_context = parts[2]
             # context not implemented yet
-            out = out.replace(rep, rep.replace(' ', ''))
-        return out
+            segmented = segmented.replace(rep, rep.replace(' ', ''))
+        return segmented
 
     def segment(self, string, ant_segment, unknown):
         uncompound = self.raw_segmented(string, ant_segment, unknown)
