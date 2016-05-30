@@ -4,14 +4,20 @@ from .SylComponents import SylComponents
 this_dir, this_filename = os.path.split(__file__)
 
 # lexicon used by Segment
-with open(os.path.join(this_dir, "data", "lexicon.txt"), 'r', -1, 'utf-8-sig') as f:
+with open(os.path.join(this_dir, "data", "uncompound_lexicon.txt"), 'r', -1, 'utf-8-sig') as f:
     lexicon = [line.strip() for line in f.readlines()]
-with open(os.path.join(this_dir, "data", "monlam1_verbs.txt"), 'r', -1, 'utf-8-sig') as f:
-    monlam_verbs = [line.strip().split(' | ')[0] for line in f.readlines()]
+# extensions to the lexicon : exceptions (sskrt + others), particles
+with open(os.path.join(this_dir, "data", "exceptions.txt"), 'r', -1, 'utf-8-sig') as f:
+    lexicon.extend([line.strip() for line in f.readlines()])
 with open(os.path.join(this_dir, "data", "particles.json"), 'r', -1, 'utf-8-sig') as f:
-    particles = json.loads(f.read())['particles']
-lexicon.extend(monlam_verbs)
-lexicon.extend(particles)
+    lexicon.extend(json.loads(f.read())['particles'])
+# compound words to join by default
+with open(os.path.join(this_dir, "data", "compound_lexicon.txt"), 'r', -1, 'utf-8-sig') as f:
+    compound = [line.strip() for line in f.readlines()]
+#with open(os.path.join(this_dir, "data", "monlam1_verbs.txt"), 'r', -1, 'utf-8-sig') as f:
+#    monlam_verbs = [line.strip().split(' | ')[0] for line in f.readlines()]
+
+
 
 # data for SylComponents
 with open(os.path.join(this_dir, "data", "SylComponents.json"), 'r', -1, 'utf-8-sig') as f:
@@ -57,7 +63,7 @@ getSylComponents.instance = None
 def Segment():
     from .Segmentation import Segment, strip_list, search
     SC = getSylComponents()
-    return Segment(lexicon, SC)
+    return Segment(lexicon, compound, SC)
 
 
 def Agreement():
@@ -71,11 +77,13 @@ def AntTib():
     SC = getSylComponents()
     return AntTib(t_roots, t_rareC, t_wazurC, t_NB, t_special, t_wazur, SC)
 
+
 def getAntTib():
     if not getAntTib.instance:
         getAntTib.instance = AntTib()
     return getAntTib.instance
 getAntTib.instance = None
+
 
 def AntPut():
     from .AntPut import AntPut

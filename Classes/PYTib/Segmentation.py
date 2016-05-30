@@ -7,7 +7,7 @@ mark = '*'  # marker of unknown syllables. Can’t be a letter. Only 1 char allo
 
 
 class Segment:
-    def __init__(self, lexicon, SC):
+    def __init__(self, lexicon, compound, SC):
         self.lexicon = lexicon
         self.merged_part = r'(ར|ས|འི|འམ|འང|འོ)$'
         self.punct_regex = r'([༄༅༆༇༈།༎༏༐༑༔\s]+)'
@@ -16,6 +16,8 @@ class Segment:
         # for bisect
         self.lexicon = sorted(self.lexicon)
         self.len_lexicon = len(self.lexicon)
+
+        self.compound = compound
 
         # calculate the sizes of words in the lexicon, for segment()
         self.len_word_syls = []
@@ -64,7 +66,7 @@ class Segment:
             # del list1[:num]
             self.n = self.n + num
 
-    def segment(self, string, ant_segment, unknown):
+    def raw_segmented(self, string, ant_segment, unknown):
         """
 
         :param string: takes a unicode text file as input
@@ -97,7 +99,7 @@ class Segment:
 
                 # regroup པ་བ་པོ་བོ་ with previous syllables
                 # we leave the disambiguation of syntax versus morphological unities for POS Tagging
-                paragraph = re.sub(r' (པ|བ|པོ|བོ)', r'\1', paragraph)
+                paragraph = re.sub(r' (པ|བ|པོ|བོ)(\s|་)', r'\1\2', paragraph)
 
                 if not paragraph.endswith('ང་'):
                     paragraph = paragraph[:-1]
@@ -113,6 +115,22 @@ class Segment:
         #
         ######################
         return ''.join(text)
+
+    def do_compound(self, segmented):
+        out = segmented
+        for comp in self.compound:
+            parts = comp.split(';')
+            #left_context =  parts[0]
+            rep = parts[1]
+            #right_context = parts[2]
+            # context not implemented yet
+            out = out.replace(rep, rep.replace(' ', ''))
+        return out
+
+    def segment(self, string, ant_segment, unknown):
+        uncompound = self.raw_segmented(string, ant_segment, unknown)
+        compound = self.do_compound(uncompound)
+        return compound
 
 
 def main():

@@ -1,47 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5c7a8432-c30c-4455-9c02-1f3a74d7f6d6" name="Default" comment="update">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/TibTK/Agreement.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/TibTK/AntPut.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/TibTK/AntTib.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/TibTK/Segmentation.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/TibTK/SylComponents.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/TibTK/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/TibTK/common.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/TibTK/data/Agreement.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/TibTK/data/AntTib.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/TibTK/data/SylComponents.backup" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/TibTK/data/SylComponents.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/TibTK/data/lexicon.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/TibTK/data/monlam1_verbs.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/TibTK/data/particles.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/TibTK/data/~lexicon.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/TibTK/~Segmentation.py" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/TibTK/Agreement.py" afterPath="$PROJECT_DIR$/Classes/PYTib/Agreement.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/TibTK/AntPut.py" afterPath="$PROJECT_DIR$/Classes/PYTib/AntPut.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/TibTK/AntTib.py" afterPath="$PROJECT_DIR$/Classes/PYTib/AntTib.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/TibTK/Segmentation.py" afterPath="$PROJECT_DIR$/Classes/PYTib/Segmentation.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/TibTK/SylComponents.py" afterPath="$PROJECT_DIR$/Classes/PYTib/SylComponents.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/TibTK/__init__.py" afterPath="$PROJECT_DIR$/Classes/PYTib/__init__.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/TibTK/common.py" afterPath="$PROJECT_DIR$/Classes/PYTib/common.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/TibTK/data/Agreement.json" afterPath="$PROJECT_DIR$/Classes/PYTib/data/Agreement.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/TibTK/data/AntTib.json" afterPath="$PROJECT_DIR$/Classes/PYTib/data/AntTib.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/TibTK/data/SylComponents.backup" afterPath="$PROJECT_DIR$/Classes/PYTib/data/SylComponents.backup" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/TibTK/data/SylComponents.json" afterPath="$PROJECT_DIR$/Classes/PYTib/data/SylComponents.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/TibTK/data/lexicon.txt" afterPath="$PROJECT_DIR$/Classes/PYTib/data/lexicon.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/TibTK/data/monlam1_verbs.txt" afterPath="$PROJECT_DIR$/Classes/PYTib/data/monlam1_verbs.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/TibTK/data/particles.json" afterPath="$PROJECT_DIR$/Classes/PYTib/data/particles.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/TibTK/data/~lexicon.txt" afterPath="$PROJECT_DIR$/Classes/PYTib/data/~lexicon.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/TibTK/~Segmentation.py" afterPath="$PROJECT_DIR$/Classes/PYTib/~Segmentation.py" />
+    <list default="true" id="5c7a8432-c30c-4455-9c02-1f3a74d7f6d6" name="Default" comment="TibTK renamed PYTib">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Classes/PYTib/data/compound_lexicon.txt" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/new_lexicon/compound.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/new_lexicon/extract_composed.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/new_lexicon/len_list.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/new_lexicon/lexicon.txt" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/PYTib/data/lexicon.txt" afterPath="$PROJECT_DIR$/Classes/PYTib/data/uncompound_lexicon.txt" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/new_lexicon/sskrt.txt" afterPath="$PROJECT_DIR$/Classes/PYTib/data/exceptions.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/new_lexicon/len_list.py" afterPath="$PROJECT_DIR$/Classes/new_lexicon/len_list.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/new_lexicon/lexicon_create.py" afterPath="$PROJECT_DIR$/Classes/new_lexicon/lexicon_create.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/tests/antput_test.py" afterPath="$PROJECT_DIR$/Classes/tests/antput_test.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/tests/convert_test.py" afterPath="$PROJECT_DIR$/Classes/tests/convert_test.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/tests/no_space.py" afterPath="$PROJECT_DIR$/Classes/tests/no_space.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/PYTib/Segmentation.py" afterPath="$PROJECT_DIR$/Classes/PYTib/Segmentation.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/PYTib/__init__.py" afterPath="$PROJECT_DIR$/Classes/PYTib/__init__.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/tests/seg_test.py" afterPath="$PROJECT_DIR$/Classes/tests/seg_test.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/totsok corrections.py" afterPath="$PROJECT_DIR$/totsok corrections.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lexicon creation/format Hill.py" afterPath="$PROJECT_DIR$/lexicon creation/format Hill.py" />
     </list>
     <list id="7ae00310-ce78-4316-87ca-9995d5c2d71f" name="Failed commit: Default" comment="AntPut output debugged" />
     <ignored path="sandbox.iws" />
@@ -66,8 +38,8 @@
       <file leaf-file-name="lexicon_create.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Classes/new_lexicon/lexicon_create.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="32" column="9" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
+            <state relative-caret-position="390">
+              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -75,30 +47,50 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="compound.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Classes/new_lexicon/compound.txt">
+      <file leaf-file-name="manual.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Classes/new_lexicon/manual.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+            <state relative-caret-position="265">
+              <caret line="775" column="73" selection-start-line="775" selection-start-column="73" selection-end-line="775" selection-end-column="73" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="seg_test.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Classes/tests/seg_test.py">
+      <file leaf-file-name="Segmentation.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Classes/PYTib/Segmentation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+            <state relative-caret-position="450">
+              <caret line="132" column="23" selection-start-line="132" selection-start-column="23" selection-end-line="132" selection-end-column="23" />
               <folding>
-                <element signature="e#0#10#0" expanded="true" />
+                <element signature="e#17#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sskrt.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Classes/new_lexicon/sskrt.txt">
+      <file leaf-file-name="compound_lexicon.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Classes/PYTib/data/compound_lexicon.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Classes/PYTib/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="945">
+              <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="exceptions.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Classes/PYTib/data/exceptions.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
               <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
@@ -107,12 +99,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Agreement.json" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Classes/PYTib/data/Agreement.json">
+      <file leaf-file-name="uncompound_lexicon.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Classes/PYTib/data/uncompound_lexicon.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="3" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
+            <state relative-caret-position="32">
+              <caret line="129" column="7" selection-start-line="129" selection-start-column="7" selection-end-line="129" selection-end-column="7" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="seg_test.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Classes/tests/seg_test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="435">
+              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -133,11 +137,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Classes/Segmentation/Segmentation.py" />
-        <option value="$PROJECT_DIR$/Classes/Segmentation/__init__.py" />
-        <option value="$PROJECT_DIR$/Classes/data.py" />
-        <option value="$PROJECT_DIR$/Classes/TibProcessing/data/roots.json" />
-        <option value="$PROJECT_DIR$/Classes/TibProcessing/common.py" />
         <option value="$PROJECT_DIR$/Classes/TibProcessing/data/syl_components.json" />
         <option value="$PROJECT_DIR$/Classes/TibProcessing/Syl_Components/__init__.py" />
         <option value="$PROJECT_DIR$/Classes/TibProcessing/SylComponents/data/syl_components.json" />
@@ -180,17 +179,23 @@
         <option value="$PROJECT_DIR$/Classes/new_lexicon/extract_composed.py" />
         <option value="$PROJECT_DIR$/Classes/new_lexicon/sskrt.txt" />
         <option value="$PROJECT_DIR$/Classes/new_lexicon/len_list.py" />
-        <option value="$PROJECT_DIR$/Classes/tests/seg_test.py" />
         <option value="$PROJECT_DIR$/Classes/TibTK/Segmentation.py" />
         <option value="$PROJECT_DIR$/Classes/new_lexicon/compound.txt" />
         <option value="$PROJECT_DIR$/Classes/new_lexicon/lexicon_create.py" />
+        <option value="$PROJECT_DIR$/Classes/PYTib/data/uncompound_lexicon.txt" />
+        <option value="$PROJECT_DIR$/Classes/PYTib/data/exceptions.txt" />
+        <option value="$PROJECT_DIR$/Classes/PYTib/__init__.py" />
+        <option value="$PROJECT_DIR$/Classes/PYTib/data/compound_lexicon.txt" />
+        <option value="$PROJECT_DIR$/Classes/tests/seg_test.py" />
+        <option value="$PROJECT_DIR$/Classes/PYTib/Segmentation.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="8" />
-    <option name="width" value="1920" />
-    <option name="height" value="1161" />
+    <option name="x" value="-3" />
+    <option name="y" value="32" />
+    <option name="width" value="1926" />
+    <option name="height" value="1138" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -236,7 +241,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -318,11 +322,38 @@
               <option name="myItemId" value="Classes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PYTib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sandbox" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sandbox" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Classes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PYTib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="NBKnowledgePane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -361,7 +392,7 @@
       <recent name="$PROJECT_DIR$/Classes" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.lexicon_create">
+  <component name="RunManager" selected="Python.segmentation">
     <configuration default="false" name="segmentation" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -608,8 +639,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.lexicon_create" />
-        <item index="1" class="java.lang.String" itemvalue="Python.segmentation" />
+        <item index="0" class="java.lang.String" itemvalue="Python.segmentation" />
+        <item index="1" class="java.lang.String" itemvalue="Python.lexicon_create" />
         <item index="2" class="java.lang.String" itemvalue="Python.extract_composed" />
         <item index="3" class="java.lang.String" itemvalue="Python.len_list" />
         <item index="4" class="java.lang.String" itemvalue="Python.no_space" />
@@ -929,7 +960,14 @@
       <option name="project" value="LOCAL" />
       <updated>1464421087996</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="TibTK renamed PYTib">
+      <created>1464423427359</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1464423427359</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TodoView">
@@ -942,27 +980,27 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="8" width="1920" height="1161" extended-state="6" />
+    <frame x="-3" y="32" width="1926" height="1138" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18114798" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3275862" sideWeight="0.49342105" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32662836" sideWeight="0.54186416" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32854405" sideWeight="0.4918378" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3256705" sideWeight="0.46445498" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32777232" sideWeight="0.4918378" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32482827" sideWeight="0.46445498" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32875368" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33169773" sideWeight="0.45813587" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Unicode Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.122696154" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32777232" sideWeight="0.49605057" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39352307" sideWeight="0.47393364" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39925024" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33237547" sideWeight="0.45813587" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39367816" sideWeight="0.47393364" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3284169" sideWeight="0.49342105" order="6" side_tool="false" content_ui="tabs" />
@@ -999,7 +1037,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Segmentation class finalized" />
     <MESSAGE value="updated" />
     <MESSAGE value="major update of segmentation" />
     <MESSAGE value="backup file of SylComponents. To improve and implement one day" />
@@ -1024,7 +1061,8 @@
     <MESSAGE value="AntPut output debugged" />
     <MESSAGE value="all AntPut methods now return self.conv when already converted file detected" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="TibTK renamed PYTib" />
+    <option name="LAST_COMMIT_MESSAGE" value="TibTK renamed PYTib" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1050,24 +1088,9 @@
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/Classes/new_lexicon/extract_composed.py</url>
-          <line>11</line>
-          <option name="timeStamp" value="60" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/Classes/new_lexicon/len_list.py</url>
-          <line>4</line>
-          <option name="timeStamp" value="61" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/Classes/new_lexicon/lexicon_create.py</url>
           <line>34</line>
           <option name="timeStamp" value="62" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/Classes/tests/seg_test.py</url>
-          <line>15</line>
-          <option name="timeStamp" value="65" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
@@ -1080,7 +1103,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="66" />
+      <option name="time" value="72" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
@@ -1089,14 +1112,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Classes/tests/files/AntPut/Out/level_tags_uni.txt" />
-    <entry file="file://$PROJECT_DIR$/Classes/tests/files/AntPut/In/antprofiler_non level tags.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="670" selection-start-line="0" selection-start-column="670" selection-end-line="0" selection-end-column="670" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Classes/tests/files/AntPut/Out/statistics_uni.txt" />
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_bundle/pydev_monkey_qt.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -1273,9 +1288,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="54" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
-          <folding>
-            <element signature="e#0#10#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1297,60 +1309,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="9" selection-end-column="54" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/new_lexicon/lexicon.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1060">
-          <caret line="1121" column="6" selection-start-line="1121" selection-start-column="6" selection-end-line="1121" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/new_lexicon/manual.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="775" column="73" selection-start-line="775" selection-start-column="73" selection-end-line="775" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/PYTib/data/lexicon.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/new_lexicon/len_list.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="8" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda3/lib/python3.5/codecs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="310" column="0" selection-start-line="310" selection-start-column="0" selection-end-line="310" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/new_lexicon/extract_composed.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="18" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1375,20 +1333,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/PYTib/__init__.py">
+    <entry file="file://$PROJECT_DIR$/Classes/PYTib/data/Agreement.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+        <state relative-caret-position="210">
+          <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/tests/seg_test.py">
+    <entry file="file://$USER_HOME$/anaconda3/lib/python3.5/codecs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="227">
+          <caret line="310" column="0" selection-start-line="310" selection-start-column="0" selection-end-line="310" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/PYTib/data/uncompound_lexicon.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="129" column="7" selection-start-line="129" selection-start-column="7" selection-end-line="129" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/new_lexicon/len_list.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/new_lexicon/extract_composed.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1400,13 +1388,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/new_lexicon/lexicon.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="624">
+          <caret line="1121" column="6" selection-start-line="1121" selection-start-column="6" selection-end-line="1121" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Classes/new_lexicon/lexicon_create.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="9" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
+        <state relative-caret-position="390">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/new_lexicon/manual.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="775" column="73" selection-start-line="775" selection-start-column="73" selection-end-line="775" selection-end-column="73" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1418,21 +1422,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/PYTib/Segmentation.py">
+    <entry file="file://$PROJECT_DIR$/Classes/tests/seg_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="80" column="51" selection-start-line="80" selection-start-column="51" selection-end-line="80" selection-end-column="51" />
+        <state relative-caret-position="435">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding>
-            <element signature="e#17#26#0" expanded="true" />
+            <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/PYTib/data/Agreement.json">
+    <entry file="file://$PROJECT_DIR$/Classes/PYTib/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="3" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
+        <state relative-caret-position="945">
+          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/PYTib/data/exceptions.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/PYTib/data/compound_lexicon.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/PYTib/Segmentation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="132" column="23" selection-start-line="132" selection-start-column="23" selection-end-line="132" selection-end-column="23" />
+          <folding>
+            <element signature="e#17#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

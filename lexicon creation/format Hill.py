@@ -5,7 +5,7 @@
 
 # In[ ]:
 
-with open('./2016-04-06-lexicon.txt', 'r', -1, 'utf-8-sig') as f:
+with open('./2016-04-06-uncompound_lexicon.txt', 'r', -1, 'utf-8-sig') as f:
     content = [line.strip() for line in f.readlines()]
 
 
