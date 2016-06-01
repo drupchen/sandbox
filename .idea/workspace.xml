@@ -1,27 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5c7a8432-c30c-4455-9c02-1f3a74d7f6d6" name="Default" comment="segmentation getting closer to the manual !">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Classes/PYTib/data/compound_lexicon.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Classes/tests/files/AntPut/lexicon.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Classes/tests/files/lexicon.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Classes/tests/tib_sort_test.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/PYTib/data/compound_lexicon.txt" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/sandbox.iml" afterPath="$PROJECT_DIR$/.idea/sandbox.iml" />
+    <list default="true" id="5c7a8432-c30c-4455-9c02-1f3a74d7f6d6" name="Default" comment="fbug fixed and tib_sort() added to common.py">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/PYTib/AntPut.py" afterPath="$PROJECT_DIR$/Classes/PYTib/AntPut.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/PYTib/AntTib.py" afterPath="$PROJECT_DIR$/Classes/PYTib/AntTib.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/PYTib/Segmentation.py" afterPath="$PROJECT_DIR$/Classes/PYTib/Segmentation.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/PYTib/SylComponents.py" afterPath="$PROJECT_DIR$/Classes/PYTib/SylComponents.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/PYTib/__init__.py" afterPath="$PROJECT_DIR$/Classes/PYTib/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/PYTib/common.py" afterPath="$PROJECT_DIR$/Classes/PYTib/common.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/PYTib/data/exceptions.txt" afterPath="$PROJECT_DIR$/Classes/PYTib/data/exceptions.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/PYTib/data/uncompound_lexicon.txt" afterPath="$PROJECT_DIR$/Classes/PYTib/data/uncompound_lexicon.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/new_lexicon/segmented.txt" afterPath="$PROJECT_DIR$/Classes/new_lexicon/segmented.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/tests/files/ant.txt" afterPath="$PROJECT_DIR$/Classes/tests/files/ant.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/tests/files/lamrim_commentary_uni.txt" afterPath="$PROJECT_DIR$/Classes/tests/files/lamrim_commentary_uni.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/tests/seg_test.py" afterPath="$PROJECT_DIR$/Classes/tests/seg_test.py" />
     </list>
     <list id="7ae00310-ce78-4316-87ca-9995d5c2d71f" name="Failed commit: Default" comment="AntPut output debugged" />
     <ignored path="sandbox.iws" />
@@ -968,7 +949,14 @@
       <option name="project" value="LOCAL" />
       <updated>1464646849207</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="fbug fixed and tib_sort() added to common.py">
+      <created>1464816705065</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1464816705065</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1038,7 +1026,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="backup file of SylComponents. To improve and implement one day" />
     <MESSAGE value="major update of AntTib Class" />
     <MESSAGE value="complies to PEP !!!" />
     <MESSAGE value="TibProcessing module under construction" />
@@ -1063,7 +1050,8 @@
     <MESSAGE value="TibTK renamed PYTib" />
     <MESSAGE value="exceptions, compound and uncompound words added in Segment class" />
     <MESSAGE value="segmentation getting closer to the manual !" />
-    <option name="LAST_COMMIT_MESSAGE" value="segmentation getting closer to the manual !" />
+    <MESSAGE value="fbug fixed and tib_sort() added to common.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="fbug fixed and tib_sort() added to common.py" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
