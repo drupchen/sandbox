@@ -23,7 +23,9 @@ class SylComponents:
         self.m_roots = m_roots
         self.m_exceptions = m_exceptions
         self.m_wazurs = m_wazurs
-        self.mingzhis = {**self.m_roots, **self.m_exceptions, **self.m_wazurs}
+        self.mingzhis = self.m_roots.copy()
+        self.mingzhis.update(self.m_exceptions)
+        self.mingzhis.update(self.m_wazurs)
 
     def get_parts(self, syl):
         """

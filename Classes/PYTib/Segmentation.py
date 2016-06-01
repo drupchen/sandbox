@@ -17,7 +17,13 @@ class Segment:
         self.lexicon = sorted(self.lexicon)
         self.len_lexicon = len(self.lexicon)
 
-        self.compound = compound
+        # parse the data in the compound lexicon
+        self.compound = []
+        for line in compound:
+            parts = line.split(',')
+            self.compound.append({parts[0]: [(parts[2], parts[3], parts[4]), (parts[6], parts[7], parts[8])]})
+
+
 
         # calculate the sizes of words in the lexicon, for segment()
         self.len_word_syls = []
@@ -120,7 +126,7 @@ class Segment:
 
     def do_compound(self, segmented):
         for comp in self.compound:
-            parts = comp.split(';')
+            parts = comp.split(',')
             #left_context =  parts[0]
             rep = parts[1]
             #right_context = parts[2]

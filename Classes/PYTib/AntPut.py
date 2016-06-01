@@ -208,7 +208,7 @@ class AntPut:
         strip_list(lines)
 
         l_regex = self.chars+'\t'+self.nums+r'[0-9]+'
-        if re.match(r'Group	Range	Freq	uf_1', lines[32]) and re.match(l_regex, lines[33]):
+        if lines[32] == 'Group\tRange\tFreq\tuf_1' and re.match(l_regex, lines[33]):
                 out = ''
                 out += ('\n'.join(lines[:33])+'\n').replace('\t', self.sep)
                 del lines[:33]

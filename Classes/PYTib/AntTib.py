@@ -16,13 +16,16 @@ class AntTib:
         self.roots = roots
         self.rareC = rareC
         self.wazurC = wazurC
-        self.A = {**self.roots, **self.rareC, **self.wazurC}
+        self.A = self.roots.copy()
+        self.A.update(self.rareC)
+        self.A.update(self.wazurC)
         # second part of the syllable
         self.NB = NB
         # exceptions
         self.special = special
         self.wazur = wazur
-        self.exceptions = {**self.special, **self.wazur}
+        self.exceptions = self.special.copy()
+        self.exceptions.update(self.wazur)
         # inversed lists
         self.C = {v: k for k, v in self.A.items()}
         self.D = {v: k for k, v in self.NB.items()}
