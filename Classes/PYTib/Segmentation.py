@@ -1,7 +1,7 @@
 # coding: utf-8
 
 import re
-from .common import strip_list, search, strip_tsek, occ_indexes
+from .common import strip_list, search, strip_tsek, occ_indexes, merge_list_items, split_list_items
 
 mark = '*'  # marker of unknown syllables. Can’t be a letter. Only 1 char allowed. Can’t be left empty.
 
@@ -136,6 +136,8 @@ class Segment:
         for n, elt in enumerate(self.compound[0]):
             repl = self.compound[1][n]
             syls = repl[1]
+            applied = False
+
             # 1. process the list and mark the elements
             if not syls[0].startswith('!'):  # filtrates all rules that should not be applied
                 idx = occ_indexes(words, elt)
@@ -147,6 +149,7 @@ class Segment:
                     if left == [''] and right == ['']:
                         for i in idx:
                             words[i[0]:i[1]] = syls
+                        applied = True
 
                     # there is some restriction
                     else:
@@ -171,23 +174,18 @@ class Segment:
                                         ok = False
                         if ok:  # the context corresponds
                             words[i[0]:i[1]] = syls
+                            applied = True
 
             # 2. apply all the modifications annotated in the list
 
             # merge the elements with a '-' with the next one
-            c = 0
-            while c <= len(words) - 1:
-                while '-' in words[c]:
-                    words[c:c+2] = [''.join(words[c].replace('-', '')+words[c+1])]
-                c += 1
+            if applied:
+                if '-' in ''.join(syls):
+                    words = merge_list_items(words, '-')
+                if '+' in ''.join(syls):
+                    words = split_list_items(words, '+')
 
-
-
-                # 2. splitting words
-
-
-
-        return segmented
+        return ' '.join(words)
 
     def segment(self, string, ant_segment, unknown):
         uncompound = self.raw_segmented(string, ant_segment, unknown)

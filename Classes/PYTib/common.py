@@ -51,6 +51,36 @@ def occ_indexes(l, sub_l):
     return [(i, i+len(sub_l)) for i in range(len(l)) if l[i:i+len(sub_l)] == sub_l]
 
 
+def merge_list_items(l, char):
+    """
+    merges the current item and the next in char is in the current item
+    :param l: list to process
+    :param char: character indicating where to merge
+    :return: processed list
+    """
+    c = 0
+    while c <= len(l) - 1:
+        while char in l[c]:
+            l[c:c + 2] = [''.join(l[c].replace(char, '') + l[c + 1])]
+        c += 1
+    return l
+
+
+def split_list_items(l, char):
+    """
+    splits the current item and the next in char is in the current item
+    :param l: list to process
+    :param char: character indicating where to splits
+    :return: processed list
+    """
+    c = 0
+    while c <= len(l) - 1:
+        while char in l[c]:
+            l[c:c] = l.pop(c).split(char)
+        c += 1
+    return l
+
+
 def is_tibetan_letter(char):
     """
     :param char: caracter to check
