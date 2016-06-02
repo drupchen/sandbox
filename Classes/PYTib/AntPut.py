@@ -5,7 +5,7 @@ class AntPut:
     def __init__(self, AT):
         self.AT = AT
         self.bad_line = '*** '*5+'BAD LINE '+'*** '*5+'\n'
-        self.sep = ','
+        self.sep = '\t'
         self.nums = r'[.0-9]+\t'
         self.chars = r'[ a-zA-Z]+'
         self.conv = 0  # value to return if file already converted

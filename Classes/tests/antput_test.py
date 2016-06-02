@@ -61,5 +61,5 @@ results = {
     'statistics': pst,    # AntPut().profiler_stats()
 }
 for result in results:
-    with open('../tests/files/AntPut/Out/'+result+'_uni.csv', 'w', -1, 'utf-8-sig') as f:
+    with open('../tests/files/AntPut/Out/'+result+'_uni.tsv', 'w', -1, 'utf-8-sig') as f:
         f.write(results[result])

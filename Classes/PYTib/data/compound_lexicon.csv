@@ -1,20 +1,21 @@
-base segmentation,,left,SPLIT,right,,left,MERGED,right,,Documentation,,
-ལྷག་པ ར,,,,,,,ལྷག་པར,,,,,
-དེ་ ལྟ་བུ,,,,,,,དེ་ལྟ་བུ,,,"all information outside of A, C, D E, G, H and I columns will be ignored.",,
-རྣམ་པ ར,,,,,,,རྣམ་པར,,,All formatting of the spreadsheet will be lost because of the file format (csv).,,
-ལོག་པ ར,,,,,,,ལོག་པར,,,,,
-ཡང་དག་པ ར,,,,,,,ཡང་དག་པར,,,segmentation will be adapted if and only if either SPLIT or MERGED cells are not empty,,
-ལེགས་པ ར,,,,,,,ལེགས་པར,,,"if you want to keep a context and not apply the modification, delete the content of either SPLIT or MERGED cell.",,
-དེ་ལྟར་ ན,,,,,,,དེ་ལྟར་ན,,,empty context cells will be understood as no restriction.,,
-ཇི་སྙམ་ དུ,,,,,,,ཇི་སྙམ་དུ,,,,,
-འདི་ ལྟ་བུ,,,,,,,འདི་ལྟ་བུ,,,the allowed POS tags are the following ones : ,,
-སྣ་ཚོགས་པ ར,,,,,,,སྣ་ཚོགས་པར,,,,V,verb
-སྐད་ཅིག་ མ,,,,,,,སྐད་ཅིག་མ,,,,N,noun
-ངོ་བོ་ ཉིད,,,,,,,ངོ་བོ་ཉིད,,,,ADV,adverb
-སངས་ རྒྱས,,,,,,,སངས་རྒྱས,,,,PART,particle
-རང་ སངས་རྒྱས,,,,,,,རང་སངས་རྒྱས,,,the POS of the word will be compared to the one given,,
-དེ་ ཁོ་ན་ ཉིད,,,,,,,དེ་ཁོ་ན་ཉིད,,,,,
-རྡུལ་ ཕྲ་ རབ,,,,,,,རྡུལ་ཕྲ་རབ,,,,,
-ཁོ་བོ་ ཅག,,,,,,,ཁོ་བོ་ཅག,,,,,
-ཞེས་ བྱ་བ,,,,,,,ཞེས་བྱ་བ,,,,,
-ཅེས་ བྱ,,,,,,,ཅེས་བྱ,,,,,
+left,modification,right,,Documentation,,
+,!ལྷག་པ- ར,,
+,དེ- ལྟ་བུ,,,"all information outside of A, B and C columns will be ignored.",,
+,རྣམ་པ- ར,ཕུན་སུམ ཚོགས་པ,,All formatting of the spreadsheet will be lost because of the file format (csv).,,
+,ལོག་པ- ར,,,,,
+,ཡང་དག་པ- ར,,,if modification cell starts with '!', the modification will not be applied,,
+,ལེགས་པ- ར,,,"if you want to keep a context and not apply the modification, delete the content of either SPLIT or MERGED cell.",,
+བདེ ལེགས,དེ་ལྟར- ན,,,empty context cells will be understood as no restriction.,,
+,ཇི་སྙམ- དུ,,,,,
+,འདི་- ལྟ་བུ,,,the allowed POS tags are the following ones : ,,
+,སྣ་ཚོགས་པ- ར,,,,V,verb
+,སྐད་ཅིག- མ,,,,N,noun
+,ངོ་བོ- ཉིད,,,,ADV,adverb
+,སངས- རྒྱས,,,,PART,particle
+,རང- སངས་རྒྱས,,,the POS of the word will be compared to the one given,,
+,དེ- ཁོ་ན- ཉིད,,,,,
+,རྡུལ- ཕྲ་- རབ,,,,,
+,ཁོ་བོ- ཅག,,,,,
+,ཞེས- བྱ- བ,,,,,
+,ཅེས- བྱ,,,,,
+,ཚོགས་+པ,,

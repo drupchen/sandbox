@@ -1,7 +1,7 @@
 # coding: utf-8
 
 import re
-from .common import strip_list, search
+from .common import strip_list, search, strip_tsek, occ_indexes
 
 mark = '*'  # marker of unknown syllables. Can’t be a letter. Only 1 char allowed. Can’t be left empty.
 
@@ -18,12 +18,13 @@ class Segment:
         self.len_lexicon = len(self.lexicon)
 
         # parse the data in the compound lexicon
-        self.compound = []
-        for line in compound:
+        self.compound = ([], [])
+        for line in compound[1:]:
             parts = line.split(',')
-            self.compound.append({parts[0]: [(parts[2], parts[3], parts[4]), (parts[6], parts[7], parts[8])]})
-
-
+            # list of words as created by the base segmentation
+            self.compound[0].append(parts[1].replace('-', '').replace('+', '').split(' '))
+            # list of words with the markers to split('+') and merge ('-')
+            self.compound[1].append((parts[0].split(' '), parts[1].split(' '), parts[2].split(' ')))
 
         # calculate the sizes of words in the lexicon, for segment()
         self.len_word_syls = []
@@ -125,13 +126,67 @@ class Segment:
         return ''.join(text)
 
     def do_compound(self, segmented):
-        for comp in self.compound:
-            parts = comp.split(',')
-            #left_context =  parts[0]
-            rep = parts[1]
-            #right_context = parts[2]
-            # context not implemented yet
-            segmented = segmented.replace(rep, rep.replace(' ', ''))
+        """
+
+        :param segmented:
+        :return:
+        """
+        words = strip_tsek(segmented.split(' '))
+
+        for n, elt in enumerate(self.compound[0]):
+            repl = self.compound[1][n]
+            syls = repl[1]
+            # 1. process the list and mark the elements
+            if not syls[0].startswith('!'):  # filtrates all rules that should not be applied
+                idx = occ_indexes(words, elt)
+                if idx != []:  # only keeps replacements that have occurrences in words
+                    left = repl[0]
+                    right = repl[2]
+
+                    # there is no restriction
+                    if left == [''] and right == ['']:
+                        for i in idx:
+                            words[i[0]:i[1]] = syls
+
+                    # there is some restriction
+                    else:
+                        ok = True  # if contexts match
+                        # left context
+                        if left != ['']:
+                            for i in idx:  # for each occurrence
+                                for num, l in enumerate(left):
+                                    # evaluate that the current syllable of the context equals the corresponding one in words
+                                    # Todo: also check POS and regexes
+                                    if l != words[i[0] - (len(left) - num)]:
+                                        ok = False
+
+                        # right context
+                        if right != ['']:
+                            for i in idx:  # for each occurrence
+                                # right context
+                                for num, l in enumerate(right):
+                                    # evaluate that the current syllable of the context equals the corresponding one in words
+                                    # Todo: also check POS and regexes
+                                    if l != words[i[1]-1 + ((len(right)-1) + num)]:
+                                        ok = False
+                        if ok:  # the context corresponds
+                            words[i[0]:i[1]] = syls
+
+            # 2. apply all the modifications annotated in the list
+
+            # merge the elements with a '-' with the next one
+            c = 0
+            while c <= len(words) - 1:
+                while '-' in words[c]:
+                    words[c:c+2] = [''.join(words[c].replace('-', '')+words[c+1])]
+                c += 1
+
+
+
+                # 2. splitting words
+
+
+
         return segmented
 
     def segment(self, string, ant_segment, unknown):
