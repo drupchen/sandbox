@@ -172,13 +172,13 @@ class Segment:
                                     # Todo: also check POS and regexes
                                     if l != words[i[1]-1 + ((len(right)-1) + num)]:
                                         ok = False
-                        if ok:  # the context corresponds
+
+                        # the contexts correspond, so the elements are replaced in word[]
+                        if ok:
                             words[i[0]:i[1]] = syls
                             applied = True
 
             # 2. apply all the modifications annotated in the list
-
-            # merge the elements with a '-' with the next one
             if applied:
                 if '-' in ''.join(syls):
                     words = merge_list_items(words, '-')
