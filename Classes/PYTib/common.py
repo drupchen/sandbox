@@ -29,18 +29,6 @@ def strip_list(l):
         del l[len(l) - 1]
 
 
-def strip_tsek(l):
-    """
-    strips the trailing tseks in a list of Tibetan syllables
-    :param l: list to strip
-    :return: stripped list
-    """
-    for n, e in enumerate(l):
-        if e.endswith('་'):
-            l[n] = e[:-1]
-    return l
-
-
 def occ_indexes(l, sub_l):
     """
     used for finding the concordances

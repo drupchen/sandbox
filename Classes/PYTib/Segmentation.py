@@ -1,7 +1,7 @@
 # coding: utf-8
 
 import re
-from .common import strip_list, search, strip_tsek, occ_indexes, merge_list_items, split_list_items
+from .common import strip_list, search, occ_indexes, merge_list_items, split_list_items
 
 mark = '*'  # marker of unknown syllables. Can’t be a letter. Only 1 char allowed. Can’t be left empty.
 
@@ -131,7 +131,7 @@ class Segment:
         :param segmented:
         :return:
         """
-        words = strip_tsek(segmented.split(' '))
+        words = segmented.split(' ')
 
         for n, elt in enumerate(self.compound[0]):
             repl = self.compound[1][n]

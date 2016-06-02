@@ -1,21 +1,21 @@
 left,modification,right,,Documentation,,
-,!ལྷག་པ- ར,,
-,དེ- ལྟ་བུ,,,"all information outside of A, B and C columns will be ignored.",,
-,རྣམ་པ- ར,ཕུན་སུམ ཚོགས་པ,,All formatting of the spreadsheet will be lost because of the file format (csv).,,
-,ལོག་པ- ར,,,,,
-,ཡང་དག་པ- ར,,,if modification cell starts with '!', the modification will not be applied,,
-,ལེགས་པ- ར,,,"if you want to keep a context and not apply the modification, delete the content of either SPLIT or MERGED cell.",,
-བདེ ལེགས,དེ་ལྟར- ན,,,empty context cells will be understood as no restriction.,,
-,ཇི་སྙམ- དུ,,,,,
-,འདི་- ལྟ་བུ,,,the allowed POS tags are the following ones : ,,
-,སྣ་ཚོགས་པ- ར,,,,V,verb
-,སྐད་ཅིག- མ,,,,N,noun
-,ངོ་བོ- ཉིད,,,,ADV,adverb
-,སངས- རྒྱས,,,,PART,particle
-,རང- སངས་རྒྱས,,,the POS of the word will be compared to the one given,,
-,དེ- ཁོ་ན- ཉིད,,,,,
-,རྡུལ- ཕྲ་- རབ,,,,,
-,ཁོ་བོ- ཅག,,,,,
-,ཞེས- བྱ- བ,,,,,
-,ཅེས- བྱ,,,,,
-,ཚོགས་+པ,,
+,ལྷག་པ- ར་,,
+,དེ་- ལྟ་བུ་,,,"all information outside of A, B and C columns will be ignored.",,
+,རྣམ་པ- ར་,,,All formatting of the spreadsheet will be lost because of the file format (csv).,,
+,ལོག་པ- ར་,,,,,
+,ཡང་དག་པ- ར་,,,if modification cell starts with '!', the modification will not be applied,,
+,ལེགས་པ- ར་,,,"if you want to keep a context and not apply the modification, delete the content of either SPLIT or MERGED cell.",,
+,དེ་ལྟར་- ན་,,,empty context cells will be understood as no restriction.,,
+,ཇི་སྙམ་- དུ་,,,,,
+,འདི་- ལྟ་བུ་,,,the allowed POS tags are the following ones : ,,
+,སྣ་ཚོགས་པ- ར་,,,,V,verb
+,སྐད་ཅིག་- མ་,,,,N,noun
+,ངོ་བོ་- ཉིད་,,,,ADV,adverb
+,སངས་- རྒྱས་,,,,PART,particle
+,རང་- སངས་རྒྱས་,,,the POS of the word will be compared to the one given,,
+,དེ་- ཁོ་ན་- ཉིད་,,,,,
+,རྡུལ་- ཕྲ་- རབ་,,,,,
+,ཁོ་བོ་- ཅག་,,,,,
+,ཞེས་- བྱ་- བ་,,,,,
+,ཅེས་- བྱ་,,,,,
+,*བཀྲ་- ཤི- ས་,,
