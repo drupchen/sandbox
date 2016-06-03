@@ -1,7 +1,7 @@
 # coding: utf-8
 
 import re
-from .common import strip_list, search, occ_indexes, merge_list_items, split_list_items
+from .common import strip_list, search, occ_indexes, merge_list_items, split_list_items, is_tibetan_letter
 
 mark = '*'  # marker of unknown syllables. Can’t be a letter. Only 1 char allowed. Can’t be left empty.
 
@@ -20,11 +20,13 @@ class Segment:
         # parse the data in the compound lexicon
         self.compound = ([], [])
         for line in compound[1:]:
-            parts = line.split(',')
-            # list of words as created by the base segmentation
-            self.compound[0].append(parts[1].replace('-', '').replace('+', '').split(' '))
-            # list of words with the markers to split('+') and merge ('-')
-            self.compound[1].append((parts[0].split(' '), parts[1].split(' '), parts[2].split(' ')))
+            if line.strip().strip(',') != '' and not line.startswith('#'):
+                # Todo : change to \t when putting in production
+                parts = line.split(',')
+                # list of words as created by the base segmentation
+                self.compound[0].append(parts[2].replace('-', '').replace('+', '').split(' '))
+                # list of words with the markers to split('+') and merge ('-')
+                self.compound[1].append((parts[1].split(' '), parts[2].split(' '), parts[3].split(' ')))
 
         # calculate the sizes of words in the lexicon, for segment()
         self.len_word_syls = []
@@ -73,7 +75,7 @@ class Segment:
             # del list1[:num]
             self.n = self.n + num
 
-    def raw_segmented(self, string, ant_segment, unknown):
+    def basis_segmentation(self, string, ant_segment, unknown):
         """
 
         :param string: takes a unicode text file as input
@@ -160,8 +162,13 @@ class Segment:
                                 for num, l in enumerate(left):
                                     # evaluate that the current syllable of the context equals the corresponding one in words
                                     # Todo: also check POS and regexes
-                                    if l != words[i[0] - (len(left) - num)]:
-                                        ok = False
+                                    if l.startswith('r'):
+                                        print('is a regex')
+                                    elif l.isupper():
+                                        print('is a POS')
+                                    else:
+                                        if l != words[i[0] - (len(left) - num)]:
+                                            ok = False
 
                         # right context
                         if right != ['']:
@@ -170,8 +177,13 @@ class Segment:
                                 for num, l in enumerate(right):
                                     # evaluate that the current syllable of the context equals the corresponding one in words
                                     # Todo: also check POS and regexes
-                                    if l != words[i[1]-1 + ((len(right)-1) + num)]:
-                                        ok = False
+                                    if l.startswith('r'):
+                                        print('is a regex')
+                                    elif l.isupper():
+                                        print('is a POS')
+                                    else:
+                                        if l != words[i[0] - (len(left) - num)]:
+                                            ok = False
 
                         # the contexts correspond, so the elements are replaced in word[]
                         if ok:
@@ -188,7 +200,7 @@ class Segment:
         return ' '.join(words)
 
     def segment(self, string, ant_segment, unknown):
-        uncompound = self.raw_segmented(string, ant_segment, unknown)
+        uncompound = self.basis_segmentation(string, ant_segment, unknown)
         compound = self.do_compound(uncompound)
         return compound
 
