@@ -3,7 +3,7 @@ import os
 path = os.path.dirname(sys.modules[__name__].__file__)
 path = os.path.join(path, '..')
 sys.path.insert(0, path)
-from PYTib import getSylComponents, Agreement, Segment, AntTib
+from PyTib import getSylComponents, Agreement, Segment, AntTib
 
 #print(getSylComponents().get_parts('དེའིའོ'))
 
@@ -14,7 +14,7 @@ from PYTib import getSylComponents, Agreement, Segment, AntTib
 #print(AntTib().to_ant_text('དེའིའོ'))
 #print(Segment().segment('འདི་ནི་ཕལ་ཆེ་བས་བསྟན་པ་ཡིན་ཏེ།', ant_segment=0, unknown=1))
 
-truc = Segment().segment('ཞེས་བྱ་བ་ཡིན་ནོ་ཞེས་བྱ་བར་', ant_segment=0, unknown=1)
+truc = Segment().segment('ཡེ་ཤེས་ལྷ་མོ་ཀཀ་', ant_segment=0, unknown=1)
 print(truc)
 
 truca = AntTib().to_ant_text(truc)

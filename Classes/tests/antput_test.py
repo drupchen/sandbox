@@ -4,7 +4,7 @@ path = os.path.dirname(sys.modules[__name__].__file__)
 path = os.path.join(path, '..')
 sys.path.insert(0, path)
 
-from PYTib import AntPut
+from PyTib import AntPut
 
 with open('../tests/files/AntPut/In/antconc_keyword list.txt', 'r', -1, 'utf-8-sig') as f:
     content_a = f.read()

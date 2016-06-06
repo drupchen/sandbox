@@ -4,7 +4,7 @@ import re
 path = os.path.dirname(sys.modules[__name__].__file__)
 path = os.path.join(path, '..')
 sys.path.insert(0, path)
-from PYTib import Segment, common
+from PyTib import Segment, common
 
 punct_regex = r'([༄༅༆༇༈།༎༏༐༑༔\s]+)'
 
