@@ -148,3 +148,13 @@ class SylComponents:
                 return 'thame'
             else:
                 return syl
+
+    def is_thame(self, word):
+        if '་' in word:
+            last_syl = word.split('་')[-1]
+        else:
+            last_syl = word
+        if self.get_info(last_syl) == 'thame':
+            return True
+        else:
+            return False

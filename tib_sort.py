@@ -12,3 +12,5 @@ def tib_sort(l):
     collator = RuleBasedCollator('[normalization on]\n' + rules)
     print(collator)
     return sorted(l, key=collator.getSortKey)
+
+# see https://developers.google.com/edu/python/sorting to implement a native python solution

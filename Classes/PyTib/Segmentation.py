@@ -42,17 +42,10 @@ class Segment:
         final = False
         if search(self.lexicon, maybe, self.len_lexicon):
             final = True
-        elif search(self.lexicon, re.sub(self.merged_part, '', maybe), self.len_lexicon):
-            final = True
-        else:
-            if '་' in maybe:
-                last_syl = maybe.split('་')[-1]
-                if self.SC.get_info(last_syl) == 'thame':
-                    maybe = re.sub(self.merged_part, '', maybe) + 'འ'
-            else:
-                if self.SC.get_info(maybe) == 'thame':
-                    maybe = re.sub(self.merged_part, '', maybe) + 'འ'
-            if search(self.lexicon, maybe, self.len_lexicon):
+        elif self.SC.is_thame(maybe):
+            if search(self.lexicon, re.sub(self.merged_part, '', maybe), self.len_lexicon):
+                final = True
+            elif search(self.lexicon, re.sub(self.merged_part, '', maybe) + 'འ', self.len_lexicon):
                 final = True
         return final
 

@@ -14,7 +14,7 @@ from PyTib import getSylComponents, Agreement, Segment, AntTib
 #print(AntTib().to_ant_text('དེའིའོ'))
 #print(Segment().segment('འདི་ནི་ཕལ་ཆེ་བས་བསྟན་པ་ཡིན་ཏེ།', ant_segment=0, unknown=1))
 
-truc = Segment().segment('ཡེ་ཤེས་ལྷ་མོ་ཀཀ་', ant_segment=0, unknown=1)
+truc = Segment().segment('མུ་སྟེགས་པ་'.replace('༌', '་'), ant_segment=0, unknown=1)
 print(truc)
 
 truca = AntTib().to_ant_text(truc)

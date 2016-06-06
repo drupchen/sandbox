@@ -11,12 +11,11 @@ with open(os.path.join(this_dir, "data", "exceptions.txt"), 'r', -1, 'utf-8-sig'
     lexicon.extend([line.strip() for line in f.readlines()])
 with open(os.path.join(this_dir, "data", "particles.json"), 'r', -1, 'utf-8-sig') as f:
     lexicon.extend(json.loads(f.read())['particles'])
+with open(os.path.join(this_dir, "data", "monlam1_verbs.txt"), 'r', -1, 'utf-8-sig') as f:
+    lexicon.extend([line.strip().split(' | ')[0] for line in f.readlines()])
 # compound words to join by default
 with open(os.path.join(this_dir, "data", "compound_lexicon.csv"), 'r', -1, 'utf-8-sig') as f:
     compound = [line.strip() for line in f.readlines()]
-#with open(os.path.join(this_dir, "data", "monlam1_verbs.txt"), 'r', -1, 'utf-8-sig') as f:
-#    monlam_verbs = [line.strip().split(' | ')[0] for line in f.readlines()]
-
 
 
 # data for SylComponents
