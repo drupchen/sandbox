@@ -1,7 +1,8 @@
 # coding: utf-8
 
 from bisect import bisect_left
-from icu import RuleBasedCollator
+
+from .icu import RuleBasedCollator
 
 
 def search(l, entry, len_l):

@@ -1,40 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5c7a8432-c30c-4455-9c02-1f3a74d7f6d6" name="Default" comment="segmentation ok for first 700 lines of sherchin volume !">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Classes/PyTib/pyicu/_icu.cpython-34m-x86_64-linux-gnu.so" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Classes/PyTib/.ipynb_checkpoints/test-checkpoint.ipynb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Classes/PyTib/pyicu/icu.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Classes/PyTib/pyicu/icu_docs.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/IN/segmented.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/PYTib/Agreement.py" afterPath="$PROJECT_DIR$/Classes/PyTib/Agreement.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/PYTib/AntPut.py" afterPath="$PROJECT_DIR$/Classes/PyTib/AntPut.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/PYTib/AntTib.py" afterPath="$PROJECT_DIR$/Classes/PyTib/AntTib.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/PYTib/Segmentation.py" afterPath="$PROJECT_DIR$/Classes/PyTib/Segmentation.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/PYTib/SylComponents.py" afterPath="$PROJECT_DIR$/Classes/PyTib/SylComponents.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/PYTib/__init__.py" afterPath="$PROJECT_DIR$/Classes/PyTib/__init__.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/PYTib/common.py" afterPath="$PROJECT_DIR$/Classes/PyTib/common.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/PYTib/data/Agreement.json" afterPath="$PROJECT_DIR$/Classes/PyTib/data/Agreement.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/PYTib/data/AntTib.json" afterPath="$PROJECT_DIR$/Classes/PyTib/data/AntTib.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/PYTib/data/SylComponents.backup" afterPath="$PROJECT_DIR$/Classes/PyTib/data/SylComponents.backup" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/PYTib/data/SylComponents.json" afterPath="$PROJECT_DIR$/Classes/PyTib/data/SylComponents.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/PYTib/data/compound_lexicon.csv" afterPath="$PROJECT_DIR$/Classes/PyTib/data/compound_lexicon.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/PYTib/data/exceptions.txt" afterPath="$PROJECT_DIR$/Classes/PyTib/data/exceptions.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/PYTib/data/monlam1_verbs.txt" afterPath="$PROJECT_DIR$/Classes/PyTib/data/monlam1_verbs.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/PYTib/data/particles.json" afterPath="$PROJECT_DIR$/Classes/PyTib/data/particles.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/PYTib/data/uncompound_lexicon.txt" afterPath="$PROJECT_DIR$/Classes/PyTib/data/uncompound_lexicon.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/PYTib/data/~lexicon.txt" afterPath="$PROJECT_DIR$/Classes/PyTib/data/~lexicon.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/PYTib/~Segmentation.py" afterPath="$PROJECT_DIR$/Classes/PyTib/~Segmentation.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/PYTib/~__init__.py" afterPath="$PROJECT_DIR$/Classes/PyTib/~__init__.py" />
+    <list default="true" id="5c7a8432-c30c-4455-9c02-1f3a74d7f6d6" name="Default" comment="icu added">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/PyTib/pyicu/_icu.cpython-34m-x86_64-linux-gnu.so" afterPath="$PROJECT_DIR$/Classes/PyTib/_icu.cpython-34m-x86_64-linux-gnu.so" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/PyTib/pyicu/icu.py" afterPath="$PROJECT_DIR$/Classes/PyTib/icu.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/PyTib/pyicu/icu_docs.py" afterPath="$PROJECT_DIR$/Classes/PyTib/icu_docs.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/new_lexicon/lexicon_create.py" afterPath="$PROJECT_DIR$/Classes/new_lexicon/lexicon_create.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/new_lexicon/segment.py" afterPath="$PROJECT_DIR$/Classes/new_lexicon/segment.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/tests/antput_test.py" afterPath="$PROJECT_DIR$/Classes/tests/antput_test.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/tests/convert_test.py" afterPath="$PROJECT_DIR$/Classes/tests/convert_test.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/tests/no_space.py" afterPath="$PROJECT_DIR$/Classes/tests/no_space.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/tests/seg_test.py" afterPath="$PROJECT_DIR$/Classes/tests/seg_test.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/tests/tib_sort_test.py" afterPath="$PROJECT_DIR$/Classes/tests/tib_sort_test.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/totsok corrections.py" afterPath="$PROJECT_DIR$/totsok corrections.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/PyTib/common.py" afterPath="$PROJECT_DIR$/Classes/PyTib/common.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/tests/files/lexicon.txt" afterPath="$PROJECT_DIR$/Classes/tests/files/lexicon.txt" />
     </list>
     <list id="7ae00310-ce78-4316-87ca-9995d5c2d71f" name="Failed commit: Default" comment="AntPut output debugged" />
     <ignored path="sandbox.iws" />
@@ -59,8 +32,8 @@
       <file leaf-file-name="common.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Classes/PyTib/common.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+            <state relative-caret-position="-1045">
+              <caret line="9" column="39" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
               <folding>
                 <element signature="e#17#47#0" expanded="true" />
               </folding>
@@ -68,21 +41,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="segment.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Classes/new_lexicon/segment.py">
+      <file leaf-file-name="tib_sort_test.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Classes/tests/tib_sort_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="28" column="19" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
+            <state relative-caret-position="165">
+              <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="compound_lexicon.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Classes/PyTib/data/compound_lexicon.csv">
+      <file leaf-file-name="lexicon.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Classes/tests/files/lexicon.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2055">
-              <caret line="137" column="16" selection-start-line="137" selection-start-column="16" selection-end-line="137" selection-end-column="16" />
+            <state relative-caret-position="330">
+              <caret line="58" column="4" selection-start-line="58" selection-start-column="4" selection-end-line="58" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -121,7 +94,7 @@
         </entry>
       </file>
       <file leaf-file-name="icu.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Classes/PyTib/pyicu/icu.py">
+        <entry file="file://$PROJECT_DIR$/Classes/PyTib/icu.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="368">
               <caret line="36" column="23" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
@@ -130,8 +103,8 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="icu_docs.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Classes/PyTib/pyicu/icu_docs.py">
+      <file leaf-file-name="icu_docs.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Classes/PyTib/icu_docs.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="375">
               <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
@@ -179,7 +152,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../NT-Files/Sandbox/AntTib/AntTib.py" />
         <option value="$PROJECT_DIR$/Classes/TibProcessing/__init__.py" />
         <option value="$PROJECT_DIR$/Classes/tests/files/lamrim-chenmo-word-list.txt" />
         <option value="$PROJECT_DIR$/Classes/TibProcessing/AntPut.py" />
@@ -230,6 +202,7 @@
         <option value="$PROJECT_DIR$/Classes/tests/seg_test.py" />
         <option value="$PROJECT_DIR$/Classes/PyTib/pyicu/icu.py" />
         <option value="$PROJECT_DIR$/Classes/PyTib/pyicu/icu_docs.py" />
+        <option value="$PROJECT_DIR$/Classes/PyTib/common.py" />
       </list>
     </option>
   </component>
@@ -316,22 +289,8 @@
               <option name="myItemId" value="Classes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="sandbox" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sandbox" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Classes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PyTib" />
+              <option name="myItemId" value="tests" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -349,11 +308,43 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="PyTib" />
+              <option name="myItemId" value="tests" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="pyicu" />
+              <option name="myItemId" value="files" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sandbox" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sandbox" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Classes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sandbox" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sandbox" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Classes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PyTib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -384,21 +375,21 @@
     <property name="last_opened_file_path" value="/usr/bin/python3" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Classes/PyTib" />
+      <recent name="$PROJECT_DIR$/Classes/tests/files/AntPut" />
+      <recent name="$PROJECT_DIR$/Classes/PYTib/data" />
+      <recent name="$PROJECT_DIR$/Classes/new_lexicon" />
+      <recent name="$PROJECT_DIR$/Classes/tests/files/AntPut/In" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Classes/PYTib" />
       <recent name="$PROJECT_DIR$/Classes/TibTK" />
       <recent name="$USER_HOME$/Bureau" />
       <recent name="$PROJECT_DIR$/Classes/Segmentation" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Classes/tests/files/AntPut" />
-      <recent name="$PROJECT_DIR$/Classes/PYTib/data" />
-      <recent name="$PROJECT_DIR$/Classes/new_lexicon" />
-      <recent name="$PROJECT_DIR$/Classes/tests/files/AntPut/In" />
-      <recent name="$PROJECT_DIR$/Classes/TibProcessing" />
-    </key>
   </component>
-  <component name="RunManager" selected="Python.segmentation">
+  <component name="RunManager" selected="Python.tib_sort_test">
     <configuration default="false" name="segmentation" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -412,23 +403,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="sandbox" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Classes/tests/seg_test.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="Segmentation" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Classes/PYTib" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="sandbox" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Classes/PYTib/Segmentation.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -480,6 +454,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="sandbox" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Classes/new_lexicon/conc.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="tib_sort_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Classes/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="sandbox" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Classes/tests/tib_sort_test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -638,18 +629,18 @@
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Python.convert_test" />
       <item index="1" class="java.lang.String" itemvalue="Python.segmentation" />
-      <item index="2" class="java.lang.String" itemvalue="Python.Segmentation" />
-      <item index="3" class="java.lang.String" itemvalue="Python.common" />
-      <item index="4" class="java.lang.String" itemvalue="Python.segment" />
-      <item index="5" class="java.lang.String" itemvalue="Python.conc" />
+      <item index="2" class="java.lang.String" itemvalue="Python.common" />
+      <item index="3" class="java.lang.String" itemvalue="Python.segment" />
+      <item index="4" class="java.lang.String" itemvalue="Python.conc" />
+      <item index="5" class="java.lang.String" itemvalue="Python.tib_sort_test" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.segmentation" />
-        <item index="1" class="java.lang.String" itemvalue="Python.conc" />
-        <item index="2" class="java.lang.String" itemvalue="Python.segment" />
-        <item index="3" class="java.lang.String" itemvalue="Python.common" />
-        <item index="4" class="java.lang.String" itemvalue="Python.Segmentation" />
+        <item index="0" class="java.lang.String" itemvalue="Python.tib_sort_test" />
+        <item index="1" class="java.lang.String" itemvalue="Python.segmentation" />
+        <item index="2" class="java.lang.String" itemvalue="Python.conc" />
+        <item index="3" class="java.lang.String" itemvalue="Python.segment" />
+        <item index="4" class="java.lang.String" itemvalue="Python.common" />
       </list>
     </recent_temporary>
   </component>
@@ -671,13 +662,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1463150865855</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Segmentation Class">
-      <created>1463273855117</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1463273855117</updated>
     </task>
     <task id="LOCAL-00005" summary="Segmentation class finalized">
       <created>1463274457997</created>
@@ -1015,7 +999,14 @@
       <option name="project" value="LOCAL" />
       <updated>1464982944348</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="icu added">
+      <created>1465204613675</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1465204613676</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1031,24 +1022,24 @@
     <frame x="0" y="8" width="1600" height="861" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1811273" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1811273" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3275862" sideWeight="0.49342105" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32662836" sideWeight="0.54186416" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3266129" sideWeight="0.4918378" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32471263" sideWeight="0.46445498" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32795697" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29166666" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33870968" sideWeight="0.45813587" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Unicode Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.122696154" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32777232" sideWeight="0.49605057" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.390579" sideWeight="0.47393364" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39925024" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3395486" sideWeight="0.45813587" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.390579" sideWeight="0.47393364" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3284169" sideWeight="0.49342105" order="6" side_tool="false" content_ui="tabs" />
@@ -1085,7 +1076,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="AntTib inserted" />
     <MESSAGE value="part_agreement code debugged" />
     <MESSAGE value="TibProcessing module implemented !" />
     <MESSAGE value="extra spaces removed" />
@@ -1110,7 +1100,8 @@
     <MESSAGE value="segment class completed !!!" />
     <MESSAGE value="cleanup" />
     <MESSAGE value="segmentation ok for first 700 lines of sherchin volume !" />
-    <option name="LAST_COMMIT_MESSAGE" value="segmentation ok for first 700 lines of sherchin volume !" />
+    <MESSAGE value="icu added" />
+    <option name="LAST_COMMIT_MESSAGE" value="icu added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1147,7 +1138,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/Classes/PyTib/common.py</url>
-          <line>31</line>
+          <line>32</line>
           <option name="timeStamp" value="94" />
         </line-breakpoint>
       </breakpoints>
@@ -1255,16 +1246,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/tests/tib_sort_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#10#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Classes/tests/files/AntPut/lexicon.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="14130">
@@ -1283,13 +1264,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/tests/files/lexicon.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="67" column="7" selection-start-line="67" selection-start-column="7" selection-end-line="67" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -1377,16 +1351,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/PyTib/common.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding>
-            <element signature="e#17#47#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Classes/tests/seg_test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -1431,7 +1395,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/PyTib/pyicu/icu.py">
+    <entry file="file://$PROJECT_DIR$/Classes/PyTib/icu.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
           <caret line="36" column="23" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
@@ -1439,13 +1403,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/PyTib/pyicu/icu_docs.py">
+    <entry file="file://$PROJECT_DIR$/Classes/PyTib/icu_docs.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding>
             <element signature="e#1286#1305#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/PyTib/common.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1045">
+          <caret line="9" column="39" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
+          <folding>
+            <element signature="e#17#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/tests/tib_sort_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/tests/files/lexicon.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="58" column="4" selection-start-line="58" selection-start-column="4" selection-end-line="58" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>
