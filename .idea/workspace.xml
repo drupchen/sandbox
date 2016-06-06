@@ -2,6 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5c7a8432-c30c-4455-9c02-1f3a74d7f6d6" name="Default" comment="icu relative imports removed">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/PyTib/_icu.so" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/PyTib/icu.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/PyTib/icu_docs.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/PyTib/tib_sort_test.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/tests/tib_sort_test.py" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/PyTib/common.py" afterPath="$PROJECT_DIR$/tib_sort.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/PyTib/common.py" afterPath="$PROJECT_DIR$/Classes/PyTib/common.py" />
     </list>
@@ -25,14 +31,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="common.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="common.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Classes/PyTib/common.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1080">
-              <caret line="9" column="43" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
-              <folding>
-                <element signature="e#17#47#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-975">
+              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tib_sort.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tib_sort.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -54,46 +68,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="390">
               <caret line="28" column="19" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tib_sort_test.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Classes/tests/tib_sort_test.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="16" column="49" selection-start-line="16" selection-start-column="49" selection-end-line="16" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tib_sort_test.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Classes/PyTib/tib_sort_test.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="49" selection-start-line="11" selection-start-column="49" selection-end-line="11" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="icu_docs.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Classes/PyTib/icu_docs.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="icu.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Classes/PyTib/icu.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="36" column="10" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -126,7 +100,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Classes/TibProcessing/AntTib.py" />
         <option value="$PROJECT_DIR$/Classes/tests/files/lamrim-word-list_uni.txt" />
         <option value="$PROJECT_DIR$/Classes/tests/files/concordance_uni.txt" />
         <option value="$PROJECT_DIR$/Classes/tests/files/AntPut/antprofiler_statistics.txt" />
@@ -175,8 +148,9 @@
         <option value="$PROJECT_DIR$/Classes/tests/tib_sort_test.py" />
         <option value="$PROJECT_DIR$/Classes/PyTib/icu_docs.py" />
         <option value="$PROJECT_DIR$/Classes/PyTib/icu.py" />
-        <option value="$PROJECT_DIR$/Classes/PyTib/common.py" />
         <option value="$PROJECT_DIR$/Classes/PyTib/tib_sort_test.py" />
+        <option value="$PROJECT_DIR$/Classes/PyTib/common.py" />
+        <option value="$PROJECT_DIR$/tib_sort.py" />
       </list>
     </option>
   </component>
@@ -346,7 +320,7 @@
       <recent name="$PROJECT_DIR$/Classes/Segmentation" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.tib_sort_test">
+  <component name="RunManager" selected="Python.tib_sort_test (1)">
     <configuration default="false" name="segmentation" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -593,8 +567,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.tib_sort_test" />
-        <item index="1" class="java.lang.String" itemvalue="Python.tib_sort_test (1)" />
+        <item index="0" class="java.lang.String" itemvalue="Python.tib_sort_test (1)" />
+        <item index="1" class="java.lang.String" itemvalue="Python.tib_sort_test" />
         <item index="2" class="java.lang.String" itemvalue="Python.segmentation" />
         <item index="3" class="java.lang.String" itemvalue="Python.conc" />
         <item index="4" class="java.lang.String" itemvalue="Python.segment" />
@@ -619,13 +593,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1463150865855</updated>
-    </task>
-    <task id="LOCAL-00010" summary="major update of AntTib Class">
-      <created>1463323351325</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1463323351325</updated>
     </task>
     <task id="LOCAL-00011" summary="update">
       <created>1463323493171</created>
@@ -963,7 +930,14 @@
       <option name="project" value="LOCAL" />
       <updated>1465209482537</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="icu relative imports removed">
+      <created>1465209655778</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1465209655778</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1089,13 +1063,8 @@
           <option name="timeStamp" value="62" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/Classes/tests/tib_sort_test.py</url>
-          <line>16</line>
-          <option name="timeStamp" value="79" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/Classes/PyTib/common.py</url>
-          <line>32</line>
+          <line>30</line>
           <option name="timeStamp" value="94" />
         </line-breakpoint>
       </breakpoints>
@@ -1118,7 +1087,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Classes/new_lexicon/len_list.py" />
     <entry file="file://$PROJECT_DIR$/Classes/new_lexicon/extract_composed.py" />
     <entry file="file://$PROJECT_DIR$/Classes/new_lexicon/compound.txt" />
     <entry file="file://$PROJECT_DIR$/Classes/new_lexicon/lexicon.txt" />
@@ -1374,26 +1342,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Classes/tests/tib_sort_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="16" column="49" selection-start-line="16" selection-start-column="49" selection-end-line="16" selection-end-column="49" />
+        <state relative-caret-position="60">
+          <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/PyTib/common.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1080">
-          <caret line="9" column="43" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
-          <folding>
-            <element signature="e#17#47#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Classes/PyTib/tib_sort_test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
-          <caret line="11" column="49" selection-start-line="11" selection-start-column="49" selection-end-line="11" selection-end-column="49" />
+          <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tib_sort.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/PyTib/common.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-975">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
