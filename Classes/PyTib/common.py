@@ -2,7 +2,7 @@
 
 from bisect import bisect_left
 
-from .icu import RuleBasedCollator
+from PyTib.icu import *
 
 
 def search(l, entry, len_l):

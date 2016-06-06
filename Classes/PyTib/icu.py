@@ -34,5 +34,5 @@ class ICUError(Exception):
 class InvalidArgsError(Exception):
     pass
 
-from .icu_docs import *
+from PyTib.icu_docs import *
 
