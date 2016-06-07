@@ -10,7 +10,7 @@ punct_regex = r'([༄༅༆༇༈།༎༏༐༑༔\[\]\(\)\s]+)'
 
 # open file
 with open('ཤེར་ཕྱིན། ཀ.txt', 'r', -1, 'utf-8-sig') as f:
-    content = f.read().replace('༌', '་')
+    content = f.read().replace('༌', '་')  # replace non-breaking tsek
 
 # segment on the punctuation
 paragraphs = re.split(punct_regex, content)
@@ -30,6 +30,8 @@ with open('stars.txt', 'w', -1, 'utf-8-sig') as f:
         syls = line.split(' ')
         for syl in syls:
             if '*' in syl:
+                if syl.endswith('་'):
+                    syl = syl[:-1]
                 stars.append(syl)
     f.write('\n'.join(sorted(list(set(stars)))))
 

@@ -144,7 +144,7 @@ class SylComponents:
         else:
             if syl in self.dadrag:
                 return 'dadrag'
-            elif re.findall(mingzhi + '([ྱྲླྭྷ]?[ིེོུ]?འ?[ིོུ]?ར?ས?)$', syl) != []:
+            elif re.findall(mingzhi + '([ྱྲླྭྷ]?[ིེོུ]?འ?[ིོུ]?ར?ས?མ?)$', syl) != []:
                 return 'thame'
             else:
                 return syl

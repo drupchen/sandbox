@@ -7,7 +7,7 @@ mark = '*'  # marker of unknown syllables. Can’t be a letter. Only 1 char allo
 
 
 class Segment:
-    def __init__(self, lexicon, compound, SC):
+    def __init__(self, lexicon, compound, ancient, len_word_syls, SC):
         self.lexicon = lexicon
         self.merged_part = r'(ར|ས|འི|འམ|འང|འོ)$'
         self.punct_regex = r'([༄༅༆༇༈།༎༏༐༑༔\s]+)'
@@ -16,25 +16,10 @@ class Segment:
         # for bisect
         self.lexicon = sorted(self.lexicon)
         self.len_lexicon = len(self.lexicon)
+        self.compound = compound
+        self.len_word_syls = len_word_syls
 
-        # parse the data in the compound lexicon
-        self.compound = ([], [])
-        for line in compound[1:]:
-            if line.strip().strip(',') != '' and not line.startswith('#'):
-                # Todo : change to \t when putting in production
-                parts = line.split(',')
-                # list of words as created by the base segmentation
-                self.compound[0].append(parts[2].replace('-', '').replace('+', '').split(' '))
-                # list of words with the markers to split('+') and merge ('-')
-                self.compound[1].append((parts[1].split(' '), parts[2].split(' '), parts[3].split(' ')))
-
-        # calculate the sizes of words in the lexicon, for segment()
-        self.len_word_syls = []
-        for word in self.lexicon:
-            l = len(word.split('་'))
-            if l not in self.len_word_syls:
-                self.len_word_syls.append(l)
-        self.len_word_syls = sorted(self.len_word_syls, reverse=True)
+        self.ancient = ancient
 
         self.n = 0  # counter needed between methods segment() and __process()
 
@@ -195,6 +180,9 @@ class Segment:
     def segment(self, string, ant_segment, unknown):
         uncompound = self.basis_segmentation(string, ant_segment, unknown)
         compound = self.do_compound(uncompound)
+        # ancient words
+        for a in self.ancient:
+            compound = compound.replace('*'+a, '='+a)
         return compound
 
 
