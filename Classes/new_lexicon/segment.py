@@ -29,7 +29,7 @@ with open('stars.txt', 'w', -1, 'utf-8-sig') as f:
     for line in out:
         syls = line.split(' ')
         for syl in syls:
-            if '*' in syl:
+            if '#' in syl:
                 if syl.endswith('་'):
                     syl = syl[:-1]
                 stars.append(syl)

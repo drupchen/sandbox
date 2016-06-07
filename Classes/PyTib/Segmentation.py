@@ -3,11 +3,11 @@
 import re
 from .common import strip_list, search, occ_indexes, merge_list_items, split_list_items, is_tibetan_letter
 
-mark = '*'  # marker of unknown syllables. Can’t be a letter. Only 1 char allowed. Can’t be left empty.
+mark = '#'  # marker of unknown syllables. Can’t be a letter. Only 1 char allowed. Can’t be left empty.
 
 
 class Segment:
-    def __init__(self, lexicon, compound, ancient, len_word_syls, SC):
+    def __init__(self, lexicon, compound, ancient, exceptions, len_word_syls, SC):
         self.lexicon = lexicon
         self.merged_part = r'(ར|ས|འི|འམ|འང|འོ)$'
         self.punct_regex = r'([༄༅༆༇༈།༎༏༐༑༔\s]+)'
@@ -20,6 +20,7 @@ class Segment:
         self.len_word_syls = len_word_syls
 
         self.ancient = ancient
+        self.exceptions = exceptions
 
         self.n = 0  # counter needed between methods segment() and __process()
 
@@ -32,6 +33,8 @@ class Segment:
                 final = True
             elif search(self.lexicon, re.sub(self.merged_part, '', maybe) + 'འ', self.len_lexicon):
                 final = True
+        elif re.sub(self.merged_part, '', maybe) in self.exceptions and search(self.lexicon, re.sub(self.merged_part, '', maybe), self.len_lexicon):
+            final = True
         return final
 
     def __process(self, list1, list2, num):
@@ -182,7 +185,7 @@ class Segment:
         compound = self.do_compound(uncompound)
         # ancient words
         for a in self.ancient:
-            compound = compound.replace('*'+a, '='+a)
+            compound = compound.replace(mark+a, '='+a)
         return compound
 
 

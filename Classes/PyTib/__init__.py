@@ -7,12 +7,13 @@ this_dir, this_filename = os.path.split(__file__)
 with open(os.path.join(this_dir, "data", "uncompound_lexicon.txt"), 'r', -1, 'utf-8-sig') as f:
     lexicon = [line.strip() for line in f.readlines()]
 # extensions to the lexicon : exceptions (sskrt + others), particles
-with open(os.path.join(this_dir, "data", "exceptions.txt"), 'r', -1, 'utf-8-sig') as f:
-    lexicon.extend([line.strip() for line in f.readlines() if not line.startswith('#')])
 with open(os.path.join(this_dir, "data", "particles.json"), 'r', -1, 'utf-8-sig') as f:
     lexicon.extend(json.loads(f.read())['particles'])
 with open(os.path.join(this_dir, "data", "monlam1_verbs.txt"), 'r', -1, 'utf-8-sig') as f:
     lexicon.extend([line.strip().split(' | ')[0] for line in f.readlines()])
+with open(os.path.join(this_dir, "data", "exceptions.txt"), 'r', -1, 'utf-8-sig') as f:
+    exceptions = [line.strip() for line in f.readlines() if not line.startswith('#')]
+lexicon.extend(exceptions)
 # calculate the sizes of words in the lexicon, for segment()
 len_word_syls = []
 for word in lexicon:
@@ -84,7 +85,7 @@ getSylComponents.instance = None
 def Segment():
     from .Segmentation import Segment, strip_list, search
     SC = getSylComponents()
-    return Segment(lexicon, compound, ancient, len_word_syls, SC)
+    return Segment(lexicon, compound, ancient, exceptions, len_word_syls, SC)
 
 
 def Agreement():
