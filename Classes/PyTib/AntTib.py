@@ -1,7 +1,7 @@
 import re
 from .common import strip_list
 
-mark = '*'  # marker of unknown syllables. Can’t be a letter. Only 1 char allowed. Can’t be left empty.
+mark = '#'  # marker of unknown syllables. Can’t be a letter. Only 1 char allowed. Can’t be left empty.
 
 class AntTib:
     """
@@ -40,12 +40,12 @@ class AntTib:
         :return: the AntTib of that syllable
         """
         if type(components) == 'list' or not components:
-            return '***'
+            return mark*3
         else:
             part1 = components[0]
             part2 = components[1]
             if part1 not in self.A and part1 not in self.exceptions:
-                return '***'
+                return mark*3
             else:
                 # first part of the syllable
                 if part1 in self.exceptions:
@@ -66,8 +66,8 @@ class AntTib:
         :param syl: takes as input a AntTib syllable
         :return: its Tibetan unicode counterpart
         """
-        if syl == '***':
-            return '***'
+        if syl == mark*3:
+            return mark*3
         elif syl == '':
             return ''
         else:
@@ -91,7 +91,7 @@ class AntTib:
             if a in self.C and b in self.D:  # in order not to fail, returns *** in all non-standard cases
                 return self.C[a] + self.D[b]
             else:
-                return '***'
+                return mark*3
 
     def __is_punct(self, string):
         if '།' in string or '༎' in string or '༏' in string or '༐' in string or '༑' in string or '༔' in string or ';' in string or ':' in string:
@@ -172,19 +172,26 @@ class AntTib:
                                 psyl = syl.split('-')
                                 psyl_a = self.to_ant_syl(self.SC.get_parts(psyl[0]))
                                 psyl_b = self.to_ant_syl(self.SC.get_parts(psyl[1]))
+                                if len(psyl) == 3:
+                                    psyl_c = self.to_ant_syl(self.SC.get_parts(psyl[2]))
+                                    if psyl_c.endswith('a'):
+                                        psyl_c = psyl_c[:-1]
                                 if psyl_b.startswith('a'):
                                     psyl_b = psyl_b[1:]
                                 elif psyl_b.endswith('a'):
                                     psyl_b = psyl_b[:-1]
-                                ant_word.append(psyl_a + ' ' + psyl_b)
+                                if len(psyl) == 3:
+                                    ant_word.append(psyl_a + ' ' + psyl_b + ' ' + psyl_c)
+                                else:
+                                    ant_word.append(psyl_a + ' ' + psyl_b)
                         else:
                             if syl.startswith(mark) and not syl.startswith(mark*3):
                                 # needed to this condition to not end up with ****
-                                psyl_c = self.to_ant_syl(self.SC.get_parts(syl[1:]))
-                                if psyl_c == mark*3:
-                                    ant_word.append(psyl_c)
+                                psyl_d = self.to_ant_syl(self.SC.get_parts(syl[1:]))
+                                if psyl_d == mark*3:
+                                    ant_word.append(psyl_d)
                                 else:
-                                    ant_word.append(mark + psyl_c)
+                                    ant_word.append(mark + psyl_d)
                             else:
                                 ant_word.append(self.to_ant_syl(self.SC.get_parts(syl)))
                     ant_par.append('x'.join(ant_word))
@@ -209,6 +216,8 @@ class AntTib:
             if ';' not in par and ':' not in par:
                 ant_par = []
                 par = re.sub(r' (r|s|vi|vo|vang|vam)( |$)', r'-\1\2', par)  # all the Csuffixes
+                # for འིའོ་ cases
+                par = par.replace('-vi vo', '-vi-vo')
                 words = par.split(' ')
                 for word in words:
                     if word.endswith('x'):  # delete the x at the end of words
@@ -223,8 +232,13 @@ class AntTib:
                                 psyl = syl[1:].split('-')
                                 ant_word.append(mark + self.from_ant_syl(psyl[0]) + ' ' + self.from_ant_syl(psyl[1]))
                             else:
-                                psyl = syl.split('-')
-                                ant_word.append(self.from_ant_syl(psyl[0]) + ' ' + self.from_ant_syl(psyl[1]))
+                                # for the འིའོ་ cases
+                                if syl.count('-') == 2:
+                                    psyl = syl.split('-')
+                                    ant_word.append(self.from_ant_syl(psyl[0]) + ' ' + self.from_ant_syl(psyl[1]) + ' ' + self.from_ant_syl(psyl[2]))
+                                else:
+                                    psyl = syl.split('-')
+                                    ant_word.append(self.from_ant_syl(psyl[0]) + ' ' + self.from_ant_syl(psyl[1]))
                         else:
                             if syl.startswith(mark) and not syl.startswith(mark*3):
                                 ant_word.append(mark + self.from_ant_syl(syl[1:]))

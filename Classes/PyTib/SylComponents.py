@@ -61,6 +61,10 @@ class SylComponents:
                     suffix.append(syl[l_s - 2:])
                 if syl[l_s - 3:] in self.suffixes:
                     suffix.append(syl[l_s - 3:])
+                if syl[l_s - 4:] in self.suffixes:
+                    suffix.append(syl[l_s - 4:])
+                if syl[l_s - 5:] in self.suffixes:
+                    suffix.append(syl[l_s - 5:])
 
             # deal with all the C roots
             # print(self.syl, root)
@@ -144,7 +148,7 @@ class SylComponents:
         else:
             if syl in self.dadrag:
                 return 'dadrag'
-            elif re.findall(mingzhi + '([ྱྲླྭྷ]?[ིེོུ]?འ?[ིོུ]?ར?ས?མ?)$', syl) != []:
+            elif re.findall(mingzhi + '([ྱྲླྭྷ]?[ིེོུ]?(འ?[ིོུ]?ར?ས?|(འ[མང])?|(འིའོ)?))$', syl) != []:
                 return 'thame'
             else:
                 return syl

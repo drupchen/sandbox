@@ -9,7 +9,7 @@ mark = '#'  # marker of unknown syllables. Can’t be a letter. Only 1 char allo
 class Segment:
     def __init__(self, lexicon, compound, ancient, exceptions, len_word_syls, SC):
         self.lexicon = lexicon
-        self.merged_part = r'(ར|ས|འི|འམ|འང|འོ)$'
+        self.merged_part = r'(ར|ས|འི|འམ|འང|འོ|འིའོ)$'
         self.punct_regex = r'([༄༅༆༇༈།༎༏༐༑༔\s]+)'
 
         self.SC = SC
@@ -48,6 +48,9 @@ class Segment:
                     list2.append(maybe[0])
             else:
                 list2.append(maybe[0])
+            # separate འིའོ
+            if maybe[1] == 'འིའོ':
+                maybe[1] = maybe[1][:2]+' '+maybe[1][2:]
             list2.append(maybe[1] + '་')
             # del list1[:num]
             self.n = self.n + num
@@ -121,55 +124,53 @@ class Segment:
             syls = repl[1]
             applied = False
 
-            # 1. process the list and mark the elements
-            if not syls[0].startswith('!'):  # filtrates all rules that should not be applied
-                idx = occ_indexes(words, elt)
-                if idx != []:  # only keeps replacements that have occurrences in words
-                    left = repl[0]
-                    right = repl[2]
+            idx = occ_indexes(words, elt)
+            if idx != []:  # only keeps replacements that have occurrences in words
+                left = repl[0]
+                right = repl[2]
 
-                    # there is no restriction
-                    if left == [''] and right == ['']:
-                        for i in idx:
-                            words[i[0]:i[1]] = syls
+                # there is no restriction
+                if left == [''] and right == ['']:
+                    for i in idx:
+                        words[i[0]:i[1]] = syls
+                    applied = True
+
+                # there is some restriction
+                else:
+                    ok = True  # if contexts match
+                    # left context
+                    if left != ['']:
+                        for i in idx:  # for each occurrence
+                            for num, l in enumerate(left):
+                                # evaluate that the current syllable of the context equals the corresponding one in words
+                                # Todo: also check POS and regexes
+                                if l.startswith('r'):
+                                    print('is a regex')
+                                elif l.isupper():
+                                    print('is a POS')
+                                else:
+                                    if l != words[i[0] - (len(left) - num)]:
+                                        ok = False
+
+                    # right context
+                    if right != ['']:
+                        for i in idx:  # for each occurrence
+                            # right context
+                            for num, l in enumerate(right):
+                                # evaluate that the current syllable of the context equals the corresponding one in words
+                                # Todo: also check POS and regexes
+                                if l.startswith('r'):
+                                    print('is a regex')
+                                elif l.isupper():
+                                    print('is a POS')
+                                else:
+                                    if l != words[i[0] - (len(left) - num)]:
+                                        ok = False
+
+                    # the contexts correspond, so the elements are replaced in word[]
+                    if ok:
+                        words[i[0]:i[1]] = syls
                         applied = True
-
-                    # there is some restriction
-                    else:
-                        ok = True  # if contexts match
-                        # left context
-                        if left != ['']:
-                            for i in idx:  # for each occurrence
-                                for num, l in enumerate(left):
-                                    # evaluate that the current syllable of the context equals the corresponding one in words
-                                    # Todo: also check POS and regexes
-                                    if l.startswith('r'):
-                                        print('is a regex')
-                                    elif l.isupper():
-                                        print('is a POS')
-                                    else:
-                                        if l != words[i[0] - (len(left) - num)]:
-                                            ok = False
-
-                        # right context
-                        if right != ['']:
-                            for i in idx:  # for each occurrence
-                                # right context
-                                for num, l in enumerate(right):
-                                    # evaluate that the current syllable of the context equals the corresponding one in words
-                                    # Todo: also check POS and regexes
-                                    if l.startswith('r'):
-                                        print('is a regex')
-                                    elif l.isupper():
-                                        print('is a POS')
-                                    else:
-                                        if l != words[i[0] - (len(left) - num)]:
-                                            ok = False
-
-                        # the contexts correspond, so the elements are replaced in word[]
-                        if ok:
-                            words[i[0]:i[1]] = syls
-                            applied = True
 
             # 2. apply all the modifications annotated in the list
             if applied:
