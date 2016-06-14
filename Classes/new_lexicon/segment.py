@@ -4,7 +4,7 @@ import re
 path = os.path.dirname(sys.modules[__name__].__file__)
 path = os.path.join(path, '..')
 sys.path.insert(0, path)
-from PyTib import Segment, common
+from PyTib import Segment, common, Concordance
 
 punct_regex = r'([༄༅༆༇༈།༎༏༐༑༔\[\]\(\)\s]+)'
 
@@ -42,3 +42,7 @@ with open('segmented.txt', 'w', -1, 'utf-8-sig') as f:
             f.write(o+'\n')
         else:
             f.write(o)
+
+with open('conc.txt', 'w', -1, 'utf-8-sig') as f:
+    with open('/home/drupchen/PycharmProjects/sandbox/Classes/new_lexicon/segmented.txt', 'r', -1, 'utf-8-sig') as g:
+        f.write(Concordance.no_tab_lexicon_concs(g.read()))

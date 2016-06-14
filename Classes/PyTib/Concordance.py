@@ -1,27 +1,9 @@
-import re
-with open('/home/drupchen/PycharmProjects/sandbox/Classes/new_lexicon/segmented.txt', 'r', -1, 'utf-8-sig') as f:
-    string = f.read()
-
-left = 5
-right = 5
-# matches a syllable constituted of zero or one non-punctuation + zero or more punctuation
-
-
-
-to_match = []
-# find all words marked with *
-words = string.split()
-for word in words:
-    if word.startswith('#'):
-        to_match.append(word)
-to_match = sorted(list(set(to_match)))
-
-concordances = []
-for match in to_match:
-    # find all occurrences of the current regex together with the contexts
-    i = 0
-    while i <= len(words)-1:
-        if words[i] == match:
+def lexicon_concs(string, left, right):
+    words = string.replace('\n', '').split()
+    concordances = {}
+    for i in range(len(words)-1):
+        match = words[i]
+        if match.startswith('#'):
 
             left_context = []
             l = 1
@@ -34,10 +16,21 @@ for match in to_match:
             while i+r <= len(words) and i+r <= i+right:
                 right_context.append(words[i+r])
                 r += 1
+            if match in concordances.keys():
+                concordances[match].append((' '.join(left_context), match, ' '.join(right_context)))
+            else:
+                concordances[match] = [(' '.join(left_context), match, ' '.join(right_context))]
 
-            concordances.append((' '.join(left_context), match, ' '.join(right_context)))
-        i += 1
+    sorted_concs = sorted(concordances, key=lambda x: len(concordances[x]), reverse=True)
+    return [(conc,  concordances[conc]) for conc in sorted_concs]
 
-with open('conc.csv', 'w', -1, 'utf-8-sig') as f:
-    for c in concordances:
-        f.write(c[0]+' \t'+c[1]+' '+c[2]+'\n')
+
+def no_tab_lexicon_concs(string):
+    out = ''
+    for a, conc in enumerate(lexicon_concs(string, 5, 5)):
+        out += '\t' + str(a+1) + '\t' + conc[0] + '\n'
+        for b, occ in enumerate(conc[1]):
+            out += str(b + 1) + '\t' + occ[0] + ' ' + occ[1] + ' ' + occ[2] + '\n'
+        out += '\n'
+    return out
+

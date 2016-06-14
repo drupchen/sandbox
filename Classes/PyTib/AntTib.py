@@ -54,9 +54,9 @@ class AntTib:
                     a = self.A[part1]
                 # second part of the syllable
                 b = ''
-                if part2 == '':
+                if part2 == '' and a[-1] not in ['i', 'u', 'o']:
                     b = 'a'
-                elif part2 != 'x':
+                elif part2 != 'x' and part2 != '':
                     b = self.NB[part2]
                 return a + b
 
