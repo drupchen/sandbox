@@ -4,9 +4,8 @@ path = os.path.dirname(sys.modules[__name__].__file__)
 path = os.path.join(path, '..')
 sys.path.insert(0, path)
 from PyTib.common import DefaultOrderedDict, open_file, write_file, PrepareTib
-
-
 from itertools import tee, islice
+
 
 def ngram_generator(iterable, n):
     return zip(*((islice(seq, i, None) for i, seq in enumerate(tee(iterable, n)))))
@@ -38,19 +37,21 @@ def ngrams(l, freq=10, min=3, max=12):
     return formatted
 
 
+def ngrams_by_folder(input_path, freq=2, min=3, max=12):
+    ngram_total = DefaultOrderedDict(int)
+    for f in os.listdir(input_path):
+        raw = open_file(input_path+f)
+        syls = PrepareTib(raw).tsheks_only()
+        ngrams = raw_ngrams(syls, min, max)
+        for n in ngrams:
+            ngram_total[n[0]] += n[1]
+    ngram_total = ngrams_by_freq(ngram_total, freq)
+    return format_ngrams(ngram_total)
+
+
 import time
 A = time.time()
 IN = './ngram_input/'
-
-ngram_total = DefaultOrderedDict(int)
-for f in os.listdir(IN):
-    raw = open_file(IN+f)
-    syls = PrepareTib(raw).tsheks_only()
-    ngrams = raw_ngrams(syls, min=3, max=12)
-    for n in ngrams:
-        ngram_total[n[0]] += n[1]
-ngram_total = ngrams_by_freq(ngram_total, freq=2)
-write_file('test.txt', format_ngrams(ngram_total))
-
+write_file('test.txt', ngrams_by_folder(IN, freq=2, min=3, max=12))
 B = time.time()
 print(B-A)

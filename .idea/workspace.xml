@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5c7a8432-c30c-4455-9c02-1f3a74d7f6d6" name="Default" comment="easy n-gram generation and write to file">
+    <list default="true" id="5c7a8432-c30c-4455-9c02-1f3a74d7f6d6" name="Default" comment="ngrams on the files of a folder works !&#10;generator-based ngram_generator implemented">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes.ipynb" afterPath="$PROJECT_DIR$/Classes.ipynb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/PyTib/common.py" afterPath="$PROJECT_DIR$/Classes/PyTib/common.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/tests/ngram.py" afterPath="$PROJECT_DIR$/Classes/tests/ngram.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/tests/test.txt" afterPath="$PROJECT_DIR$/Classes/tests/test.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Testing.ipynb" afterPath="$PROJECT_DIR$/Testing.ipynb" />
     </list>
     <list id="7ae00310-ce78-4316-87ca-9995d5c2d71f" name="Failed commit: Default" comment="AntPut output debugged" />
     <ignored path="sandbox.iws" />
@@ -32,8 +27,8 @@
       <file leaf-file-name="ngram.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Classes/tests/ngram.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="30" column="54" selection-start-line="30" selection-start-column="54" selection-end-line="30" selection-end-column="54" />
+            <state relative-caret-position="358">
+              <caret line="56" column="10" selection-start-line="56" selection-start-column="10" selection-end-line="56" selection-end-column="10" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -602,13 +597,6 @@
       <option name="presentableId" value="Default" />
       <updated>1463150865855</updated>
     </task>
-    <task id="LOCAL-00024" summary="TibProcessing module implemented !">
-      <created>1463513081925</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1463513081925</updated>
-    </task>
     <task id="LOCAL-00025" summary="extra spaces removed">
       <created>1463513295049</created>
       <option name="number" value="00025" />
@@ -945,7 +933,14 @@
       <option name="project" value="LOCAL" />
       <updated>1465924350803</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="ngrams on the files of a folder works !&#10;generator-based ngram_generator implemented">
+      <created>1465946600179</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1465946600197</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1015,7 +1010,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="all AntPut methods now return self.conv when already converted file detected" />
     <MESSAGE value="update" />
     <MESSAGE value="TibTK renamed PYTib" />
     <MESSAGE value="exceptions, compound and uncompound words added in Segment class" />
@@ -1040,7 +1034,8 @@
     <MESSAGE value="beginning of TibNgram class" />
     <MESSAGE value="PrepareTib class included in common.py to be used for n-gram generation" />
     <MESSAGE value="easy n-gram generation and write to file" />
-    <option name="LAST_COMMIT_MESSAGE" value="easy n-gram generation and write to file" />
+    <MESSAGE value="ngrams on the files of a folder works !&#10;generator-based ngram_generator implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="ngrams on the files of a folder works !&#10;generator-based ngram_generator implemented" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1442,8 +1437,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Classes/tests/ngram.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="30" column="54" selection-start-line="30" selection-start-column="54" selection-end-line="30" selection-end-column="54" />
+        <state relative-caret-position="358">
+          <caret line="56" column="10" selection-start-line="56" selection-start-column="10" selection-end-line="56" selection-end-column="10" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
