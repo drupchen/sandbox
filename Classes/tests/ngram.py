@@ -3,7 +3,7 @@ import os
 path = os.path.dirname(sys.modules[__name__].__file__)
 path = os.path.join(path, '..')
 sys.path.insert(0, path)
-from PyTib.common import DefaultOrderedDict, open_file, filewrite, PrepareTib
+from PyTib.common import DefaultOrderedDict, open_file, write_file, PrepareTib
 
 
 
@@ -32,8 +32,7 @@ A = time.time()
 raw = open_file('/home/drupchen/PycharmProjects/sandbox/Classes/new_lexicon/segmented.txt')
 syls = PrepareTib(raw).tsheks_only()
 ngrams = ngrams_by_freq(syls, freq=2, min=20, max=20)
+write_file('test.txt', '\n'.join([n[0]+'\t'+str(n[1])+'\t'+str(n[2]) for n in ngrams]))
 
 B = time.time()
 print(B-A)
-
-print(len(ngrams), ngrams[:100])

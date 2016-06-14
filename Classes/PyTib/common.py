@@ -4,7 +4,7 @@ from bisect import bisect_left
 from collections import OrderedDict, Callable
 
 
-def filewrite(file_path, content):
+def write_file(file_path, content):
     with open(file_path, 'w', -1, 'utf8') as f:
         f.write(content)
 
