@@ -18,20 +18,24 @@ def find_ngrams(input_list, n):
 
 
 def ngrams_by_freq(l, freq=10, min=3, max=12):
+    if min == max:
+        max +=1
+
     ngrams = DefaultOrderedDict(int)
     for a in range(min, max):
         grams = find_ngrams(l, a)
         for g in grams:
-            ngrams[' '.join(g)] += 1
+            ngrams[g] += 1
 
     ngrams = sorted(ngrams.items(), key=lambda x: x[1], reverse=True)
-    return [n for n in ngrams if n[1] >= freq]
+    return [(' '.join(n[0]), n[1], len(n[0])) for n in ngrams if n[1] >= freq]
 
 
 import time
 A = time.time()
-ngrams = ngrams_by_freq(seg)
+ngrams = ngrams_by_freq(seg, freq=2, min=20, max=20)
+
 B = time.time()
 print(B-A)
 
-print(ngrams[:100])
+print(len(ngrams), ngrams[:100])
