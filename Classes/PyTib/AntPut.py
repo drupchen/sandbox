@@ -1,6 +1,7 @@
 import re
 from .common import strip_list
 
+
 class AntPut:
     def __init__(self, AT):
         self.AT = AT

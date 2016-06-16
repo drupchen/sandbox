@@ -1,15 +1,12 @@
-
-# coding: utf-8
-
-# In[8]:
-
-class prepareTib:
-    ''' Dealing with the pre_process of Tibetan '''
-
+class PrepareTib:
     def __init__(self, tibstring):
-        self.raw = tibstring
-        self.punct = [" ", "༄", "༅", "࿓", "࿔", "༇", "༆", "༈", "།", "༎", "༏", "༐", "༑", "༔","་", "༌", "༼", "༽", "༒", "༓", "ཿ"]
-    
+        self.raw = tibstring.replace('\n', '')  # fast hack to get rid of all returns
+        self.punct = [" ",
+                      "༄", "༅", "࿓", "࿔", "༇", "༆", "༈",
+                      "།", "༎", "༏", "༐", "༑", "༔",
+                      "་", "༌",
+                      "༼", "༽", "༒", "༓", "ཿ"]
+
     def gen_tuples(self):
         syllables = []
         puncts = []
@@ -31,37 +28,31 @@ class prepareTib:
                     puncts.append(char)
         # add last syllable + its pre_process
         if syl != '':
-            syllables.append((syl, puncts))  
+            syllables.append((syl, puncts))
         return syllables
-    
+
     def syl_tuples(self):
-        tuples = prepareTib.gen_tuples(self)
+        tuples = PrepareTib.gen_tuples(self)
         return [(t[0], ''.join(t[1])) for t in tuples]
-    
+
     def all_punct(self):
-        tuples = prepareTib.syl_tuples(self)
+        tuples = PrepareTib.syl_tuples(self)
         return [t[0]+t[1] for t in tuples]
-    
+
     def syls_only(self):
-        tuples = prepareTib.gen_tuples(self)
+        tuples = PrepareTib.gen_tuples(self)
         return [t[0] for t in tuples]
-    
+
     def tsheks_only(self):
-        tuples = prepareTib.syl_tuples(self)
+        tuples = PrepareTib.syl_tuples(self)
         return [t[0]+'་' for t in tuples]
-    
+
     def no_tshek(self):
-        tuples = prepareTib.syl_tuples(self)
+        tuples = PrepareTib.syl_tuples(self)
         no_tshek = []
         for t in tuples:
             if '་' in t[1]:
                 no_tshek.append(t[0]+t[1].replace('་', ''))
-            else :
+            else:
                 no_tshek.append(t[0]+t[1])
         return no_tshek
-
-
-# In[ ]:
-
-
-

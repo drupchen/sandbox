@@ -3,55 +3,25 @@ import os
 path = os.path.dirname(sys.modules[__name__].__file__)
 path = os.path.join(path, '..')
 sys.path.insert(0, path)
-from PyTib.common import DefaultOrderedDict, open_file, write_file, PrepareTib
-from itertools import tee, islice
+from PyTib.NGrams import NGrams
+from PyTib.common import pre_process, DefaultOrderedDict
 
+import re
+def no_space(string):
+    for regex in [r'([་|༌])\s', r'(ང[་|༌])\s', r'\s(ར)', r'\s(ས)', r'\s(འི)', r'\s(འོ)']:
+        string = re.sub(regex, r'\1', string)
+    return string
 
-def ngram_generator(iterable, n):
-    return zip(*((islice(seq, i, None) for i, seq in enumerate(tee(iterable, n)))))
+test = 'བྱང་ཆུབ་ ལམ་ གྱི་ རིམ་པ འི་ འཁྲིད་ གསེར་ གྱི་ ཡང་ ཞུན་ ཞེས་བྱ་བ་ བཞུགས་ སོ། ། རྗེ་བཙུན་བླ་མ་ སྐྱབས་གསུམ་ ཀུན་ འདུས་ ཀྱི་ བདག་ཉིད་ཆེན་པོ་ གང་དེ འི་ ཞབས་ ལ་ གུས་པ་ ཆེན་པོ ས་ ཕྱག་ འཚལ་ ཞིང་ སྐྱབས་ སུ་ མཆི འོ། །བྱིན་ གྱིས་ བརླབ་ ཏུ་ གསོལ། དེ་ ལ་ འདི ར་ དལ་འབྱོར་ གྱི་ རྟེན་ ལ་ སྙིང་ བོ་ ལེན་ བར་ འདོད་པ འི་ སྐྱེས་བུ་ རྣམས་ ཀྱིས་ ཉམས་ སུ་ བླང་བ ར་ བྱ་བ་ ནི། རྒྱལ་བའི་གསུང་རབ་ ཐམས་ཅད་ ཀྱི་ སྙིང་ བོ། །དུས་གསུམ་ འཕགས་པ་ ཐམས་ཅད་ ཀྱི་ བགྲོད་པ་གཅིག་ པ འི་ ལམ། ཤིང་རྟ་ཆེན་པོ་ ཀླུ་སྒྲུབ་ དང་ ཐོགས་མེད་ གཉིས་ ཀྱི་ ལམ་སྲོལ། རྣམ་པ་ཐམས་ཅད་ མཁྱེན་པ འི་ སར་འགྲོ་ བ འི་ སྐྱེ་བོ་ མཆོག་ གི་ ཆོས་ལུགས། སྐྱེས་བུ་གསུམ་ གྱིས་ ཉམས་ སུ་ བླང་ བྱ འི་ རིམ་པ་ ཐམས་ཅད་ མ་ཚང་ བ་ མེད་པ་ བསྡུས་པ། '
 
-
-def raw_ngrams(l, min=3, max=12):
-    ngrams = DefaultOrderedDict(int)
-    for a in range(min, max+1):
-        grams = ngram_generator(l, a)
-        for g in grams:
-            ngrams[g] += 1
-    # removing all entries with only one occurence
-    return [n for n in ngrams.items() if n[1] != 1]
-
-
-def ngrams_by_freq(raw, freq=10):
-    ngrams = sorted(raw.items(), key=lambda x: x[1], reverse=True)
-    return [(n[1], ' '.join(n[0]), len(n[0])) for n in ngrams if n[1] >= freq]
-
-
-def format_ngrams(l, sep='\t'):
-    return '\n'.join([str(n[0])+sep+n[1]+sep+str(n[2]) for n in l])
-
-
-def ngrams(l, freq=10, min=3, max=12):
-    raw = raw_ngrams(l, min, max)
-    by_freq = ngrams_by_freq(raw, freq)
-    formatted = format_ngrams(by_freq)
-    return formatted
-
-
-def ngrams_by_folder(input_path, freq=2, min=3, max=12):
-    ngram_total = DefaultOrderedDict(int)
-    for f in os.listdir(input_path):
-        raw = open_file(input_path+f)
-        syls = PrepareTib(raw).tsheks_only()
-        ngrams = raw_ngrams(syls, min, max)
-        for n in ngrams:
-            ngram_total[n[0]] += n[1]
-    ngram_total = ngrams_by_freq(ngram_total, freq)
-    return format_ngrams(ngram_total)
-
-
+#print(pre_process(test))
+#print(pre_process(no_space(test)))
 import time
 A = time.time()
-IN = './ngram_input/'
-write_file('test.txt', ngrams_by_folder(IN, freq=2, min=3, max=12))
+#write_file('test.txt', NGrams().ngrams_by_folder('./ngram_input/', freq=2, min=3, max=12))
+
 B = time.time()
 print(B-A)
+
+truc = DefaultOrderedDict(int)
+print(truc([(1, 2, 3), (2, 3, 4)]))

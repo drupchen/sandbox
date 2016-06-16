@@ -3,10 +3,11 @@ from .common import strip_list
 
 mark = '#'  # marker of unknown syllables. Can’t be a letter. Only 1 char allowed. Can’t be left empty.
 
+
 class AntTib:
     """
     Pseudo-Wylie created for use in AntConc.
-    The output only contains letters for the syllables, :; for the punctuation.
+    The output only contains letters for the syllables, :; for the pre_process.
     All yigos are deleted
     """
 
@@ -101,9 +102,9 @@ class AntTib:
 
     def __trim_punct(self, l):
         """
-        :param l:    a list splitted on the punctuation with re.split() where the regex was
+        :param l:    a list splitted on the pre_process with re.split() where the regex was
                         something like ((<punct>|<punct>)+)
-        :return: the same list, only keeping one of the two punctuation elements re.split() gave
+        :return: the same list, only keeping one of the two pre_process elements re.split() gave
         """
         i = 0
         while i < len(l) - 1:
@@ -115,9 +116,9 @@ class AntTib:
         """
 
         :param string: a Tibetan text string
-        :return: its counterpart in AntTib with the punctuation diminished to shads(;) and tershe(:)
+        :return: its counterpart in AntTib with the pre_process diminished to shads(;) and tershe(:)
         """
-        # Todo : make a new class to deal with the punctuation instead of doing it here
+        # Todo : make a new class to deal with the pre_process instead of doing it here
         # Prepare the string : delete all extra punctuations
         # replace the tabs by normal spaces
         string = string.replace('   ', ' ')
@@ -127,11 +128,11 @@ class AntTib:
         string = re.sub(r'་+', r'་', string)
         # delete all yigos
         string = re.sub('(༄༅+|༆|༇|༈)།?༎? ?།?༎?', '', string)
-        # split on the punctuation. here, a paragraph is just a chunk of text separated by shads.
+        # split on the pre_process. here, a paragraph is just a chunk of text separated by shads.
 
-        # split on remaining punctuation
+        # split on remaining pre_process
         paragraphs = re.split(r'(( *། *| *༎ *| *༏ *| *༐ *| *༑ *| *༔ *)+)', string)
-        # trim the extra punctuation
+        # trim the extra pre_process
         self.__trim_punct(paragraphs)
         strip_list(paragraphs)  # delete empty elements beginning or ending the list
 
@@ -209,7 +210,7 @@ class AntTib:
         paragraphs = re.split(r'(( *; *| *: *)+)', string)
         # delete the last element of the list if it is an empty string
         strip_list(paragraphs)
-        # trim the extra punctuation (see comment in to_pw_text)
+        # trim the extra pre_process (see comment in to_pw_text)
         self.__trim_punct(paragraphs)
         ant_text = []
         for par in paragraphs:
@@ -256,7 +257,7 @@ class AntTib:
         """
 
         :param string: a segmented Tibetan unicode string
-        :return: the same string without the spaces between syllables (keeps all spaces at punctuation)
+        :return: the same string without the spaces between syllables (keeps all spaces at pre_process)
         """
         regexes = [r'([་|༌])\s',  # spaces preceded by a tsek
                    r'(ང[་|༌])\s',  # ང་ plus space

@@ -20,4 +20,5 @@ for Folder in os.listdir('.'):
                             text = re.sub(r'\<[^>]+\>', r'', str(page))
                             output += text + '\n'
                         with open('../txt/'+'{}.txt'.format(File), 'w', -1, 'utf-8-sig') as f:
-                            f.write(output)
+                            f.write\
+                                (output)

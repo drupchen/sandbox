@@ -14,6 +14,51 @@ def open_file(file_path):
         return f.read()
 
 
+def pre_process(raw_string):
+    import re
+
+    def is_punct(string):
+        # put in common
+        if '།' in string or '༎' in string or '༏' in string or '༐' in string or '༑' in string or '༔' in string or ';' in string or ':' in string:
+            return True
+        else:
+            return False
+
+    def trim_punct(l):
+        i = 0
+        while i < len(l) - 1:
+            if is_punct(l[i]) and is_punct(l[i + 1]):
+                del l[i + 1]
+            i += 1
+
+    yigo = r'(༄༅+|༆|༇|༈)།?༎? ?།?༎?'
+    text_punct = r'(( *། *| *༎ *| *༏ *| *༐ *| *༑ *| *༔ *)+)'
+    splitted = []
+    # replace unbreakable tsek and tabs
+    raw_string = raw_string.replace('༌', '་').replace('   ', ' ')
+    # split the raw string by the yigos,
+    for text in re.split(yigo, raw_string):
+        # add the yigos to the list
+        if re.match(yigo, text):
+            splitted.append(text)
+        elif text != '':
+            # split the string between yigos by the text pre_process
+            for par in re.split(text_punct, text):
+                # add the pre_process to the list
+                if is_punct(par):
+                    splitted.append(par)
+                elif par != '':
+                    # add the segmented text split on words
+                    if ' ' in par:
+                        splitted.extend(par.split(' '))
+                    # add the non-segmented text by splitting it on syllables.
+                    else:
+                        splitted.extend([s + '་' for s in par.split('་')])
+    # trim the extra pre_process
+    trim_punct(splitted)
+    return splitted
+
+
 def search(l, entry, len_l):
     """
     :param l: list on which to apply bisect
@@ -43,7 +88,7 @@ def occ_indexes(l, sub_l):
     """
     used for finding the concordances
     :param l: list
-    :param seq: sub-list
+    :param sub_l: sub-list
     :return: indexes (x, y) for all occurrences of the sub-list in the list, an empty list if none found
     """
     return [(i, i+len(sub_l)) for i in range(len(l)) if l[i:i+len(sub_l)] == sub_l]
@@ -92,7 +137,7 @@ def is_tibetan_letter(char):
 def non_tib_chars(string):
     """
     :param string:
-    :return: list of non-tibetan non-tibetan-punctuation characters found within a string
+    :return: list of non-tibetan non-tibetan-pre_process characters found within a string
     """
     punct = ['༄', '༅', '།', '་', '༌', '༑', '༎', '༏', '༐', '༔']
     chars = []
@@ -142,61 +187,3 @@ class DefaultOrderedDict(OrderedDict):
 
     def __repr__(self):
         return 'OrderedDefaultDict(%s, %s)' % (self.default_factory, OrderedDict.__repr__(self))
-
-
-class PrepareTib:
-    ''' Dealing with the punctuation of Tibetan '''
-
-    def __init__(self, tibstring):
-        self.raw = tibstring.replace('\n', '')  # fast hack to get rid of all returns
-        self.punct = [" ", "༄", "༅", "࿓", "࿔", "༇", "༆", "༈", "།", "༎", "༏", "༐", "༑", "༔","་", "༌", "༼", "༽", "༒", "༓", "ཿ"]
-
-    def gen_tuples(self):
-        syllables = []
-        puncts = []
-        syl = ''
-        for index, char in enumerate(self.raw):
-            if index == 0:
-                if char in self.punct:
-                    puncts.append(char)
-                else:
-                    syl += char
-            else:
-                if char not in self.punct and self.raw[index-1] in self.punct:
-                    syllables.append((syl, puncts))
-                    puncts = []
-                    syl = char
-                elif char not in self.punct:
-                    syl += char
-                elif char in self.punct:
-                    puncts.append(char)
-        # add last syllable + its punctuation
-        if syl != '':
-            syllables.append((syl, puncts))
-        return syllables
-
-    def syl_tuples(self):
-        tuples = PrepareTib.gen_tuples(self)
-        return [(t[0], ''.join(t[1])) for t in tuples]
-
-    def all_punct(self):
-        tuples = PrepareTib.syl_tuples(self)
-        return [t[0]+t[1] for t in tuples]
-
-    def syls_only(self):
-        tuples = PrepareTib.gen_tuples(self)
-        return [t[0] for t in tuples]
-
-    def tsheks_only(self):
-        tuples = PrepareTib.syl_tuples(self)
-        return [t[0]+'་' for t in tuples]
-
-    def no_tshek(self):
-        tuples = PrepareTib.syl_tuples(self)
-        no_tshek = []
-        for t in tuples:
-            if '་' in t[1]:
-                no_tshek.append(t[0]+t[1].replace('་', ''))
-            else :
-                no_tshek.append(t[0]+t[1])
-        return no_tshek
