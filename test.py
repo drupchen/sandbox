@@ -6,15 +6,22 @@ p, li { white-space: pre-wrap; }
 <p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#00ff00;"><br /></p>
 <p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#000000;"><br /></p></body></html>'''
 import re
-from bs4 import BeautifulSoup as Soup
 
 
-soup = Soup(test, 'html.parser').html.body
+temp = ''
+for i in range(len(test)-1):
+    if i == '<':
+        temp = test[i]
 
-for t in soup.stripped_strings:
-    print(repr(t))
 
-for par in soup.children:
-    for char in par.stripped_strings:
-        print(repr(char))
 
+[{'' : {'markup' : '<bla>'}} ,
+ {'' :  {'markup' : '<ya>'}},
+ {'' :  {'markup' : '<\ya>'}},
+ {'' : {'markup' : '<bla>'}},
+ {'' : {'markup' : 'p'}},
+ {0 : {'POS' : 'noun'}},
+ {'' : {'markup' : '<bla>'}
+ ]
+
+['བཀྲ་ཤིས་', 'བདེ་ལེགས།']
