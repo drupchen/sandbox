@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5c7a8432-c30c-4455-9c02-1f3a74d7f6d6" name="Default" comment="beginning of MLD">
+    <list default="true" id="5c7a8432-c30c-4455-9c02-1f3a74d7f6d6" name="Default" comment="export view working">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data_structure/structure.py" afterPath="$PROJECT_DIR$/data_structure/structure.py" />
     </list>
@@ -64,8 +64,8 @@
           <file leaf-file-name="structure.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/data_structure/structure.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="529">
-                  <caret line="92" column="55" selection-start-line="92" selection-start-column="55" selection-end-line="92" selection-end-column="55" />
+                <state relative-caret-position="424">
+                  <caret line="91" column="54" selection-start-line="91" selection-start-column="54" selection-end-line="91" selection-end-column="54" />
                   <folding>
                     <element signature="e#0#9#0" expanded="true" />
                   </folding>
@@ -124,8 +124,8 @@
           <file leaf-file-name="structure.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/data_structure/structure.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="379">
-                  <caret line="139" column="19" selection-start-line="139" selection-start-column="19" selection-end-line="139" selection-end-column="19" />
+                <state relative-caret-position="139">
+                  <caret line="124" column="51" selection-start-line="124" selection-start-column="51" selection-end-line="124" selection-end-column="51" />
                   <folding>
                     <element signature="e#0#9#0" expanded="true" />
                   </folding>
@@ -621,13 +621,6 @@
       <option name="presentableId" value="Default" />
       <updated>1463150865855</updated>
     </task>
-    <task id="LOCAL-00028" summary="*** *WORD that ended in *** in anttib fixed">
-      <created>1463577811085</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1463577811085</updated>
-    </task>
     <task id="LOCAL-00029" summary="error in from_ant_text() catched. now returns *** if no values found in self.A and self.D">
       <created>1463579004341</created>
       <option name="number" value="00029" />
@@ -964,7 +957,14 @@
       <option name="project" value="LOCAL" />
       <updated>1466373833619</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="export view working">
+      <created>1466460984237</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1466460984249</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1034,7 +1034,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="segmentation getting closer to the manual !" />
     <MESSAGE value="fbug fixed and tib_sort() added to common.py" />
     <MESSAGE value="profiler stats’ bug fixed and tib_sort() added to common.py" />
     <MESSAGE value="merge of syllables in the uncompound lexicon done !" />
@@ -1059,7 +1058,8 @@
     <MESSAGE value="ngrams_by_folder implemented" />
     <MESSAGE value="update" />
     <MESSAGE value="beginning of MLD" />
-    <option name="LAST_COMMIT_MESSAGE" value="beginning of MLD" />
+    <MESSAGE value="export view working" />
+    <option name="LAST_COMMIT_MESSAGE" value="export view working" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1104,16 +1104,6 @@
           <line>14</line>
           <option name="timeStamp" value="139" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/data_structure/structure.py</url>
-          <line>33</line>
-          <option name="timeStamp" value="146" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/data_structure/structure.py</url>
-          <line>60</line>
-          <option name="timeStamp" value="147" />
-        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
@@ -1125,7 +1115,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="148" />
+      <option name="time" value="150" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1464,8 +1454,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data_structure/structure.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="92" column="55" selection-start-line="92" selection-start-column="55" selection-end-line="92" selection-end-column="55" />
+        <state relative-caret-position="424">
+          <caret line="91" column="54" selection-start-line="91" selection-start-column="54" selection-end-line="91" selection-end-column="54" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>

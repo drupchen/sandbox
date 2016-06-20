@@ -57,6 +57,7 @@ class MLD:
                     temp[val] = temp[val][:-1]+ '-'
             flattened[temp[0]] = temp[1]
         self.layers[name].update(flattened)
+        print(self.layers)
 
     def export_view(self, layers=''):
         """
@@ -87,7 +88,7 @@ class MLD:
                         # if it has more than a char, 1. either an addition (xxx_), or 2. an addition and a deletion (xxx-) or 3. an addition and a replacement (xxxy)
                         # 1. add modif before the current index char
                         elif modif.endswith('_'):
-                            temp = temp[:-1]+modif+temp[-1]
+                            temp = temp[:-1]+modif[:-1]+temp[-1]
                         # 2. delete current index char
                         elif modif.endswith('-'):
                             temp = temp[:-1]+modif[:-1]
@@ -121,7 +122,7 @@ class MLD:
 
 
 test = MLD('བཀྲ་ཤིས་བདེ་ལེགས། ')
-li = '0\t=P\n0\t+བ\n0\t+ྱ\n0\t+་\n0\t=K'
+li = '0\t=P\n0\t+བ\n0\t+ྱ\n0\t+་\n0\t-\n4\t+G\n3\t-'
 test.import_layer('test', li)
 print(li)
 print(test.export_view(layers='test'))
