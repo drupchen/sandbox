@@ -27,12 +27,14 @@ class MLD:
             layers = [l for l in filenames if re.match('[0-9]+', l)]
             for layer in layers:
                 string = str(zf.read(layer), 'utf-8')
-                self.import_layer(string)
+                if string != '':
+                    self.import_layer(layer, string)
         elif mld:
             self.base_string = mld
 
     def import_layer(self, name, string):
-        lines = [(line.split('\t')[0], line.split('\t')[1]) for line in string.split('\n')]
+        print(string)
+        lines = [(line.split('\t')[0], line.split('\t')[1]) for line in string.split('\n') if line != '']
         flattened = {}
         idx = 0  # the index of the base string
         val = 1  # the string obtained from the operations
@@ -57,7 +59,6 @@ class MLD:
                     temp[val] = temp[val][:-1]+ '-'
             flattened[temp[0]] = temp[1]
         self.layers[name].update(flattened)
-        print(self.layers)
 
     def export_view(self, layers=''):
         """
@@ -122,11 +123,11 @@ class MLD:
 
 
 test = MLD('བཀྲ་ཤིས་བདེ་ལེགས། ')
-li = '0\t=P\n0\t+བ\n0\t+ྱ\n0\t+་\n0\t-\n4\t+G\n3\t-'
+li = '0\t=P\n0\t+བ\n0\t+ྱ\n0\t+་\n0\t-\n4\t+G\n3\t-\n'
 test.import_layer('test', li)
 print(li)
 print(test.export_view(layers='test'))
-#print(MLD('./test.mld'))
+print(MLD('./test.mld'))
 
 
 '''

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5c7a8432-c30c-4455-9c02-1f3a74d7f6d6" name="Default" comment="export view working">
+    <list default="true" id="5c7a8432-c30c-4455-9c02-1f3a74d7f6d6" name="Default" comment="bug on addition operation fixed (the '_' was still present)">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data_structure/test.mld" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data_structure/structure.py" afterPath="$PROJECT_DIR$/data_structure/structure.py" />
     </list>
@@ -64,8 +65,8 @@
           <file leaf-file-name="structure.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/data_structure/structure.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="424">
-                  <caret line="91" column="54" selection-start-line="91" selection-start-column="54" selection-end-line="91" selection-end-column="54" />
+                <state relative-caret-position="525">
+                  <caret line="35" column="21" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="21" />
                   <folding>
                     <element signature="e#0#9#0" expanded="true" />
                   </folding>
@@ -124,8 +125,8 @@
           <file leaf-file-name="structure.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/data_structure/structure.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="139">
-                  <caret line="124" column="51" selection-start-line="124" selection-start-column="51" selection-end-line="124" selection-end-column="51" />
+                <state relative-caret-position="496">
+                  <caret line="129" column="24" selection-start-line="129" selection-start-column="24" selection-end-line="129" selection-end-column="24" />
                   <folding>
                     <element signature="e#0#9#0" expanded="true" />
                   </folding>
@@ -621,13 +622,6 @@
       <option name="presentableId" value="Default" />
       <updated>1463150865855</updated>
     </task>
-    <task id="LOCAL-00029" summary="error in from_ant_text() catched. now returns *** if no values found in self.A and self.D">
-      <created>1463579004341</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1463579004341</updated>
-    </task>
     <task id="LOCAL-00030" summary="update">
       <created>1463601462053</created>
       <option name="number" value="00030" />
@@ -964,7 +958,14 @@
       <option name="project" value="LOCAL" />
       <updated>1466460984249</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="bug on addition operation fixed (the '_' was still present)">
+      <created>1466461847829</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1466461847829</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TodoView">
@@ -980,7 +981,7 @@
     <frame x="-3" y="32" width="1926" height="1138" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.07109005" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.07109005" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3275862" sideWeight="0.49342105" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32662836" sideWeight="0.54186416" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38567224" sideWeight="0.46445498" order="10" side_tool="false" content_ui="tabs" />
@@ -1034,7 +1035,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="fbug fixed and tib_sort() added to common.py" />
     <MESSAGE value="profiler stats’ bug fixed and tib_sort() added to common.py" />
     <MESSAGE value="merge of syllables in the uncompound lexicon done !" />
     <MESSAGE value="merge and split ok, remains the issue of tseks in the merged and split words" />
@@ -1059,7 +1059,8 @@
     <MESSAGE value="update" />
     <MESSAGE value="beginning of MLD" />
     <MESSAGE value="export view working" />
-    <option name="LAST_COMMIT_MESSAGE" value="export view working" />
+    <MESSAGE value="bug on addition operation fixed (the '_' was still present)" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug on addition operation fixed (the '_' was still present)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1454,8 +1455,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data_structure/structure.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="91" column="54" selection-start-line="91" selection-start-column="54" selection-end-line="91" selection-end-column="54" />
+        <state relative-caret-position="496">
+          <caret line="129" column="24" selection-start-line="129" selection-start-column="24" selection-end-line="129" selection-end-column="24" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
