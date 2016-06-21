@@ -3,6 +3,7 @@ import zipfile
 from  collections import OrderedDict, defaultdict
 
 
+
 class MLD:
     def __init__(self, mld=None):
         self.base_string = ''
@@ -11,7 +12,7 @@ class MLD:
         self.file_name = ''
         self.metadata = ''
 
-        # if a mld file is given as argument
+        # if a mld file is passed to the object
         if mld.endswith('.mld'):
             # find the name from the file name
             self.file_name = mld.split('/')[-1].replace('.mld', '')
@@ -20,22 +21,19 @@ class MLD:
 
             # Populate the object variables
             # list the files in the zip
-            filenames = zf.namelist()
+            file_names = zf.namelist()
             # read the base string to base_string
             self.base_string = str(zf.read('base_string'), 'utf-8')
             # populate the layer dict
-            layers = [l for l in filenames if re.match('[0-9]+', l)]
+            layers = [l for l in file_names if re.match('[0-9]+', l)]
             for layer in layers:
-                string = str(zf.read(layer), 'utf-8')
-                if string != '':
-                    self.import_layer(layer, string)
+                self.layers[layer] = str(zf.read(layer), 'utf-8')
+        # if the base string is directly passed to the object
         elif mld:
             self.base_string = mld
 
-    def import_layer(self, name, string):
-        print(string)
+    def flatten(self, string, flattened):
         lines = [(line.split('\t')[0], line.split('\t')[1]) for line in string.split('\n') if line != '']
-        flattened = {}
         idx = 0  # the index of the base string
         val = 1  # the string obtained from the operations
         for index, modif in lines:
@@ -58,7 +56,16 @@ class MLD:
                 elif operation == '-':  # assumes that there is at least on character in the string
                     temp[val] = temp[val][:-1]+ '-'
             flattened[temp[0]] = temp[1]
-        self.layers[name].update(flattened)
+        return flattened
+
+    def import_layer(self, name, layer_string):
+        self.layers[name] = layer_string
+
+    def merge_layers(self, layers):
+        merged = {}
+        for layer in layers.split('+'):
+            merged.update(self.flatten(self.layers[layer], merged))
+        return merged
 
     def export_view(self, layers=''):
         """
@@ -69,33 +76,33 @@ class MLD:
         if layers == '':
             return self.base_string
         else:
-            layers = layers.split('+')
+            merged_layers = self.merge_layers(layers)
+            print(merged_layers)
             view = ''
             for num, char in enumerate(self.base_string):
                 # searches in all layers if the current index exists
                 # todo : try to merge all layers first
                 temp = char
-                for l in self.layers:
-                    if str(num) in self.layers[l]:
-                        modif = self.layers[l][str(num)]
-                        # if modif is only 1 char, it can either be a deletion ('-') or a replacement
-                        if len(modif) == 1:
-                            if modif == '-':
-                                # delete the current char
-                                temp = ''
-                            else:
-                                # replace the current char
-                                temp = modif
-                        # if it has more than a char, 1. either an addition (xxx_), or 2. an addition and a deletion (xxx-) or 3. an addition and a replacement (xxxy)
-                        # 1. add modif before the current index char
-                        elif modif.endswith('_'):
-                            temp = temp[:-1]+modif[:-1]+temp[-1]
-                        # 2. delete current index char
-                        elif modif.endswith('-'):
-                            temp = temp[:-1]+modif[:-1]
-                        # 3. apply the addition and replace the current index char
+                if str(num) in merged_layers:
+                    modif = merged_layers[str(num)]
+                    # if modif is only 1 char, it can either be a deletion ('-') or a replacement
+                    if len(modif) == 1:
+                        if modif == '-':
+                            # delete the current char
+                            temp = ''
                         else:
-                            temp = temp[:-1]+modif
+                            # replace the current char
+                            temp = modif
+                    # if it has more than a char, 1. either an addition (xxx_), or 2. an addition and a deletion (xxx-) or 3. an addition and a replacement (xxxy)
+                    # 1. add modif before the current index char
+                    elif modif.endswith('_'):
+                        temp = temp[:-1]+modif[:-1]+temp[-1]
+                    # 2. delete current index char
+                    elif modif.endswith('-'):
+                        temp = temp[:-1]+modif[:-1]
+                    # 3. apply the addition and replace the current index char
+                    else:
+                        temp = temp[:-1]+modif
                 view += temp
             return view
 
@@ -108,7 +115,7 @@ class MLD:
     def __repr__(self):
         if type(self.base_string) is str:
             # generate a list of the layers
-            layers = ' + '.join([key+value for key, value in self.layers.items()])
+            layers = ' + '.join([key for key in self.layers])
 
             # generate the first string_len characters separated on a new line every line_len characters
             string_len = 594
@@ -119,15 +126,23 @@ class MLD:
         else:
             return 'non-valid file'
 
-
-
+layer1 = '0\t=P\n0\t+བ\n0\t+ྱ\n0\t+་\n0\t-\n4\t+G\n3\t-\n'
+layer2 = '0\t=V'
 
 test = MLD('བཀྲ་ཤིས་བདེ་ལེགས། ')
-li = '0\t=P\n0\t+བ\n0\t+ྱ\n0\t+་\n0\t-\n4\t+G\n3\t-\n'
-test.import_layer('test', li)
-print(li)
-print(test.export_view(layers='test'))
-print(MLD('./test.mld'))
+test.import_layer('l1', layer1)
+test.import_layer('l2', layer2)
+test.export_view()
+print('layer1')
+test.export_view(layers='l1')
+print('layer2')
+test.export_view(layers='l2')
+print('layer2+layer1\n')
+print(test.export_view(layers='l2+l1'))
+print('\nlayer1+layer2\n')
+print(test.export_view(layers='l1+l2'))
+
+#print(MLD('./test.mld'))
 
 
 '''
@@ -189,3 +204,7 @@ layer layout :
     index\t-        # deletes the character at index
     index\t=char    # replaces the character at index
 '''
+
+
+
+
