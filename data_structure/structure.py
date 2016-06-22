@@ -126,7 +126,7 @@ class MLD:
         else:
             return 'non-valid file'
 
-layer1 = '0\t=P\n0\t+བ\n0\t+ྱ\n0\t+་\n0\t-\n4\t+G\n3\t-\n'
+layer1 = '0\t=P\n0\t+ད\n0\t+ྱ\n0\t+་\n0\t-\n4\t+G\n3\t-\n'
 layer2 = '0\t=V'
 
 test = MLD('བཀྲ་ཤིས་བདེ་ལེགས། ')

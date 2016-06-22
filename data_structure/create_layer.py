@@ -30,10 +30,22 @@ def no_space(string):
 
 with open('/home/drupchen/PycharmProjects/sandbox/ཤེར་ཕྱིན། ཕ། -.txt', 'r', -1, 'utf-8-') as f:
     seg = f.read()
+
+
 raw = no_space(seg)
+with open('/home/drupchen/PycharmProjects/sandbox/raw.txt', 'w', -1, 'utf-8-') as f:
+    for r in raw:
+        f.write(r+'\n')
+with open('/home/drupchen/PycharmProjects/sandbox/seg.txt', 'w', -1, 'utf-8-') as f:
+    for s in seg:
+        f.write(s+'\n')
+
+print(len(raw))
+print(len(seg))
 import time
 D = time.time()
-truc = [a for a in difflib.ndiff(raw, seg)]
+#truc = difflib.SequenceMatcher(None, raw, seg).get_opcodes()
 #diff = create_layer(raw, seg)
 E = time.time()
 print(E-D)
+#print(truc[:10])
