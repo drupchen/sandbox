@@ -14,7 +14,13 @@ def open_file(file_path):
         return f.read()
 
 
-def pre_process(raw_string):
+def pre_process(raw_string, mode='words'):
+    """
+    Splits a raw Tibetan string by the punctuation and syllables or words
+    :param raw_string:
+    :param mode: words for splitting on words, syls for splitting in syllables. Default value is words
+    :return: a list with the elements separated from the punctuation
+    """
     import re
 
     def is_punct(string):
@@ -49,11 +55,14 @@ def pre_process(raw_string):
                     splitted.append(par)
                 elif par != '':
                     # add the segmented text split on words
-                    if ' ' in par:
+                    if mode == 'words':
                         splitted.extend(par.split(' '))
                     # add the non-segmented text by splitting it on syllables.
-                    else:
+                    elif mode == 'syls':
                         splitted.extend([s + '་' for s in par.split('་')])
+                    else:
+                        print('non-valid splitting mode. choose either "words" or "syls".')
+                        break
     # trim the extra pre_process
     trim_punct(splitted)
     return splitted
