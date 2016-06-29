@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5c7a8432-c30c-4455-9c02-1f3a74d7f6d6" name="Default" comment="filtered levels() method nearly ok">
+    <list default="true" id="5c7a8432-c30c-4455-9c02-1f3a74d7f6d6" name="Default" comment="filtered n-gram levels beta">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/PyTib/NGrams.py" afterPath="$PROJECT_DIR$/Classes/PyTib/NGrams.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/PyTib/common.py" afterPath="$PROJECT_DIR$/Classes/PyTib/common.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/tests/ngram.py" afterPath="$PROJECT_DIR$/Classes/tests/ngram.py" />
     </list>
     <list id="7ae00310-ce78-4316-87ca-9995d5c2d71f" name="Failed commit: Default" comment="AntPut output debugged" />
     <ignored path="sandbox.iws" />
@@ -32,8 +30,8 @@
           <file leaf-file-name="NGrams.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Classes/PyTib/NGrams.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="327">
-                  <caret line="35" column="22" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
+                <state relative-caret-position="507">
+                  <caret line="47" column="16" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="16" />
                   <folding>
                     <element signature="e#0#62#0" expanded="true" />
                   </folding>
@@ -48,8 +46,8 @@
           <file leaf-file-name="ngram.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Classes/tests/ngram.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="210">
-                  <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
+                <state relative-caret-position="225">
+                  <caret line="16" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
                   <folding />
                 </state>
               </provider>
@@ -133,8 +131,8 @@
         <option value="$PROJECT_DIR$/data_structure/create_layer.py" />
         <option value="$PROJECT_DIR$/Classes/PyTib/common.py" />
         <option value="$PROJECT_DIR$/Classes/tests/filtered.txt" />
-        <option value="$PROJECT_DIR$/Classes/PyTib/NGrams.py" />
         <option value="$PROJECT_DIR$/Classes/tests/ngram.py" />
+        <option value="$PROJECT_DIR$/Classes/PyTib/NGrams.py" />
       </list>
     </option>
   </component>
@@ -588,13 +586,6 @@
       <option name="presentableId" value="Default" />
       <updated>1463150865855</updated>
     </task>
-    <task id="LOCAL-00034" summary="relative link">
-      <created>1463604678794</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1463604678794</updated>
-    </task>
     <task id="LOCAL-00035" summary="AntPut implemented">
       <created>1463627895688</created>
       <option name="number" value="00035" />
@@ -931,7 +922,14 @@
       <option name="project" value="LOCAL" />
       <updated>1467151506345</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="filtered n-gram levels beta">
+      <created>1467202133694</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1467202133695</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1001,7 +999,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="segment class completed !!!" />
     <MESSAGE value="cleanup" />
     <MESSAGE value="segmentation ok for first 700 lines of sherchin volume !" />
     <MESSAGE value="icu added" />
@@ -1026,7 +1023,8 @@
     <MESSAGE value="bug in importing layer from .mld file to solve" />
     <MESSAGE value="create layer with ndiff" />
     <MESSAGE value="filtered levels() method nearly ok" />
-    <option name="LAST_COMMIT_MESSAGE" value="filtered levels() method nearly ok" />
+    <MESSAGE value="filtered n-gram levels beta" />
+    <option name="LAST_COMMIT_MESSAGE" value="filtered n-gram levels beta" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1421,21 +1419,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/PyTib/NGrams.py">
+    <entry file="file://$PROJECT_DIR$/Classes/tests/ngram.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="35" column="22" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#62#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="225">
+          <caret line="16" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/tests/ngram.py">
+    <entry file="file://$PROJECT_DIR$/Classes/PyTib/NGrams.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
-          <folding />
+        <state relative-caret-position="507">
+          <caret line="47" column="16" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#62#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

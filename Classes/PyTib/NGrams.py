@@ -45,10 +45,10 @@ class NGrams:
             # fetch higher level for comparison in filtered_level()
             if len(levels) != 0:
                 levels.append(self.__filtered_level(l, levels[-1], i))
+                print(levels[-2].difference(levels[-1]))
             else:
                 # adds the highest level without filtering it
                 levels.append(self._raw_ngrams(l, i, i))
-                print(levels[-2].difference(levels[-1]))
 
         # flatten the levels in a single list
         grams = [gram for level in levels for gram in level]
