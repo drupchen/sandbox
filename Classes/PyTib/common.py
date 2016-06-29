@@ -59,7 +59,23 @@ def pre_process(raw_string, mode='words'):
                         splitted.extend(par.split(' '))
                     # add the non-segmented text by splitting it on syllables.
                     elif mode == 'syls':
-                        splitted.extend([s + '་' for s in par.split('་')])
+                        temp = []
+                        for chunk in par.split(' '):
+                            if '་' in chunk:
+                                word = ''
+                                for c in chunk:
+                                    if c == '་':
+                                        word += c
+                                        temp.append(word)
+                                        word = ''
+                                    else:
+                                        word += c
+                                # adding the last word in temp[]
+                                if word != '':
+                                    temp.append(word)
+                            else:
+                                temp.append(chunk)
+                        splitted.extend(temp)
                     else:
                         print('non-valid splitting mode. choose either "words" or "syls".')
                         break

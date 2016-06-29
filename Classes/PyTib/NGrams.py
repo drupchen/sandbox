@@ -17,35 +17,28 @@ class NGrams:
             grams = self.__ngram_generator(l, a)
             for g in grams:
                 ngrams[g] += 1
-        return ngrams
+        return [entry for entry in ngrams.items()]
 
     def _ngrams_by_freq(self, raw, freq=10):
-        ngrams = sorted(raw.items(), key=lambda x: x[1], reverse=True)
+        ngrams = sorted(raw, key=lambda x: x[1], reverse=True)
         return [(n[1], ' '.join(n[0]), len(n[0])) for n in ngrams if n[1] >= freq]
 
     def _format_ngrams(self, l, sep='\t'):
         return '\n'.join([str(n[0]) + sep + n[1] + sep + str(n[2]) for n in l])
 
-    def ngrams(self, raw_string, freq=10, min=3, max=12):
-        l = pre_process(raw_string)
+    def ngrams(self, raw_string, freq=10, min=3, max=12, unit='words'):
+        l = pre_process(raw_string, unit)
         raw = self._raw_ngrams(l, min, max)
         by_freq = self._ngrams_by_freq(raw, freq)
         formatted = self._format_ngrams(by_freq)
         return formatted
 
-    def __filtered_level(self, l, up_level, level):
+    def __filtered_level(self, l, longer, level):
         shorter = set(self._raw_ngrams(l, level, level))
-        longer = up_level
-        substrings = []
-        for s in shorter:
-            s_str = ''.join(s[0])
-            for l in longer:
-                l_str = ''.join(l[0])
-                if s_str in l_str:
-                    substrings.append(s)
+        substrings = set([s for s in shorter for l in longer if ''.join(s[0]) in ''.join(l[0])])
         return list(shorter.difference(substrings))
 
-    def filtered_levels(self, raw_string, min, max, unit='words'):
+    def filtered_levels(self, raw_string, min, max, unit='words', freq=1):
         l = pre_process(raw_string, mode=unit)
         levels = []
         for i in reversed(range(min, max+1)):
@@ -55,13 +48,17 @@ class NGrams:
             else:
                 # adds the highest level without filtering it
                 levels.append(self._raw_ngrams(l, i, i))
+                print(levels[-2].difference(levels[-1]))
+
         # flatten the levels in a single list
-        print(levels)
         grams = [gram for level in levels for gram in level]
+
         # return the frequence-sorted n-grams
-        return sorted(grams, key=lambda x: x[1], reverse=True)
+        # similar to _ngrams_by_freq() except that it starts with a list, so there is no .items() method called
+        by_freq = sorted(grams, key=lambda x: x[1], reverse=True)
+        by_freq = [(n[1], ' '.join(n[0]), len(n[0])) for n in by_freq if n[1] >= freq]
 
-
+        return self._format_ngrams(by_freq)
 
 
 def ngrams_by_folder(input_path, freq=2, min=3, max=12, unit='words'):
