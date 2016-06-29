@@ -1,7 +1,7 @@
 import re
 import zipfile
+from difflib import ndiff
 from  collections import OrderedDict, defaultdict
-
 
 
 class MLD:
@@ -37,7 +37,7 @@ class MLD:
         idx = 0  # the index of the base string
         val = 1  # the string obtained from the operations
         for index, modif in lines:
-            temp = ['', '']  # simulates the key and value to add to flattened
+            temp = ['', '']  # simulates the key and value to be added to flattened
             if index in flattened:
                 temp = [index, flattened[index]]
             operation = modif[0]
@@ -53,7 +53,7 @@ class MLD:
                         temp[val] = temp[val][:-1]+modified+temp[val][-1]
                 elif operation == '=':
                     temp[val] = temp[val][:-1] + modified
-                elif operation == '-':  # assumes that there is at least on character in the string
+                elif operation == '-':  # assumes that there is at least one character in the string
                     temp[val] = temp[val][:-1]+ '-'
             flattened[temp[0]] = temp[1]
         return flattened
@@ -77,7 +77,6 @@ class MLD:
             return self.base_string
         else:
             merged_layers = self.merge_layers(layers)
-            print(merged_layers)
             view = ''
             for num, char in enumerate(self.base_string):
                 # searches in all layers if the current index exists
@@ -126,21 +125,32 @@ class MLD:
         else:
             return 'non-valid file'
 
-layer1 = '0\t=P\n0\t+ད\n0\t+ྱ\n0\t+་\n0\t-\n4\t+G\n3\t-\n'
-layer2 = '0\t=V'
 
-test = MLD('བཀྲ་ཤིས་བདེ་ལེགས། ')
-test.import_layer('l1', layer1)
-test.import_layer('l2', layer2)
-test.export_view()
-print('layer1')
-test.export_view(layers='l1')
-print('layer2')
-test.export_view(layers='l2')
-print('layer2+layer1\n')
-print(test.export_view(layers='l2+l1'))
-print('\nlayer1+layer2\n')
-print(test.export_view(layers='l1+l2'))
+def create_layer(base, modified):
+    diff = ndiff(base, modified)
+    layer = []
+    c = 0
+    for line in diff:
+        operation = line[0] + line[2:]
+        # turn - followed by + operation into a replace operation(=)
+        if layer != [] and '-' in layer[-1] and '+' in line:
+            parts = layer[-1].split('\t')
+            layer[-1] = parts[0] + '\t' + parts[1][:-2] + '=' + operation[-1]
+        else:
+            # only increment the counter when there is no modification in the current line
+            if line.startswith('  '):
+                c += 1
+            # append the modification found in the current line
+            else:
+                layer.append(str(c) + '\t' + operation)
+                c += 1
+    print('__'.join(layer))
+    return '\n'.join(layer)
+
+test = MLD('a b c d')
+test.import_layer('l1', create_layer(test.export_view(), 'aA bB cC dD'))
+print(test.export_view(layers='l1'))
+
 
 #print(MLD('./test.mld'))
 
