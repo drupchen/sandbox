@@ -33,23 +33,22 @@ class NGrams:
         formatted = self._format_ngrams(by_freq)
         return formatted
 
-    def __filtered_level(self, l, longer, level):
+    def __reduce_substrings(self, l, longer, level):
         shorter = set(self._raw_ngrams(l, level, level))
         substrings = set([s for s in shorter for l in longer if ''.join(s[0]) in ''.join(l[0])])
-        print(level, list(shorter.difference(substrings)))
         return list(shorter.difference(substrings))
 
-    def filtered_levels(self, raw_string, min, max, unit='words', freq=1):
+    def no_substring_ngrams(self, raw_string, min, max, unit='words', freq=1):
         l = pre_process(raw_string, mode=unit)
         levels = []
         for i in reversed(range(min, max+1)):
             # fetch higher level for comparison in filtered_level()
             if len(levels) != 0:
-                levels.append(self.__filtered_level(l, levels[-1], i))
+                levels.append(self.__reduce_substrings(l, levels[-1], i))
             else:
                 # adds the highest level without filtering it
                 up_level = self._raw_ngrams(l, i+1, i+1)
-                levels.append(self.__filtered_level(l, up_level, i))
+                levels.append(self.__reduce_substrings(l, up_level, i))
 
         # flatten the levels in a single list
         grams = [gram for level in levels for gram in level]
