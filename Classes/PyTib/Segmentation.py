@@ -106,7 +106,7 @@ class Segment:
                 #########
                 text.append(paragraph)
             else:
-                par = par.replace('\s', ' ')
+                par = par.replace('	', ' ').replace(' ', ' ')  # hack to eliminate tabs from punctuation blocks
                 if space_at_punct:
                     text.append(' '+par.replace(' ', '_')+' ')
                 else:
