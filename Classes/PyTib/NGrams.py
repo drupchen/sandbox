@@ -26,8 +26,7 @@ class NGrams:
     def _format_ngrams(self, l, sep='\t'):
         return '\n'.join([str(n[0]) + sep + n[1] + sep + str(n[2]) for n in l])
 
-    def ngrams(self, raw_string, freq=10, min=3, max=12, unit='words'):
-        l = pre_process(raw_string, unit)
+    def ngrams(self, l, freq=10, min=3, max=12):
         raw = self._raw_ngrams(l, min, max)
         by_freq = self._ngrams_by_freq(raw, freq)
         formatted = self._format_ngrams(by_freq)
@@ -35,11 +34,10 @@ class NGrams:
 
     def __reduce_substrings(self, l, longer, level):
         shorter = set(self._raw_ngrams(l, level, level))
-        substrings = set([s for s in shorter for l in longer if ''.join(s[0]) in ''.join(l[0])])
+        substrings = set([s for s in shorter for l in longer if ''.join(s[0]) in ''.join(l[0]) and s[1] < l[1]])
         return list(shorter.difference(substrings))
 
-    def no_substring_ngrams(self, raw_string, min, max, unit='words', freq=1):
-        l = pre_process(raw_string, mode=unit)
+    def no_substring_ngrams(self, l, min, max, freq=1):
         levels = []
         for i in reversed(range(min, max+1)):
             # fetch higher level for comparison in filtered_level()
@@ -72,3 +70,5 @@ def ngrams_by_folder(input_path, freq=2, min=3, max=12, unit='words'):
             ngram_total[n[0]] += n[1]
     ngram_total = ng._ngrams_by_freq(ngram_total, freq)
     return ng._format_ngrams(ngram_total)
+
+#def syl_differing_strings(string, ngrams):
