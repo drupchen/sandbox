@@ -33,18 +33,18 @@ length = []
 for line in ng.split('\n'):
     parts = line.split('\t')
     freq = int(parts[0])
-    string = parts[1]
+    string = parts[1].replace(' ', '')
     if freq >= 10:
         model.add(string)
         if len(string) not in length:
             length.append(len(string))
 
 out = []
-for i in range(len(raw_string)-1):
+for i in range(10):#range(len(raw_string)-1):
     if raw_string[i-1] in ['་', ' ', '།', '༈', '༄', '༅']:
         for l in sorted(length):
             str_slice = raw_string[i:i + l]
-            result = model.search(str_slice, threshold=0.4)
+            result = model.search(str_slice, threshold=0.62)
             if result != [] and result[0][1] < 1:
                 out.append(str_slice+'\t'+str(result[0]))
 D = time.time()
