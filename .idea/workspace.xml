@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5c7a8432-c30c-4455-9c02-1f3a74d7f6d6" name="Default" comment="no space in ngrams">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Classes/tests/files/བསྟོདཚོགས.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Classes/tests/segmented.txt" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Classes/tests/files/བསྟོད་ཚོགས། ཀ.txt" afterPath="" />
+    <list default="true" id="5c7a8432-c30c-4455-9c02-1f3a74d7f6d6" name="Default" comment="argument added to segment() to separate punctuation from the text">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/PyTib/Segmentation.py" afterPath="$PROJECT_DIR$/Classes/PyTib/Segmentation.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/tests/ngram_test.py" afterPath="$PROJECT_DIR$/Classes/tests/ngram_test.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/tests/segmented.txt" afterPath="$PROJECT_DIR$/Classes/tests/segmented.txt" />
     </list>
     <list id="7ae00310-ce78-4316-87ca-9995d5c2d71f" name="Failed commit: Default" comment="AntPut output debugged" />
     <ignored path="sandbox.iws" />
@@ -41,16 +38,6 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="particles.json" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Classes/PyTib/data/particles.json">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="570">
-                  <caret line="38" column="9" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="ngram_test.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Classes/tests/ngram_test.py">
               <provider selected="true" editor-type-id="text-editor">
@@ -66,8 +53,8 @@
           <file leaf-file-name="segmented.txt" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Classes/tests/segmented.txt">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="465">
-                  <caret line="0" column="3652" selection-start-line="0" selection-start-column="3652" selection-end-line="0" selection-end-column="3652" />
+                <state relative-caret-position="-1710">
+                  <caret line="0" column="1453" selection-start-line="0" selection-start-column="1452" selection-end-line="0" selection-end-column="1453" />
                   <folding />
                 </state>
               </provider>
@@ -90,8 +77,8 @@
           <file leaf-file-name="fuzzy.txt" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Classes/tests/fuzzy.txt">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="120">
-                  <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+                <state relative-caret-position="30">
+                  <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="17" />
                   <folding />
                 </state>
               </provider>
@@ -100,8 +87,8 @@
           <file leaf-file-name="Segmentation.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Classes/PyTib/Segmentation.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="525">
-                  <caret line="108" column="42" selection-start-line="108" selection-start-column="42" selection-end-line="108" selection-end-column="42" />
+                <state relative-caret-position="555">
+                  <caret line="110" column="57" selection-start-line="110" selection-start-column="57" selection-end-line="110" selection-end-column="57" />
                   <folding />
                 </state>
               </provider>
@@ -703,13 +690,6 @@
       <option name="presentableId" value="Default" />
       <updated>1463150865855</updated>
     </task>
-    <task id="LOCAL-00044" summary="exceptions, compound and uncompound words added in Segment class">
-      <created>1464621442699</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1464621442699</updated>
-    </task>
     <task id="LOCAL-00045" summary="segmentation getting closer to the manual !">
       <created>1464646849207</created>
       <option name="number" value="00045" />
@@ -1046,7 +1026,14 @@
       <option name="project" value="LOCAL" />
       <updated>1467405218945</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="argument added to segment() to separate punctuation from the text">
+      <created>1467407591511</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1467407591512</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1117,7 +1104,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="icu removed from PyTib" />
     <MESSAGE value="སྟེག ས་པ་་ bug fixed and is_thame() method added to SylComponents" />
     <MESSAGE value="segment update" />
     <MESSAGE value="segment and concordance" />
@@ -1142,7 +1128,8 @@
     <MESSAGE value="frequency check added to __reduce_substrings()" />
     <MESSAGE value="fuzzy search test" />
     <MESSAGE value="no space in ngrams" />
-    <option name="LAST_COMMIT_MESSAGE" value="no space in ngrams" />
+    <MESSAGE value="argument added to segment() to separate punctuation from the text" />
+    <option name="LAST_COMMIT_MESSAGE" value="argument added to segment() to separate punctuation from the text" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1469,26 +1456,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/PyTib/data/particles.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="38" column="9" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Classes/tests/filtered.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2760">
           <caret line="41" column="21" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/PyTib/NGrams.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="40" column="19" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1521,18 +1492,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/PyTib/Segmentation.py">
+    <entry file="file://$PROJECT_DIR$/Classes/PyTib/data/particles.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="108" column="42" selection-start-line="108" selection-start-column="42" selection-end-line="108" selection-end-column="42" />
+        <state relative-caret-position="570">
+          <caret line="38" column="9" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/tests/files/བསྟོདཚོགས.txt">
+    <entry file="file://$PROJECT_DIR$/Classes/PyTib/NGrams.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="570">
+          <caret line="40" column="19" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/PyTib/Segmentation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="110" column="57" selection-start-line="110" selection-start-column="57" selection-end-line="110" selection-end-column="57" />
           <folding />
         </state>
       </provider>
@@ -1547,18 +1526,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/tests/files/བསྟོདཚོགས.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Classes/tests/fuzzy.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+        <state relative-caret-position="30">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Classes/tests/segmented.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="0" column="3652" selection-start-line="0" selection-start-column="3652" selection-end-line="0" selection-end-column="3652" />
+        <state relative-caret-position="-1710">
+          <caret line="0" column="1453" selection-start-line="0" selection-start-column="1452" selection-end-line="0" selection-end-column="1453" />
           <folding />
         </state>
       </provider>

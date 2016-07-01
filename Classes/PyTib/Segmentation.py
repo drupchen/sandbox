@@ -106,9 +106,9 @@ class Segment:
                 #########
                 text.append(paragraph)
             else:
-                par = par.replace('\t', ' ')
+                par = par.replace('\s', ' ')
                 if space_at_punct:
-                    text.append(' '+par+' ')
+                    text.append(' '+par.replace(' ', '_')+' ')
                 else:
                     text.append(par)
         #
