@@ -17,11 +17,12 @@ def no_space(string):
 
 import time
 
-raw_string = open_file('/home/drupchen/PycharmProjects/sandbox/Classes/tests/files/བསྟོད་ཚོགས། ཀ.txt').replace('\n', '')
+raw_string = open_file('files/བསྟོདཚོགས.txt').replace('\n', '')
 A = time.time()
-syls = Segment().segment(raw_string.replace('༌', '་'), ant_segment=1, unknown=0).split(' ')
+syls = Segment().segment(raw_string.replace('༌', '་'), ant_segment=1, unknown=0, space_at_punct=True).split(' ')
 B = time.time()
 print('segmentation :',B-A)
+write_file('segmented.txt', ' '.join(syls))
 ng = NGrams().no_substring_ngrams(syls, min=3, max=12, freq=10)
 #write_file('filtered.txt', ng)
 C = time.time()

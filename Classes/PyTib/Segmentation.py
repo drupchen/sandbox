@@ -59,7 +59,7 @@ class Segment:
             # del list1[:num]
             self.n = self.n + num
 
-    def basis_segmentation(self, string, ant_segment, unknown):
+    def basis_segmentation(self, string, ant_segment, unknown, space_at_punct):
         """
 
         :param string: takes a unicode text file as input
@@ -106,10 +106,14 @@ class Segment:
                 #########
                 text.append(paragraph)
             else:
-                text.append(par)
+                par = par.replace('\t', ' ')
+                if space_at_punct:
+                    text.append(' '+par+' ')
+                else:
+                    text.append(par)
         #
         ######################
-        return ''.join(text)
+        return ''.join(text).replace('  ', '')
 
     def do_compound(self, segmented):
         """
@@ -181,8 +185,8 @@ class Segment:
 
         return ' '.join(words)
 
-    def segment(self, string, ant_segment, unknown):
-        uncompound = self.basis_segmentation(string, ant_segment, unknown)
+    def segment(self, string, ant_segment, unknown, space_at_punct=False):
+        uncompound = self.basis_segmentation(string, ant_segment, unknown, space_at_punct=space_at_punct)
         compound = self.do_compound(uncompound)
         # ancient words
         for a in self.ancient:
