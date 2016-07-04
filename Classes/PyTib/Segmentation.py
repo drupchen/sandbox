@@ -106,14 +106,14 @@ class Segment:
                 #########
                 text.append(paragraph)
             else:
-                par = par.replace('	', ' ').replace(' ', ' ')  # hack to eliminate tabs from punctuation blocks
+                #par = par.replace('	', ' ').replace(' ', ' ')  # hack to eliminate tabs from punctuation blocks
                 if space_at_punct:
                     text.append(' '+par.replace(' ', '_')+' ')
                 else:
                     text.append(par)
         #
         ######################
-        return ''.join(text).replace('  ', '')
+        return ''.join(text)#.replace('  ', '')
 
     def do_compound(self, segmented):
         """

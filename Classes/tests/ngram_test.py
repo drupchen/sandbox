@@ -23,31 +23,26 @@ syls = Segment().segment(raw_string.replace('༌', '་'), ant_segment=1, unknow
 B = time.time()
 print('segmentation :',B-A)
 write_file('segmented.txt', ' '.join(syls))
-ng = NGrams().no_substring_ngrams(syls, min=3, max=12, freq=10)
-#write_file('filtered.txt', ng)
+ng = NGrams().no_substring_ngrams(syls, min=3, max=12, freq=10, raw_output=True)
+
 C = time.time()
 print('ngrams :', C-B)
 
-# importing the ngrams for reference
+# list in order all the sizes of ngrams that are more frequent than 10
+length = sorted(list(set([a[1] for a in ng if a[1] >= 10])))
+# create a set of all syllables found in the ngrams
+all_syls = set([syl for a in ng for syl in a[0]])
+
 model = ngram.NGram()
-length = []
-for line in ng.split('\n'):
-    parts = line.split('\t')
-    freq = int(parts[0])
-    string = parts[1].replace(' ', '')
-    if freq >= 10:
-        model.add(string)
-        if len(string) not in length:
-            length.append(len(string))
+for syl in all_syls:
+    model.add(syl)
 
 out = []
 for i in range(10):#range(len(raw_string)-1):
-    if raw_string[i-1] in ['་', ' ', '།', '༈', '༄', '༅']:
-        for l in sorted(length):
-            str_slice = raw_string[i:i + l]
-            result = model.search(str_slice, threshold=0.62)
-            if result != [] and result[0][1] < 1:
-                out.append(str_slice+'\t'+str(result[0]))
+    for l in length:
+
+
+
 D = time.time()
 print('fuzzy match :', D-C)
 write_file('fuzzy.txt', '\n'.join(out))

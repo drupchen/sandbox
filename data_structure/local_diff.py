@@ -1,4 +1,4 @@
-from subprocess import Popen, PIPE, check_output
+from subprocess import Popen, PIPE, call, check_output
 import re
 import tempfile
 
@@ -11,42 +11,37 @@ def no_space(string):
 
 with open('/home/drupchen/PycharmProjects/sandbox/ཤེར་ཕྱིན། ཕ། -.txt', 'r', -1, 'utf-8-') as f:
     seg = f.read().replace('\n', '')
-
-
 raw = no_space(seg)
-#with open('/home/drupchen/PycharmProjects/sandbox/data_structure/raw.txt', 'w', -1, 'utf-8-') as f:
-#    for r in raw:
-#        f.write(r+'\n')
-#with open('/home/drupchen/PycharmProjects/sandbox/data_structure/seg.txt', 'w', -1, 'utf-8-') as f:
-#    for s in seg:
-#        f.write(s+'\n')
-
-temp_A = tempfile.NamedTemporaryFile(delete=True)
-temp_B = tempfile.NamedTemporaryFile(delete=True)
-temp_A.write(str.encode('\n'.join([r for r in raw])))
-temp_B.write(str.encode('\n'.join([s for s in seg])))
+import time
+A = time.time()
+temp_A = tempfile.NamedTemporaryFile()
+temp_B = tempfile.NamedTemporaryFile()
+temp_A.write(str.encode('\n'.join(list(raw))+'\n'))
+temp_B.write(str.encode('\n'.join(list(seg))+'\n'))
 temp_A.flush()
 temp_B.flush()
-
-diff = Popen(['diff', temp_A.name, temp_B.name], stdout=PIPE, stdin=PIPE, shell=False)
+B = time.time()
+diff = Popen(['diff', '-H', temp_B.name, temp_A.name], shell=False, stdout=PIPE)
 out = bytes.decode(diff.communicate()[0])
+C = time.time()
+print('temp creation', B-A)
+print('diff', C-B)
+out = re.split(r'\n?([^\n]+[acd][^\n]+)\n?', out)
 layer = {}
 index = ''
 operation = ''
 string = ''
 for line in out:
-    if line[0] != '>' or line[0] != '>' or line[0] != '-':
-        # add the finished operation to the layer
-
-        # find the index and the operation
-        if 'a' in line:
-            index = line.split('a')[0]
-            operation = 'a'
-        elif 'c' in line:
-            index = line.split('c')[0]
-            operation = 'c'
-        elif 'd' in line:
-            index = line.split('d')[0]
-            operation = 'd'
-    
-
+    # find the index and the operation
+    if 'a' in line:
+        index = line.split('a')[0]
+        operation = 'a'
+    elif 'c' in line:
+        index = line.split('c')[0]
+        operation = 'c'
+    elif 'd' in line:
+        index = line.split('d')[0]
+        operation = 'd'
+    else:
+        if '\n' in line:
+            ops = line.split('\n')

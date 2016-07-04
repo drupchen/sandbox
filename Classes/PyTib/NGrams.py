@@ -24,7 +24,7 @@ class NGrams:
         return [(n[1], ' '.join(n[0]), len(n[0])) for n in ngrams if n[1] >= freq]
 
     def _format_ngrams(self, l, sep='\t'):
-        return '\n'.join([str(n[0]) + sep + n[1] + sep + str(n[2]) for n in l])
+        return '\n'.join([' '.join(n[0]) + sep + str(n[1]) + sep + str(len(n[0])) for n in l])
 
     def ngrams(self, l, freq=10, min=3, max=12):
         raw = self._raw_ngrams(l, min, max)
@@ -37,7 +37,7 @@ class NGrams:
         substrings = set([s for s in shorter for l in longer if ''.join(s[0]) in ''.join(l[0]) and s[1] < l[1]])
         return list(shorter.difference(substrings))
 
-    def no_substring_ngrams(self, l, min, max, freq=1):
+    def no_substring_ngrams(self, l, min, max, freq=1, raw_output=False):
         levels = []
         for i in reversed(range(min, max+1)):
             # fetch higher level for comparison in filtered_level()
@@ -54,9 +54,11 @@ class NGrams:
         # return the frequence-sorted n-grams
         # similar to _ngrams_by_freq() except that it starts with a list, so there is no .items() method called
         by_freq = sorted(grams, key=lambda x: x[1], reverse=True)
-        by_freq = [(n[1], ' '.join(n[0]), len(n[0])) for n in by_freq if n[1] >= freq]
-
-        return self._format_ngrams(by_freq)
+        by_freq = [(n[0], n[1]) for n in by_freq if n[1] >= freq]
+        if raw_output:
+            return by_freq
+        else:
+            return self._format_ngrams(by_freq)
 
 
 def ngrams_by_folder(input_path, freq=2, min=3, max=12, unit='words'):
