@@ -9,39 +9,35 @@ def no_space(string):
         string = re.sub(regex, r'\1', string)
     return string
 
-with open('/home/drupchen/PycharmProjects/sandbox/ཤེར་ཕྱིན། ཕ། -.txt', 'r', -1, 'utf-8-') as f:
+with open('/home/drupchen/PycharmProjects/sandbox/Classes/tests/files/བསྟོདཚོགས.txt', 'r', -1, 'utf-8-') as f:
     seg = f.read().replace('\n', '')
 raw = no_space(seg)
-import time
-A = time.time()
-temp_A = tempfile.NamedTemporaryFile()
-temp_B = tempfile.NamedTemporaryFile()
-temp_A.write(str.encode('\n'.join(list(raw))+'\n'))
-temp_B.write(str.encode('\n'.join(list(seg))+'\n'))
-temp_A.flush()
-temp_B.flush()
-B = time.time()
-diff = Popen(['diff', '-H', temp_B.name, temp_A.name], shell=False, stdout=PIPE)
-out = bytes.decode(diff.communicate()[0])
-C = time.time()
-print('temp creation', B-A)
-print('diff', C-B)
-out = re.split(r'\n?([^\n]+[acd][^\n]+)\n?', out)
+
+
+def temp_object(content):
+    temp = tempfile.NamedTemporaryFile(delete=True)
+    temp.write(str.encode(content))
+    return temp
+
+
+def unix_diff(string_a, string_b, windows=False):
+    # insert \n after every character and create a temp file
+    temp_A = temp_object('\n'.join(list(string_a)) + '\n')
+    temp_B = temp_object('\n'.join(list(string_b)) + '\n')
+    # support for windows
+    diff_command = 'diff'
+    if windows:༄༅། །སྒྲོལ་མའི་སྒྲུབ་ཐབས།
+        diff_command = 'third_parties/diff_exe/diff.exe'
+    # diff call
+    raw_diff = Popen([diff_command, '-H', temp_A.name, temp_B.name], shell=False, stdout=PIPE)
+    return bytes.decode(raw_diff.communicate()[0])
+
+diff = unix_diff('abc', 'abci')
+diff_list = re.split(r'\n?([^\n]+[acd][^\n]+)\n?', diff)[1:]
+
 layer = {}
-index = ''
-operation = ''
-string = ''
-for line in out:
-    # find the index and the operation
-    if 'a' in line:
-        index = line.split('a')[0]
-        operation = 'a'
-    elif 'c' in line:
-        index = line.split('c')[0]
-        operation = 'c'
-    elif 'd' in line:
-        index = line.split('d')[0]
-        operation = 'd'
-    else:
-        if '\n' in line:
-            ops = line.split('\n')
+while len(diff_list) >= 2:
+    idx, op = re.split(r'([acd])', diff_list.pop(0))[:2]
+    modifs = diff_list.pop(0).split('\n')
+    print(modifs)
+

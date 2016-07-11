@@ -1,6 +1,31 @@
-from .common import DefaultOrderedDict, open_file, pre_process
+from .common import DefaultOrderedDict, open_file, pre_process, temp_object
 from itertools import tee, islice
 import os
+from subprocess import Popen, PIPE
+
+
+def text2ngram(string, min=3, max=10, freq=5, windows=False):
+    path = os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.sep.join(['..', 'third_parties', 'ngramtool', 'unix', 'text2ngram'])))
+    print(path)
+    my_env = os.environ.copy()
+    my_env["PATH"] = path + os.pathsep + my_env["PATH"]
+
+    temp_file = temp_object(string)
+
+    # equivalent of: text2ngram -n3 -m10 -f5 file
+
+    raw_grams = Popen(' '.join([path, '-n'+str(min), '-m'+str(max), '-f'+str(freq),
+                       temp_file.name]), shell=True, stdout=PIPE)
+    return bytes.decode(raw_grams.communicate()[0])
+
+
+def strreduction(string, algo='a2', freq='3'):
+    temp_file = temp_object(string)
+
+    # strreduction -a2 -s -f 3 < input > output
+    processed = Popen(['third_parties / ngramtool / unix / strreduction', '-' + algo, '-s', '-f' + str(freq), '<',
+                       temp_file.name], shell=False, stdout=PIPE)
+    return bytes.decode(processed.communicate()[0])
 
 
 class NGrams:

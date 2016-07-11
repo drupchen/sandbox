@@ -2,6 +2,7 @@
 
 from bisect import bisect_left
 from collections import OrderedDict, Callable
+from tempfile import NamedTemporaryFile
 
 
 def write_file(file_path, content):
@@ -12,6 +13,12 @@ def write_file(file_path, content):
 def open_file(file_path):
     with open(file_path, 'r', -1, 'utf8') as f:
         return f.read()
+
+
+def temp_object(content):
+    temp = NamedTemporaryFile(delete=True)
+    temp.write(str.encode(content))
+    return temp
 
 
 def pre_process(raw_string, mode='words'):

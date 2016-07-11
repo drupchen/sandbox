@@ -1,7 +1,8 @@
 import re
 import zipfile
 from difflib import ndiff
-from collections import OrderedDict, defaultdict
+import tempfile
+from subprocess import Popen, PIPE
 
 
 class MLD:
@@ -57,6 +58,22 @@ class MLD:
                     temp[val] = temp[val][:-1]+ 'ᛰ'
             flattened[temp[0]] = temp[1]
         return flattened
+
+    def __temp_object(self, content):
+        temp_A = tempfile.NamedTemporaryFile(delete=True)
+        temp_A.write(str.encode('\n'.join(list(content)) + '\n'))
+
+    def __diff(self, string_a, string_b, windows=False):
+        diff_command = 'diff'
+        if windows:
+            diff_command = 'path/to/exe/'+diff_command
+
+        temp_A = self.__temp_object(string_a)
+        temp_B = self.__temp_object(string_b)
+
+        diff = Popen([diff_command, '-H', temp_B.name, temp_A.name], shell=False, stdout=PIPE)
+        diff = bytes.decode(diff.communicate()[0])
+        return re.split(r'\n?([^\n]+[acd][^\n]+)\n?', diff)[1:]
 
     def create_layer(self, layer_name, modified):
         """
