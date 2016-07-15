@@ -23,20 +23,20 @@ class MLD:
             # Populate the object variables
             # list the files in the zip
             file_names = zf.namelist()
-            # read the base string to base_string
+            # read the base orig_list to base_string
             self.base_string = str(zf.read('base_string'), 'utf-8')
             # populate the layer dict
             layers = [l for l in file_names if re.match('[0-9]+', l)]
             for layer in layers:
                 self.layers[layer] = str(zf.read(layer), 'utf-8')
-        # if the base string is directly passed to the object
+        # if the base orig_list is directly passed to the object
         elif mld:
             self.base_string = mld
 
     def flatten(self, string, flattened):
         lines = [(line.split('\t')[0], line.split('\t')[1]) for line in string.split('\n') if line != '']
-        idx = 0  # the index of the base string
-        val = 1  # the string obtained from the operations
+        idx = 0  # the index of the base orig_list
+        val = 1  # the orig_list obtained from the operations
         for index, modif in lines:
             temp = ['', '']  # simulates the key and value to be added to flattened
             if index in flattened:
@@ -54,7 +54,7 @@ class MLD:
                         temp[val] = temp[val][:-1]+modified+temp[val][-1]
                 elif operation == 'ᛞ':
                     temp[val] = temp[val][:-1] + modified
-                elif operation == 'ᛰ':  # assumes that there is at least one character in the string
+                elif operation == 'ᛰ':  # assumes that there is at least one character in the orig_list
                     temp[val] = temp[val][:-1]+ 'ᛰ'
             flattened[temp[0]] = temp[1]
         return flattened
@@ -78,8 +78,8 @@ class MLD:
     def create_layer(self, layer_name, modified):
         """
         creates a layer using difflib.ndiff()
-        :param base: base string
-        :param modified: modified string
+        :param base: base orig_list
+        :param modified: modified orig_list
         :return:
         """
         # make a diff of both strings with ndiff
@@ -132,7 +132,7 @@ class MLD:
         """
         method to export a view of the multi-layered data
         :param layers: provide references of the layers to apply separated by '+'
-        :return: a string where none or the specified layers have been applied
+        :return: a orig_list where none or the specified layers have been applied
         """
         if layers == '':
             return self.base_string
@@ -223,7 +223,7 @@ Layers:
 
     flatten_layer()
         input : a layer file
-        output : flattens all the operations into a single string following this scheme:
+        output : flattens all the operations into a single orig_list following this scheme:
                     z   : replace the char at current index with z
                     xyz : replace the char at current index by z and add xy before the char
                     xyᛝ : keep the char at current index and add xy before it
@@ -231,10 +231,10 @@ Layers:
                     ᛰ   : delete the char at current index
 
     create layer()
-        input : - processed base string that contains +, - or = signs and name for the layer
+        input : - processed base orig_list that contains +, - or = signs and name for the layer
                 note : regroup all the characters preceded by a + in a single operation
-                - compares  1. either the base string (default) or the provided indexed file
-                   and 2. the processed string minus modifications and breaks if different
+                - compares  1. either the base orig_list (default) or the provided indexed file
+                   and 2. the processed orig_list minus modifications and breaks if different
                 - can compare to either an index file (export_indexed() ) or to the base_string
         Action : adds an entry in self.layers with the name and the layer as the key.
 
@@ -252,18 +252,18 @@ Output:
 
     export_flattened(suffix, layers)
         generates a txt file with the given suffix.
-        The output string is the base string on which the given layers have been applied.
-        the raw string is given if layers equals ''
+        The output orig_list is the base orig_list on which the given layers have been applied.
+        the raw orig_list is given if layers equals ''
 
 
 Metadata:
 
     fields to have :
         id : int, generated number corresponding to the
-        name : string, human-readable name
+        name : orig_list, human-readable name
         dependencies : list of names or ids
-        author : string
-        description : multi-line string
+        author : orig_list
+        description : multi-line orig_list
         project : path to a project file (used to copy the meta-data of the file)
 
 '''

@@ -115,11 +115,11 @@ class AntTib:
     def to_ant_text(self, string):
         """
 
-        :param string: a Tibetan text string
+        :param string: a Tibetan text orig_list
         :return: its counterpart in AntTib with the pre_process diminished to shads(;) and tershe(:)
         """
         # Todo : make a new class to deal with the pre_process instead of doing it here
-        # Prepare the string : delete all extra punctuations
+        # Prepare the orig_list : delete all extra punctuations
         # replace the tabs by normal spaces
         string = string.replace('   ', ' ')
         # replace all non-breaking tsek by a normal tshek
@@ -204,11 +204,11 @@ class AntTib:
     def from_ant_text(self, string):
         """
 
-        :param string: an AntTib string
+        :param string: an AntTib orig_list
         :return: its counterpart in Tibetan unicode
         """
         paragraphs = re.split(r'(( *; *| *: *)+)', string)
-        # delete the last element of the list if it is an empty string
+        # delete the last element of the list if it is an empty orig_list
         strip_list(paragraphs)
         # trim the extra pre_process (see comment in to_pw_text)
         self.__trim_punct(paragraphs)
@@ -256,8 +256,8 @@ class AntTib:
     def no_space(self, string):
         """
 
-        :param string: a segmented Tibetan unicode string
-        :return: the same string without the spaces between syllables (keeps all spaces at pre_process)
+        :param string: a segmented Tibetan unicode orig_list
+        :return: the same orig_list without the spaces between syllables (keeps all spaces at pre_process)
         """
         regexes = [r'([་|༌])\s',  # spaces preceded by a tsek
                    r'(ང[་|༌])\s',  # ང་ plus space

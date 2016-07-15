@@ -23,7 +23,7 @@ def temp_object(content):
 
 def pre_process(raw_string, mode='words'):
     """
-    Splits a raw Tibetan string by the punctuation and syllables or words
+    Splits a raw Tibetan orig_list by the punctuation and syllables or words
     :param raw_string:
     :param mode: words for splitting on words, syls for splitting in syllables. Default value is words
     :return: a list with the elements separated from the punctuation
@@ -49,13 +49,13 @@ def pre_process(raw_string, mode='words'):
     splitted = []
     # replace unbreakable tsek and tabs
     raw_string = raw_string.replace('༌', '་').replace('   ', ' ')
-    # split the raw string by the yigos,
+    # split the raw orig_list by the yigos,
     for text in re.split(yigo, raw_string):
         # add the yigos to the list
         if re.match(yigo, text):
             splitted.append(text)
         elif text != '':
-            # split the string between yigos by the text pre_process
+            # split the orig_list between yigos by the text pre_process
             for par in re.split(text_punct, text):
                 # add the pre_process to the list
                 if is_punct(par):
@@ -169,7 +169,7 @@ def is_tibetan_letter(char):
 def non_tib_chars(string):
     """
     :param string:
-    :return: list of non-tibetan non-tibetan-pre_process characters found within a string
+    :return: list of non-tibetan non-tibetan-pre_process characters found within a orig_list
     """
     punct = ['༄', '༅', '།', '་', '༌', '༑', '༎', '༏', '༐', '༔']
     chars = []

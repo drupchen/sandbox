@@ -52,7 +52,7 @@ results = {
     'cluster': clt,       # AntPut().cluster()
     'collocates': clc,    # AntPut().collocates()
     'concordance': ccd,   # AntPut().concordance()
-    'ngram': ngr,         # AntPut().ngram()
+    'n_gram': ngr,         # AntPut().n_gram()
     'word_list': wdl,     # AntPut().word_list()
     # Word profiler
     'level_list': pll,    # AntPut().words()

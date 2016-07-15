@@ -5,16 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list id="5c7a8432-c30c-4455-9c02-1f3a74d7f6d6" name="Default" comment="popen works" />
-    <list default="true" id="7ae00310-ce78-4316-87ca-9995d5c2d71f" name="Failed commit: Default" comment="AntPut output debugged">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/PyTib/third_parties/diff/diff.exe" afterPath="$PROJECT_DIR$/Classes/PyTib/third_parties/diff_exe/diff.exe" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/PyTib/third_parties/diff/libiconv2.dll" afterPath="$PROJECT_DIR$/Classes/PyTib/third_parties/diff_exe/libiconv2.dll" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Classes/PyTib/third_parties/diff/libintl3.dll" afterPath="$PROJECT_DIR$/Classes/PyTib/third_parties/diff_exe/libintl3.dll" />
+    <list default="true" id="7ae00310-ce78-4316-87ca-9995d5c2d71f" name="Failed commit: Default" comment="path issue for text2ngram too not completely resolved">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Classes/tests/reduced_algo3.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Classes/tests/syls_seperated.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/PyTib/AntPut.py" afterPath="$PROJECT_DIR$/Classes/PyTib/AntPut.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/PyTib/AntTib.py" afterPath="$PROJECT_DIR$/Classes/PyTib/AntTib.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/PyTib/NGrams.py" afterPath="$PROJECT_DIR$/Classes/PyTib/NGrams.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/PyTib/Segmentation.py" afterPath="$PROJECT_DIR$/Classes/PyTib/Segmentation.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/PyTib/common.py" afterPath="$PROJECT_DIR$/Classes/PyTib/common.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/tests/antput_test.py" afterPath="$PROJECT_DIR$/Classes/tests/antput_test.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/tests/comparison_test.py" afterPath="$PROJECT_DIR$/Classes/tests/comparison_test.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Classes/tests/ngram_test.py" afterPath="$PROJECT_DIR$/Classes/tests/ngram_test.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data_structure/local_diff.py" afterPath="$PROJECT_DIR$/data_structure/local_diff.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data_structure/structure.py" afterPath="$PROJECT_DIR$/data_structure/structure.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lexicon creation/Monlam1/format Monlam1.py" afterPath="$PROJECT_DIR$/lexicon creation/Monlam1/format Monlam1.py" />
     </list>
     <ignored path="sandbox.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,11 +51,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ngram_test.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ngram_test.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Classes/tests/ngram_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+            <state relative-caret-position="270">
+              <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -59,14 +63,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NGrams.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NGrams.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Classes/PyTib/NGrams.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="21" column="36" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
+            <state relative-caret-position="360">
+              <caret line="24" column="46" selection-start-line="24" selection-start-column="46" selection-end-line="24" selection-end-column="46" />
               <folding>
                 <element signature="e#0#75#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Segmentation.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Classes/PyTib/Segmentation.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="328">
+              <caret line="108" column="16" selection-start-line="108" selection-start-column="16" selection-end-line="108" selection-end-column="16" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -131,22 +145,21 @@
         <option value="$PROJECT_DIR$/Classes/tests/filtered.txt" />
         <option value="$PROJECT_DIR$/Classes/tests/ngram.py" />
         <option value="$PROJECT_DIR$/Classes/tests/fuzzy.txt" />
-        <option value="$PROJECT_DIR$/Classes/PyTib/Segmentation.py" />
         <option value="$PROJECT_DIR$/Classes/tests/segmented.txt" />
         <option value="$PROJECT_DIR$/Classes/tests/comparison_test.py" />
         <option value="$PROJECT_DIR$/data_structure/structure.py" />
         <option value="$PROJECT_DIR$/Classes/PyTib/common.py" />
         <option value="$PROJECT_DIR$/data_structure/local_diff.py" />
-        <option value="$PROJECT_DIR$/Classes/tests/ngram_test.py" />
+        <option value="$PROJECT_DIR$/Classes/PyTib/Segmentation.py" />
         <option value="$PROJECT_DIR$/Classes/PyTib/NGrams.py" />
+        <option value="$PROJECT_DIR$/Classes/tests/ngram_test.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-3" />
     <option name="y" value="32" />
-    <option name="width" value="1606" />
-    <option name="height" value="838" />
+    <option name="width" value="1920" />
+    <option name="height" value="1136" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -195,7 +208,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -264,31 +277,9 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sandbox" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sandbox" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Classes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PyTib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="third_parties" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="NBKnowledgePane" />
     </panes>
   </component>
@@ -312,7 +303,7 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="1028" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="last.edited.regexp" value="10&#9;1&#9;0&#9;1&#9;4.80162&#9;zhedxsnang" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Documents/TibTAL/DOCU/projets/Syllable Generator/syllable ordering.ipynb" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../nalanda_corpus/gyu_raw/རྒྱུད། ཕུ།.txt" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -603,13 +594,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1463150865855</updated>
-    </task>
-    <task id="LOCAL-00049" summary="merge and split ok, remains the issue of tseks in the merged and split words">
-      <created>1464903627177</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1464903627177</updated>
     </task>
     <task id="LOCAL-00050" summary="segment class completed !!!">
       <created>1464904304202</created>
@@ -947,7 +931,14 @@
       <option name="project" value="LOCAL" />
       <updated>1467751750849</updated>
     </task>
-    <option name="localTasksCounter" value="98" />
+    <task id="LOCAL-00098" summary="path issue for text2ngram too not completely resolved">
+      <created>1468275278318</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1468275278387</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="TodoView">
@@ -960,27 +951,27 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-3" y="32" width="1606" height="838" extended-state="6" />
+    <frame x="0" y="32" width="1920" height="1136" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13806206" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13796735" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3275862" sideWeight="0.49342105" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32662836" sideWeight="0.54186416" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3838665" sideWeight="0.46445498" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32088122" sideWeight="0.4918378" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38348082" sideWeight="0.46445498" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29166666" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26490983" sideWeight="0.45813587" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41199607" sideWeight="0.45813587" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Unicode Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995567" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.122696154" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32777232" sideWeight="0.49605057" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38247567" sideWeight="0.47393364" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38076547" sideWeight="0.47393364" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="SVN Repositories" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32950193" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39925024" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32127956" sideWeight="0.4918378" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -1018,7 +1009,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="འིའོ་ case now functions" />
     <MESSAGE value="beginning of TibNgram class" />
     <MESSAGE value="PrepareTib class included in common.py to be used for n-gram generation" />
     <MESSAGE value="easy n-gram generation and write to file" />
@@ -1043,7 +1033,8 @@
     <MESSAGE value="' ' replaced by '_' in punctuation elements," />
     <MESSAGE value="popen works" />
     <MESSAGE value="third party exe added" />
-    <option name="LAST_COMMIT_MESSAGE" value="third party exe added" />
+    <MESSAGE value="path issue for text2ngram too not completely resolved" />
+    <option name="LAST_COMMIT_MESSAGE" value="path issue for text2ngram too not completely resolved" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1093,6 +1084,11 @@
           <line>35</line>
           <option name="timeStamp" value="190" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/Classes/tests/ngram_test.py</url>
+          <line>38</line>
+          <option name="timeStamp" value="197" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
@@ -1104,25 +1100,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="192" />
+      <option name="time" value="198" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Classes/tests/convert_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/tests/no_space.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -1353,13 +1335,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/PyTib/Segmentation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="109" column="34" selection-start-line="109" selection-start-column="34" selection-end-line="109" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Classes/tests/segmented.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1125">
@@ -1395,16 +1370,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/tests/comparison_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data_structure/local_diff.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="244">
@@ -1419,17 +1384,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding>
-            <element signature="e#17#47#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1445,7 +1399,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
           <caret line="1456" column="0" selection-start-line="1456" selection-start-column="0" selection-end-line="1456" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1454,27 +1407,69 @@
         <state relative-caret-position="473">
           <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#0#9#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Classes/tests/ngram_test.py">
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        <state relative-caret-position="206">
+          <caret line="937" column="0" selection-start-line="937" selection-start-column="0" selection-end-line="937" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/tests/comparison_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
           <folding>
-            <element signature="e#0#10#0" expanded="true" />
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/PyTib/Segmentation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="108" column="16" selection-start-line="108" selection-start-column="16" selection-end-line="108" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Classes/PyTib/NGrams.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="21" column="36" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
+        <state relative-caret-position="360">
+          <caret line="24" column="46" selection-start-line="24" selection-start-column="46" selection-end-line="24" selection-end-column="46" />
           <folding>
             <element signature="e#0#75#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../nalanda_corpus/gyu_raw/རྒྱུད། ཕུ།.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="115" selection-start-line="16" selection-start-column="115" selection-end-line="16" selection-end-column="115" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Classes/tests/ngram_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -29,7 +29,7 @@ class AntPut:
         :param comments: the number of first lines starting with #
         :param num: number of columns filled with numbers
         :param l_regex: ensures the line is correctly formed and can be processed
-        :return: returns the string with the AntTib converted to Unicode
+        :return: returns the orig_list with the AntTib converted to Unicode
         """
         out = ''
         # put the three first lines in out and delete them from lines[]

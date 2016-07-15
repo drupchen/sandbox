@@ -35,13 +35,13 @@ E = time.time()
 print('jellyfish', Y-Z)
 print(z)
 
-print('string :', D-C)
+print('orig_list :', D-C)
 print(truc1)
 
-print('fw string:', DD-D)
+print('fw orig_list:', DD-D)
 print(tt)
 
-print('difflib string', E-DD)
+print('difflib orig_list', E-DD)
 print(last)
 
 print('Lev:', X-Y)

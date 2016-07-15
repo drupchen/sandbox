@@ -1,21 +1,24 @@
 from .common import DefaultOrderedDict, open_file, pre_process, temp_object
 from itertools import tee, islice
 import os
+import sys
 from subprocess import Popen, PIPE
 
 
 def text2ngram(string, min=3, max=10, freq=5, windows=False):
-    path = os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.sep.join(['..', 'third_parties', 'ngramtool', 'unix', 'text2ngram'])))
-    print(path)
-    my_env = os.environ.copy()
-    my_env["PATH"] = path + os.pathsep + my_env["PATH"]
-
+    path = os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.sep.join(['..', 'third_parties', 'ngramtool', 'unix'])))
+    sys.path.insert(0, path)
+    #my_env = os.environ.copy()
+    #my_env["PATH"] = my_env["PATH"] + os.pathsep + path
+    #print(my_env['PATH'])
+    #if path not in sys.path:
+    #    sys.path.append(path)
     temp_file = temp_object(string)
 
     # equivalent of: text2ngram -n3 -m10 -f5 file
 
-    raw_grams = Popen(' '.join([path, '-n'+str(min), '-m'+str(max), '-f'+str(freq),
-                       temp_file.name]), shell=True, stdout=PIPE)
+    raw_grams = Popen([path+'text2ngram', '-n'+str(min), '-m'+str(max), '-f'+str(freq),
+                       temp_file.name], shell=False, stdout=PIPE)
     return bytes.decode(raw_grams.communicate()[0])
 
 
@@ -98,4 +101,4 @@ def ngrams_by_folder(input_path, freq=2, min=3, max=12, unit='words'):
     ngram_total = ng._ngrams_by_freq(ngram_total, freq)
     return ng._format_ngrams(ngram_total)
 
-#def syl_differing_strings(string, ngrams):
+#def syl_differing_strings(orig_list, ngrams):
