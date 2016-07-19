@@ -11,7 +11,7 @@ from PyTib.common import pre_process, open_file, write_file
 # firt run the following command
 # ./extractngram -n11 -f70 -i corpus > ./kangyur_results_raw/11-grams_raw.txt
 
-file_num = 4
+file_num = 3
 in_file = str(file_num)+'-grams_raw.txt'
 in_path = '/home/drupchen/Documents/TibTAL/ngram/kangyur_results_raw/'
 kangyur_ngrams = open_file(in_path+in_file).split('\n')
