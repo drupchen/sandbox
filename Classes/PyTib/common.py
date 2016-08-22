@@ -45,7 +45,9 @@ def pre_process(raw_string, mode='words'):
 
     def is_punct(string):
         # put in common
-        if '།' in string or '༎' in string or '༏' in string or '༐' in string or '༑' in string or '༔' in string or ';' in string or ':' in string:
+        if '༄' in string or '༅' in string or '༆' in string or '༇' in string or '༈' in string or \
+            '།' in string or '༎' in string or '༏' in string or '༐' in string or '༑' in string or \
+            '༔' in string or ';' in string or ':' in string:
             return True
         else:
             return False
@@ -57,7 +59,7 @@ def pre_process(raw_string, mode='words'):
                 del l[i + 1]
             i += 1
 
-    yigo = r'(༄༅+|༆|༇|༈)།?༎? ?།?༎?'
+    yigo = r'((༄༅+|༆|༇|༈)།?༎? ?།?༎?)'
     text_punct = r'(( *། *| *༎ *| *༏ *| *༐ *| *༑ *| *༔ *)+)'
     splitted = []
     # replace unbreakable tsek and tabs

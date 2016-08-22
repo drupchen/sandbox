@@ -52,7 +52,7 @@ class NGrams:
         return [(n[1], ' '.join(n[0]), len(n[0])) for n in ngrams if n[1] >= freq]
 
     def _format_ngrams(self, l, sep='\t'):
-        return '\n'.join([' '.join(n[0]) + sep + str(n[1]) + sep + str(len(n[0])) for n in l])
+        return '\n'.join([str(n[0]) + sep + n[1] + sep + str(n[2]) for n in l])
 
     def ngrams(self, l, freq=10, min=3, max=12):
         raw = self._raw_ngrams(l, min, max)

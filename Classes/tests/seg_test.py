@@ -4,6 +4,7 @@ path = os.path.dirname(sys.modules[__name__].__file__)
 path = os.path.join(path, '..')
 sys.path.insert(0, path)
 from PyTib import getSylComponents, Agreement, Segment, AntTib
+import re
 
 #print(getSylComponents().get_parts('དེའིའོ'))
 
@@ -22,3 +23,6 @@ print(truca)
 
 trucb = AntTib().from_ant_text(truca)
 print(trucb)
+lug = open('/home/drupchen/Documents/lugi_tencho/lugs bstan.txt').read()
+
+print(Segment().segment(lug, ant_segment=0, unknown=1, space_at_punct=True))

@@ -26,7 +26,7 @@ def unix_diff(string_a, string_b, windows=False):
     temp_B = temp_object('\n'.join(list(string_b)) + '\n')
     # support for windows
     diff_command = 'diff'
-    if windows:༄༅། །སྒྲོལ་མའི་སྒྲུབ་ཐབས།
+    if windows:
         diff_command = 'third_parties/diff_exe/diff.exe'
     # diff call
     raw_diff = Popen([diff_command, '-H', temp_A.name, temp_B.name], shell=False, stdout=PIPE)
