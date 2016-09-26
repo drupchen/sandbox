@@ -59,12 +59,13 @@ class Segment:
             # del list1[:num]
             self.n = self.n + num
 
-    def basis_segmentation(self, string, ant_segment, unknown, space_at_punct):
+    def basis_segmentation(self, string, unknown=1, space_at_punct=True, syl_segmented=0):
         """
 
         :param string: takes a unicode text file as input
-        :param ant_segment: 0, segments normally. 1, separates the merged particles from their syllables
+        :param syl_segmented: 0, segments normally. 1, segments in syls while separating the merged particles
         :param unknown: 0, adds nothing. 1, adds character in variable mark to unknown words/syllables
+        :param space_at_punct: adds a space between the syls and the punctuation if True
         :return: outputs the segmented text
         """
         paragraphs = re.split(self.punct_regex, string)
@@ -100,7 +101,7 @@ class Segment:
                     paragraph = paragraph[:-1]
                 #########
                 # add spaces at all tseks
-                if ant_segment == 1:
+                if syl_segmented == 1:
                     paragraph = re.sub(r'་([^ ])', r'་ \1', paragraph)
                 #
                 #########
@@ -185,8 +186,8 @@ class Segment:
 
         return ' '.join(words)
 
-    def segment(self, string, ant_segment, unknown, space_at_punct=False):
-        uncompound = self.basis_segmentation(string, ant_segment, unknown, space_at_punct=space_at_punct)
+    def segment(self, string, unknown=1, syl_segmented=0, space_at_punct=True):
+        uncompound = self.basis_segmentation(string, unknown=unknown, syl_segmented=syl_segmented, space_at_punct=space_at_punct)
         compound = self.do_compound(uncompound)
         # ancient words
         for a in self.ancient:

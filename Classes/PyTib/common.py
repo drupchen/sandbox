@@ -25,8 +25,12 @@ def write_file(file_path, content):
 
 
 def open_file(file_path):
-    with open(file_path, 'r', -1, 'utf-8-sig') as f:
-        return f.read()
+    try:
+        with open(file_path, 'r', -1, 'utf-8-sig') as f:
+            return f.read()
+    except UnicodeDecodeError:
+        with open(file_path, 'r', -1, 'utf-16-le') as f:
+            return f.read()
 
 
 def temp_object(content):
