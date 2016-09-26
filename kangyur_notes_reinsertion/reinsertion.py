@@ -303,7 +303,7 @@ def generate_comparison_spreadsheet(editions, left, work_name, out_dir):
         for num, m in enumerate(modifs):
             sheet1.write(line_number, num, '༼' + m[0] + '༽ ' + m[1])
         line_number += 2
-    wb.save(out_dir + '/' + work_name + '_ཞུས་དག་ཆེད།.xls')
+    wb.save('{}/comparison_xls/{}_ཞུས་དག་ཆེད།.xls'.format(out_dir, work_name))
 
 
 def generate_context_versions(editions, file_name, out_dir, left=5, right=5, base_ed='སྡེ་'):
@@ -373,16 +373,31 @@ def generate_context_versions(editions, file_name, out_dir, left=5, right=5, bas
     write_file('./{}/conc_yaml/{}_conc.yaml'.format(out_dir, file_name), yaml.dump_all(with_context, allow_unicode=True, default_flow_style=False))
 
 
+def generate_derge_with_pages(editions, work_name):
+    pages = []
+    temp = ''
+    for e in editions['སྡེ་']:
+        if e[2] == '':
+            temp += e[0]
+        else:
+            pages.append(temp)
+            temp = e[2] + '.'
+            temp += e[0]
+    write_file('./output/derge_with_pages/{}.txt'.format(work_name), '\n'.join(pages))
+
+
 def generate_outputs(text_name, notes_name, context, in_dir='input', out_dir='output'):
     in_dir += '/'
     editions = reinsert_notes(open_file(in_dir+text_name), open_file(in_dir+notes_name))
-    work_name = text_name.split('.')[0].replace(' ', '_')
+    work_name = text_name.split('.')[0]
 
     generate_editions(editions, out_dir, work_name)
 
-    #generate_comparison_spreadsheet(editions, context, work_name, out_dir)
+    generate_comparison_spreadsheet(editions, context, work_name, out_dir)
 
-    #generate_context_versions(editions, work_name, out_dir, left=context, right=context)
+    generate_derge_with_pages(editions, work_name)
+
+    generate_context_versions(editions, work_name, out_dir, left=context, right=context)
 
 
 # put in this list the pairs of works and their respective notes
