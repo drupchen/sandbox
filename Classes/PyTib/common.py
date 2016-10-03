@@ -7,6 +7,39 @@ from icu import RuleBasedCollator
 import re
 
 
+def split_in_two(string, substring, point):
+    '''
+    splits in two on the closest substring match from the point onwards
+    :param string:
+    :param substring:
+    :param point:
+    :return:
+    '''
+    str_split = pre_process(string, mode='syls')
+    sub_split = pre_process(substring, mode='syls')
+
+    index = 0
+    c = 0
+    for i in range(len(str_split)):
+        if sub_split[0] == str_split[point]:
+            index = str_split.index(sub_split[0], point)
+            break
+        else:
+            if c < len(str_split) - 1:
+                c += 1
+            # looking left of middle
+            if str_split[point - c] == sub_split[0]:
+                index = str_split.index(sub_split[0], point - c)
+                break
+            # looking right of middle
+            if str_split[point + c] == sub_split[0]:
+                index = str_split.index(sub_split[0], point + c)
+                break
+    left = ''.join(str_split[:index])
+    right = ''.join(str_split[index + len(sub_split):])
+    return left, right
+
+
 def tib_sort(l):
     """
     sorts a list according to the Tibetan order
@@ -39,6 +72,10 @@ def temp_object(content):
     return temp
 
 
+def de_pre_process(l):
+    return ''.join(l).replace('_', ' ')
+
+
 def pre_process(raw_string, mode='words'):
     """
     Splits a raw Tibetan orig_list by the punctuation and syllables or words
@@ -46,6 +83,9 @@ def pre_process(raw_string, mode='words'):
     :param mode: words for splitting on words, syls for splitting in syllables. Default value is words
     :return: a list with the elements separated from the punctuation
     """
+    # replace all underscore if the string contains any
+    if '_' in raw_string:
+        raw_string = raw_string.replace('_', ' ')
 
     def is_punct(string):
         # put in common
