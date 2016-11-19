@@ -190,8 +190,8 @@ class Segment:
         uncompound = self.basis_segmentation(string, unknown=unknown, syl_segmented=syl_segmented, space_at_punct=space_at_punct)
         compound = self.do_compound(uncompound)
         # ancient words
-        for a in self.ancient:
-            compound = compound.replace(mark+a, '='+a)
+        # for a in self.ancient:
+        #     compound = compound.replace(mark+a, '='+a)
         return compound
 
 
