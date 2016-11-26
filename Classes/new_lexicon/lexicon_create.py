@@ -1,9 +1,9 @@
 import sys
 import os
 import re
-path = os.path.dirname(sys.modules[__name__].__file__)
-path = os.path.join(path, '..')
-sys.path.insert(0, path)
+# path = os.path.dirname(sys.modules[__name__].__file__)
+# path = os.path.join(path, '..')
+# sys.path.insert(0, path)
 
 from PyTib import getSylComponents, Agreement, Segment, AntTib, common
 

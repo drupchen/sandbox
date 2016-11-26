@@ -68,6 +68,7 @@ class Segment:
         :param space_at_punct: adds a space between the syls and the punctuation if True
         :return: outputs the segmented text
         """
+        string = string.replace('༌', '་')  # replaces unbreakable tseks by normal tseks.
         paragraphs = re.split(self.punct_regex, string)
         strip_list(paragraphs)
 
