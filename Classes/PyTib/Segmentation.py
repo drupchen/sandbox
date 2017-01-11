@@ -10,7 +10,7 @@ class Segment:
     def __init__(self, lexicon, compound, ancient, exceptions, len_word_syls, SC):
         self.lexicon = lexicon
         self.merged_part = r'(ར|ས|འི|འམ|འང|འོ|འིའོ)$'
-        self.punct_regex = r'([༄༅༆༇༈།༎༏༐༑༔\s]+)'
+        self.punct_regex = r'(་?[༄༅༆༇༈།༎༏༐༑༔\s]+་?)'
 
         self.SC = SC
         # for bisect
@@ -187,12 +187,14 @@ class Segment:
 
         return ' '.join(words)
 
-    def segment(self, string, unknown=1, syl_segmented=0, space_at_punct=True):
+    def segment(self, string, unknown=1, syl_segmented=0, space_at_punct=True, danying=False):
         uncompound = self.basis_segmentation(string, unknown=unknown, syl_segmented=syl_segmented, space_at_punct=space_at_punct)
         compound = self.do_compound(uncompound)
         # ancient words
-        # for a in self.ancient:
-        #     compound = compound.replace(mark+a, '='+a)
+        if danying:
+            for a in self.ancient:
+                seg_a = self.do_compound(self.basis_segmentation(a, unknown=unknown, syl_segmented=syl_segmented, space_at_punct=space_at_punct))
+                compound = compound.replace(seg_a, '#-{}-#'.format(seg_a))
         return compound
 
 
@@ -209,7 +211,7 @@ def main():
             if line == '':
                 text.append(line)
             else:
-                text.append(seg.segment(line, ant_segment=0, unknown=1))
+                text.append(seg.segment(line))
 
         # write output
         with open('../' + 'anttib_' + file, 'w', -1, 'utf-8-sig') as f:
