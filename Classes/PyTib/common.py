@@ -5,6 +5,37 @@ from collections import OrderedDict, Callable
 from tempfile import NamedTemporaryFile
 from icu import RuleBasedCollator
 import re
+import csv
+
+
+def clean_string(string,
+                 tabs2spaces=False, under2spaces=False, spaces2same=False,
+                 single_spaces=False, single_returns=False, single_unders=False,
+                 del_spaces=False, del_returns=False, del_dashes=False,
+                 l_strip=False, r_strip=False, strip=False, ):
+
+
+    # Replacements
+    if tabs2spaces: string = string.replace('\t', ' ')
+    if under2spaces: string = string.replace('_', ' ')
+    if spaces2same: string = re.sub(r'\s', ' ', string)
+
+    # Reducing to one element
+    if single_spaces: string = re.sub(r' +', r' ', string)
+    if single_returns: string = re.sub(r'\n+', r'\n', string)
+    if single_unders: string = re.sub(r'_+', r'_', string)
+
+    # Delete the given elements
+    if del_spaces: string = string.replace(' ', '')
+    if del_returns: string = string.replace('\n', '')
+    if del_dashes: string = string.replace('-', '')
+
+    # strips
+    if l_strip: string = string.lstrip()
+    if r_strip: string = string.rstrip()
+    if strip: string = string.strip()
+
+    return string
 
 
 def find_sub_list_indexes(sl, l):
@@ -19,11 +50,18 @@ def find_sub_list_indexes(sl, l):
                 return ind, ind + sll - 1
 
 
-def get_longest_common_subseq(data):
-    # from http://stackoverflow.com/a/28869690
-    # Will also return True if possible_subseq == seq.
-    # notes: Returns None if the two sequences are equal
-    #        Returns [] if there is no subsequence
+def get_longest_common_subseq(data, get_all_subseqs=False):
+    """
+    Adapted from http://stackoverflow.com/a/28869690
+    The get_all_subseqs parameter was added.
+    :param data: a list of iterables
+    :param get_all_subseqs: returns all the subsequences if True
+    :return:
+                - the longest common subsequence
+                - None if the two sequences are equal
+                - [] if there is no subsequence
+                - True if possible_subseq == seq
+    """
     def is_subseq(possible_subseq, seq):
         if len(possible_subseq) > len(seq):
             return False
@@ -48,8 +86,12 @@ def get_longest_common_subseq(data):
     if len(data) > 1 and len(data[0]) > 0:
         for i in range(len(data[0])):
             for j in range(len(data[0])-i+1):
-                if j > len(substr) and is_subseq_of_any(data[0][i:i+j], data):
-                    substr = data[0][i:i+j]
+                potential_subseq = data[0][i:i+j]
+                if is_subseq_of_any(potential_subseq, data):
+                    if not get_all_subseqs and j > len(substr):
+                        substr = potential_subseq
+                    if get_all_subseqs:
+                        substr.append(potential_subseq)
     return substr
 
 
@@ -110,6 +152,45 @@ def open_file(file_path):
     except UnicodeDecodeError:
         with open(file_path, 'r', -1, 'utf-16-le') as f:
             return f.read()
+
+
+def write_csv(path, rows, header=None, delimiter=',', dialect='excel'):
+    """
+    wrapper to write csv module that normalises the length of rows
+    :param path: writes the csv to the given path
+    :param rows: list of iterables corresponding to rows
+    :param header: optional first row to include
+    :param delimiter: optional.
+    :param dialect: optional dialect that csv will use
+    :return: writes a file
+    """
+    def normalise(rows):
+        """
+        calculates the longest line and adds the necessary empty strings so that all rows have the same length
+        :param rows: list of iterables
+        :return: a list of rows where each row is a list.
+        """
+        # calculate longest
+        longest_row = 0
+        for r in rows:
+            if len(r) > longest_row:
+                longest_row = len(r)
+        # normalise rows
+        norm_rows = []
+        for r in rows:
+            if len(r) < longest_row:
+                norm_rows.append([a for a in r]+['' for i in range(longest_row-len(r))])
+            else:
+                norm_rows.append(r)
+        return norm_rows
+
+    with open(path, 'w') as csvfile:
+        writer = csv.writer(csvfile, dialect=dialect, delimiter=delimiter)
+        if header:
+            rows = [header]+rows
+            rows = normalise(rows)
+            for row in rows:
+                writer.writerow(row)
 
 
 def temp_object(content):
