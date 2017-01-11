@@ -98,8 +98,9 @@ class Segment:
                 # we leave the disambiguation of syntax versus morphological unities for POS Tagging
                 paragraph = re.sub(r' (པ|བ|པོ|བོ)(\s|་)', r'\1\2', paragraph)
 
-                if not paragraph.endswith('ང་'):
-                    paragraph = paragraph[:-1]
+                # delete the extra trailing tsek, since all the trailing tseks are found within the punctuations elements
+                paragraph = paragraph.rstrip('་')
+
                 #########
                 # add spaces at all tseks
                 if syl_segmented == 1:
