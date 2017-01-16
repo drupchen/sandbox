@@ -37,12 +37,12 @@ class Segment:
             final = True
         return final
 
-    def __process(self, list1, list2, num):
+    def __process(self, list1, list2, num, reinsert_aa, distinguish_ra_sa):
         word = '་'.join(list1[self.n:self.n + num])
         if not search(self.lexicon, word, self.len_lexicon):
             maybe = re.split(self.merged_part, word)
             if not search(self.lexicon, maybe[0], self.len_lexicon):
-                if search(self.lexicon, maybe[0] + 'འ', self.len_lexicon):
+                if reinsert_aa and search(self.lexicon, maybe[0] + 'འ', self.len_lexicon):
                     list2.append(maybe[0] + 'འ')
                 else:
                     list2.append(maybe[0])
@@ -51,7 +51,10 @@ class Segment:
             # separate འིའོ
             if maybe[1] == 'འིའོ':
                 maybe[1] = maybe[1][:2]+' '+maybe[1][2:]
-            list2.append(maybe[1] + '་')
+            if distinguish_ra_sa:
+                list2.append('_{}་'.format(maybe[1]))
+            else:
+                list2.append(maybe[1] + '་')
             # del list1[:num]
             self.n = self.n + num
         else:
@@ -59,7 +62,7 @@ class Segment:
             # del list1[:num]
             self.n = self.n + num
 
-    def basis_segmentation(self, string, unknown=1, space_at_punct=True, syl_segmented=0):
+    def basis_segmentation(self, string, unknown=1, space_at_punct=True, syl_segmented=0, reinsert_aa=False, distinguish_ra_sa=False):
         """
 
         :param string: takes a unicode text file as input
@@ -84,7 +87,7 @@ class Segment:
                     not_processed = True  # if a word has been found (value is False), don’t try to process the word
                     for l_w in self.len_word_syls:
                         if not_processed is True and self.is_word('་'.join(syls[self.n:self.n + l_w])):
-                            self.__process(syls, words, l_w)
+                            self.__process(syls, words, l_w, reinsert_aa, distinguish_ra_sa)
                             not_processed = False
                         elif not_processed is True and len(syls[self.n:self.n + l_w]) == 1:
                             if unknown == 0:
@@ -188,13 +191,15 @@ class Segment:
 
         return ' '.join(words)
 
-    def segment(self, string, unknown=1, syl_segmented=0, space_at_punct=True, danying=False):
-        uncompound = self.basis_segmentation(string, unknown=unknown, syl_segmented=syl_segmented, space_at_punct=space_at_punct)
+    def segment(self, string, unknown=1, syl_segmented=0, space_at_punct=True, danying=False, reinsert_aa=False, distinguish_ra_sa=False):
+        uncompound = self.basis_segmentation(string, unknown=unknown, syl_segmented=syl_segmented, space_at_punct=space_at_punct,
+                                             reinsert_aa=reinsert_aa, distinguish_ra_sa=distinguish_ra_sa)
         compound = self.do_compound(uncompound)
         # ancient words
         if danying:
             for a in self.ancient:
-                seg_a = self.do_compound(self.basis_segmentation(a, unknown=unknown, syl_segmented=syl_segmented, space_at_punct=space_at_punct))
+                seg_a = self.do_compound(self.basis_segmentation(a, unknown=unknown, syl_segmented=syl_segmented, space_at_punct=space_at_punct,
+                                         reinsert_aa=reinsert_aa, distinguish_ra_sa=distinguish_ra_sa))
                 compound = compound.replace(seg_a, '#-{}-#'.format(seg_a))
         return compound
 
